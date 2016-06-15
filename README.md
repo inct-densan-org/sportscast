@@ -19,4 +19,5 @@ SportsCast!の開発用リポジトリです。
 * Socket.io
 * Express
 * Passport
+* Passport-local
 * mongoose
