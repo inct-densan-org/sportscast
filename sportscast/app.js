@@ -7,17 +7,25 @@ var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
+var login = require('./routes/login');
+var watch = require('./routes/watch');
+var cast = require('./routes/cast');
+var createaccount = require('./routes/createaccount');
 
 var app = express();
 
-app.listen(3000);
+var port=3000;
+app.listen(port);
+
+console.log('Express Server Start');
+console.log('listen port '+port);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 // uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -26,6 +34,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/users', users);
+app.use('/login',login);
+app.use('/watch',watch);
+app.use('/cast',cast);
+app.use('/createaccount',createaccount);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
