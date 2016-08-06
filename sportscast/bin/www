@@ -94,8 +94,8 @@ function onListening() {
   debug('Listening on ' + bind);
 }
 
-
-io.on('connection', function(socket) {
+var BROADCAST_ID = '_broadcast_';
+io.on('connect', function(socket) {
 	//以下接続成功後の処理
 
 	//部屋への入室

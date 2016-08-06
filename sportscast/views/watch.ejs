@@ -13,11 +13,13 @@
     	<div class="video">
     		<video id="cast_video" autoplay></video>
     		<br>
-    		<button class="watch_start_button">視聴開始</button>
-    		<button class="watch_stop_button">視聴終了</button>
+    		<button class="watch_stop_button" onclick="hangUp();">視聴終了</button>
+    		<button class="watch_start_button" onclick="sendRequest();">視聴開始</button>
     	</div>
     	<span class="br">
     	<div class="score"></div>
     </div>
+    <script src="//192.168.0.14:3001/socket.io/socket.io.js"></script>
+    <script src="/javascripts/watch.js"></script>
   </body>
 </html>

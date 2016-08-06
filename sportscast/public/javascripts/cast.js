@@ -12,7 +12,7 @@ navigator.getUserMedia = navigator.getUserMedia || navigator.mozGetUserMedia ||
 /**/
 
 
-var localVideo = document.getElementById('my-video');
+var localVideo = document.getElementById('my_video');
 var localStream = null;
 var mediaConstraints = {'mandatory': {'OfferToReceiveAudio':false, 'OfferToReceiveVideo':false }};
 
@@ -151,7 +151,6 @@ function isPeerStarted() {
 //シグナリングサーバーへの接続に関する処理
 //socket接続を作成
 //シグナリングサーバーに接続
-console.log(ADDRESS);
 var socket = io.connect(ADDRESS); //IPアドレスの部分は実行環境によって変更する
 
 //各イベントごとの処理を定義
