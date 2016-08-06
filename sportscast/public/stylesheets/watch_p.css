@@ -5,6 +5,7 @@
 		padding-top: 10px;
 		padding-bottom: 10px;
 		font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+		background: #fafafa;
 	}
 
 	a {
@@ -13,12 +14,13 @@
 
 	.video{
 		width: 100%;
-		height: 180px;
+		height: 240px;
 		padding: 5px;
 		background: #eee;
 	}
 	#cast_video{
 		width: 100%;
+		height:180px;
 		background: #fff;
 	}
 	.watch_start_button{
