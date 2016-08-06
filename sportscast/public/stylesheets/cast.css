@@ -1,0 +1,45 @@
+@media screen and (min-width: 999px){
+	body {
+		padding-left: 50px;
+		padding-right: 50px;
+		padding-top: 10px;
+		padding-bottom: 10px;
+		font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+	}
+
+	a {
+		color: #00B7FF;
+	}
+
+	.video{
+		width: 48%;
+		height: 100%;
+		float: left;
+		padding: 10px;
+		background: #eee;
+	}
+	#my_video{
+		width: 100%;
+		background: #fff;
+	}
+	.video_start_button{
+		float: right;
+		margin: 5px;
+	}
+	.cast_start_button{
+		float: right;
+		margin: 5px;
+	}
+	.cast_stop_button{
+		float: right;
+		margin: 5px;
+	}
+
+	.score{
+		width: 48%;
+		height: 100%;
+		padding: 10px;
+		float: right;
+		background: #aaa;
+	}
+}

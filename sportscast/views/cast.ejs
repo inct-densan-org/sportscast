@@ -2,10 +2,23 @@
 <html>
   <head>
     <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <meta name="viewport" content="width=device-width,user-scalable=no,maximum-scale=1" />
+	<link rel="stylesheet" type="text/css" href="/stylesheets/cast.css">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/cast_p.css">
   </head>
   <body>
     <h1><%= title %></h1>
     <p><%= title %> Page</p>
+    <div class="contents">
+    	<div class="video">
+    		<video id="my_video" autoplay></video>
+    		<br>
+    		<button class="video_start_button">映像取得開始</button>
+    		<button class="cast_start_button">配信開始</button>
+    		<button class="cast_stop_button">配信停止</button>
+    	</div>
+    	<span class="br">
+    	<div class="score"></div>
+    </div>
   </body>
 </html>
