@@ -1,0 +1,43 @@
+@media screen and (min-width: 999px){
+	body {
+		padding-left: 50px;
+		padding-right: 50px;
+		padding-top: 10px;
+		padding-bottom: 10px;
+		font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+		background: #fafafa;
+	}
+
+	a {
+		color: #00B7FF;
+	}
+
+	.video{
+		width: 50%;
+		height: 100%;
+		float: left;
+		padding: 10px;
+		background: #eee;
+	}
+	#cast_video{
+		width: 100%;
+		height:360px;
+		background: #fff;
+	}
+	.watch_start_button{
+		float: right;
+		margin: 5px;
+	}
+	.watch_stop_button{
+		float: right;
+		margin:5px;
+	}
+
+	.score{
+		width: 45%;
+		height: 100%;
+		float: right;
+		padding: 10px;
+		background: #aaa;
+	}
+}

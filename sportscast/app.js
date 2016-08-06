@@ -18,7 +18,7 @@ var port=3000;
 app.listen(port);
 
 console.log('Express Server Start');
-console.log('listen port '+port);
+console.log('listen port '+app.get('port'));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
