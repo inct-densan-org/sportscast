@@ -5,8 +5,10 @@ peerConnection = window.RTCPeerConnection || window.mozRTCPeerConnection ||
 sessionDescription = window.RTCSessionDescription || window.mozRTCSessionDescription ||
 				   window.webkitRTCSessionDescription || window.msRTCSessionDescription;
 
-navigator.getUserMedia = navigator.getUserMedia || navigator.mozGetUserMedia ||
-					   navigator.webkitGetUserMedia || navigator.msGetUserMedia;
+// navigator.getUserMedia = navigator.getUserMedia || navigator.mediaDevices.getUserMedia ||
+// 					   navigator.webkitGetUserMedia || navigator.msGetUserMedia;
+navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia ||
+						 navigator.mozGetUserMedia || navigator.msGetUserMedia;
 /*navigator.getUserMedia = navigator.getUserMedia || navigator.mediaDevices.getUserMedia ||
 					   navigator.webkitGetUserMedia || navigator.msGetUserMedia;*/
 /**/
@@ -328,13 +330,31 @@ function createObjectURL(file){
 	} 
 }
 
+//ラッパー関数
+//詳しくは以下を参照
+//https://html5experts.jp/mganeko/19728/
+function getDeviceStream(option) {
+	if ('getUserMedia' in navigator.mediaDevices) {
+		return navigator.mediaDevices.getUserMedia(option);
+	}
+	else {
+		return new Promise(function(resolve, reject){
+			navigator.getUserMedia(
+				option,
+				resolve,
+				reject
+			);
+		});
+	}
+}
+
 //音声・映像の取得・再生を開始
 //配信者の映像を表示(Start videoボタンをクリックすることで呼び出される)
 function startVideo() {
 	//構文は以下のとおり
 	//navigator.getUserMedia ( constraints, successCallback, errorCallback );
 	//取得するコンテンツの指定
-	navigator.getUserMedia({video: true, audio: true},
+	getDeviceStream({video: true, audio: true},
 	//navigator.webkitGetUserMedia({video: true, audio: true},
 		function (stream) { //取得成功時の処理
 			//localstreamに音声・映像を設定

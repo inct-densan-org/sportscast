@@ -1,0 +1,53 @@
+@media screen and (max-width:1000px){
+	body {
+		padding: 5px;
+		font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+	}
+
+	a {
+		color: #1976d2;
+	}
+	img{
+		width: 45%;
+		border-style: solid;
+		border-color: #1976d2;
+		border-width: 2px;
+		border-radius: 10px;
+		margin:3px;
+	}
+	.menu{
+		position: absolute;
+		top: 24px;
+		right: 10px;
+		float: right;
+		width: auto;
+		height: 50px;
+	}
+	.createaccount{
+		padding: 4px;
+		border-style: solid;
+		border-color: #1976d2;
+		border-width: 2px;
+		border-radius: 10px;
+		margin:3px;
+		text-align: center;
+		font-size: 16px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		
+	}
+	.login{
+		padding: 4px;
+		border-style: solid;
+		border-color: #1976d2;
+		border-width: 2px;
+		border-radius: 10px;
+		margin:3px;
+		text-align: center;
+		font-size: 16px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+}

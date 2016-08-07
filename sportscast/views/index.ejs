@@ -2,21 +2,25 @@
 <html>
 <head>
 	<title><%= title %></title>
+	<meta name="viewport" content="width=device-width,user-scalable=no,maximum-scale=1" />
 	<link rel='stylesheet' href='/stylesheets/style.css' />
+	<link rel='stylesheet' href='/stylesheets/style_p.css' />
 </head>
 <body>
 	<h1><%= title %></h1>
 	<p>Welcome to <%= title %></p>
-	<a href="/createaccount">
-	<span class="createaccount">
-		配信者用<br>アカウント作成
-	</span>
-	</a>
-	<a href="/login">
-	<span class="login">
-		ログイン
-	</span>
-	</a>
+	<div class="menu">
+		<a href="/createaccount">
+		<span class="createaccount">
+			配信者用<br>アカウント作成
+		</span>
+		</a>
+		<a href="/login">
+		<span class="login">
+			ログイン
+		</span>
+		</a>
+	</div>
 	<div class="images">
 		<a href="/watch?soccer"><img class="soccer_img" src="/images/soccer.png"/></a>
 		<a href="/watch?fencing"><img class="fencing_img" src="/images/fencing.png"/></a>
