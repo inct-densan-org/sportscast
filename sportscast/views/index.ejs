@@ -1,14 +1,21 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-    <a href="./createaccount">Create Account</a><br>
-    <a href="./login">login</a><br>
-    <a href="./watch">watch</a>
-  </body>
+<head>
+	<title><%= title %></title>
+	<link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<body>
+	<h1><%= title %></h1>
+	<p>Welcome to <%= title %></p>
+	<div class="images">
+		<a href="/watch?soccer"><img class="soccer_img" src="/images/soccer.png"/></a>
+		<a href="/watch?fencing"><img class="fencing_img" src="/images/fencing.png"/></a>
+		<a href="/watch"><img class="empty_img" src="/images/empty.png"/></a>
+	</div>
+	<div class="titles">
+		<a href="/watch?soccer"><span class="soccer_title">サッカー</span></a>
+		<a href="/watch?fencing"><span class="fencing_title">フェンシング</span></a>
+		<a href="/watch"><span class="empty_title">COMING SOON...</span></a>
+	</div>
+</body>
 </html>
