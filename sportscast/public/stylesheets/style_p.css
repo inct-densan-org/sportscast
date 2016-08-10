@@ -1,7 +1,8 @@
-@media screen and (max-width:999px){
+@media screen and (max-width:1000px){
 	body {
 		padding: 5px;
 		font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+		background: #fafafa;
 	}
 
 	a {
