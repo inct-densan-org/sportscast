@@ -12,6 +12,9 @@
 		color: #1976d2;
 	}
 
+	#fullscreen-button{
+		float: right;
+	}
 	.video{
 		width: 50%;
 		height: 100%;

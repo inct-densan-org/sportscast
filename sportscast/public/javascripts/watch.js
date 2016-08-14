@@ -516,3 +516,15 @@ function hangUp() {
 	//デバッグ用ログ出力
 	console.log("ハングアップしました");
 }
+
+
+//全画面表示用の関数
+function fullscreen() {
+	if (castVideo.webkitRequestFullScreen) {
+		castVideo.webkitRequestFullScreen();
+	} else if (castVideo.mozRequestFullScreen) {
+		castVideo.mozRequestFullScreen();
+	} else {
+		castVideo.requestFullScreen();
+	}
+}
