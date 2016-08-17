@@ -80,11 +80,13 @@
 	#team-info-a{
 		width: 48%;
 		height: 100px;
+		resize: vertical;
 	}
 	#team-info-b{
 		float: right;
 		width: 48%;
 		height: 100px;
+		resize: vertical;
 	}
 	.send-button{
 		text-align: center;

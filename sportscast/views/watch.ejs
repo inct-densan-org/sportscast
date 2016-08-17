@@ -18,9 +18,26 @@
 			<button class="watch_start_button" onclick="sendRequest();">視聴開始</button>
 		</div>
 		<span class="br">
-		<div class="score"></div>
+		<div class="score">
+			<div class="team-names">
+				<p class="team-name-title">チーム名</p>
+				<input type="text" name="team-name-a" id="team-name-a" readonly="readonly">
+				<input type="text" name="team-name-b" id="team-name-b" readonly="readonly">
+			</div>
+			<br>
+			<div class="points">
+				<p class="point-title">得点</p>
+				<input type="text" name="team-point-a" id="team-point-a" readonly="readonly">
+				<input type="text" name="team-point-b" id="team-point-b" readonly="readonly">
+			</div>
+			<div class="info">
+				<p class="info-title">チーム情報</p>
+				<textarea id="team-info-a" readonly="readonly"></textarea>
+				<textarea id="team-info-b" readonly="readonly"></textarea>
+			</div>
+		</div>
 	</div>
-	<script src="//192.168.0.14:3001/socket.io/socket.io.js"></script>
+	<!-- <script src="//192.168.0.14:3001/socket.io/socket.io.js"></script> -->
 	<script src="/javascripts/watch.js"></script>
 	<script src="/javascripts/networkcheck.js"></script>
 </body>
