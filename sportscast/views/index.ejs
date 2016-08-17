@@ -1,14 +1,42 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-    <a href="./createaccount">Create Account</a><br>
-    <a href="./login">login</a><br>
-    <a href="./watch">watch</a>
-  </body>
+<head>
+	<title><%= title %></title>
+	<meta name="viewport" content="width=device-width,user-scalable=no,maximum-scale=1" />
+	<link rel='stylesheet' href='/stylesheets/style.css' />
+	<link rel='stylesheet' href='/stylesheets/style_p.css' />
+</head>
+<body>
+	<h1><%= title %></h1>
+	<p>Welcome to <%= title %></p>
+	<div class="menu">
+		<a href="/createaccount">
+		<span class="createaccount">
+			配信者用<br>アカウント作成
+		</span>
+		</a>
+		<a href="/login">
+		<span class="login">
+			ログイン
+		</span>
+		</a>
+	</div>
+	<div class="titles">
+		<a href="/watch?soccer">
+			<img class="soccer-image" src="/images/soccer.png">
+				<div class="soccer-title">サッカー</div>
+			</img>
+		</a>
+		<a href="/watch?fencing">
+			<img class="fencing-image" src="/images/fencing.png">
+				<div class="fencing-title">フェンシング</div>
+			</img>
+		</a>
+		<a href="/watch">
+			<img class="empty-image" src="/images/empty.png">
+				<div class="empty-title">COMING SOON...</div>
+			</img>
+		</a>
+	</div>
+</body>
 </html>

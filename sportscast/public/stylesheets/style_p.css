@@ -1,0 +1,126 @@
+@media screen and (max-width:1000px){
+	body {
+		padding: 5px;
+		font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+		background: #fafafa;
+	}
+
+	a {
+		color: #1976d2;
+		text-decoration:none;
+	}
+	img{
+		position: relative;
+		width: 45%;
+		border-style: solid;
+		border-color: #1976d2;
+		border-width: 2px;
+		border-radius: 10px;
+		margin:3px;
+	}
+	.menu{
+		position: absolute;
+		top: 24px;
+		right: 10px;
+		float: right;
+		width: auto;
+		height: 50px;
+	}
+	.createaccount{
+		padding: 4px;
+		border-style: solid;
+		border-color: #1976d2;
+		border-width: 2px;
+		border-radius: 10px;
+		margin:3px;
+		text-align: center;
+		font-size: 16px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		
+	}
+	.login{
+		padding: 4px;
+		border-style: solid;
+		border-color: #1976d2;
+		border-width: 2px;
+		border-radius: 10px;
+		margin:3px;
+		text-align: center;
+		font-size: 16px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.titles{
+		position: relative;
+	}
+	.soccer-image{
+		position: relative;
+		width: 46%;
+		border-style: solid;
+		border-color: #1976d2;
+		border-width: 2px;
+		border-radius: 10px;
+		margin:3px;
+	}
+	.soccer-title{
+		position: absolute;
+		top: 12%;
+		left: 1%;
+		width: 46%;
+		height: 80px;
+		background-color: rgba(0,0,0,0.4);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		font-size: 18px;
+		color: #fff;
+	}
+	.fencing-image{
+		position: relative;
+		width: 46%;
+		border-style: solid;
+		border-color: #1976d2;
+		border-width: 2px;
+		border-radius: 10px;
+		margin:3px;
+	}
+	.fencing-title{
+		position: absolute;
+		top: 12%;
+		left: 51.5%;
+		width: 46%;
+		height: 80px;
+		background-color: rgba(0,0,0,0.4);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		font-size: 18px;
+		color: #fff;
+	}
+	.empty-image{
+		position: relative;
+		width: 46%;
+		border-style: solid;
+		border-color: #1976d2;
+		border-width: 2px;
+		border-radius: 10px;
+		margin:3px;
+	}
+	.empty-title{
+		position: absolute;
+		top: 63%;
+		left: 1%;
+		width: 46%;
+		height: 80px;
+		background-color: rgba(0,0,0,0.4);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		font-size: 18px;
+		color: #fff;
+	}
+}

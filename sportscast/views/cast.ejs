@@ -13,12 +13,15 @@
     	<div class="video">
     		<video id="my_video" autoplay></video>
     		<br>
-    		<button class="video_start_button">映像取得開始</button>
-    		<button class="cast_start_button">配信開始</button>
-    		<button class="cast_stop_button">配信停止</button>
+    		<button class="cast_stop_button" onclick="stopCast();">配信停止</button>
+    		<button class="cast_start_button" onclick="tellCastReady();">配信開始</button>
+    		<button class="video_start_button" onclick="startVideo();">映像取得開始</button>
     	</div>
     	<span class="br">
     	<div class="score"></div>
     </div>
+    <script src="//192.168.0.14:3001/socket.io/socket.io.js"></script>
+    <script src="/javascripts/cast.js"></script>
+    <script src="/javascripts/networkcheck.js"></script>
   </body>
 </html>
