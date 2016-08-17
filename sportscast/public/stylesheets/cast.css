@@ -44,4 +44,52 @@
 		float: right;
 		background: #aaa;
 	}
+	.team-names{
+		padding-left: 50px;
+		padding-right: 50px;
+	}
+	.team-name-title{
+		text-align: center;
+		font-size: 18px;
+	}
+	#team-name-a{
+
+	}
+	#team-name-b{
+		float: right;
+	}
+	.points{
+		padding-left: 80px;
+		padding-right: 80px;
+	}
+	.point-title{
+		text-align: center;
+		font-size: 18px;
+	}
+	#team-point-a{
+		height: 48px;
+	}
+	#team-point-b{
+		float: right;
+		height: 48px;
+	}
+	.info-title{
+		text-align: center;
+		font-size: 18px;
+	}
+	#team-info-a{
+		width: 48%;
+		height: 100px;
+	}
+	#team-info-b{
+		float: right;
+		width: 48%;
+		height: 100px;
+	}
+	.send-button{
+		text-align: center;
+	}
+	#score-send-button{
+		height: 32px;
+	}
 }

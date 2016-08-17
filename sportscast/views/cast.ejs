@@ -1,27 +1,47 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
-    <meta name="viewport" content="width=device-width,user-scalable=no,maximum-scale=1" />
+<head>
+	<title><%= title %></title>
+	<meta name="viewport" content="width=device-width,user-scalable=no,maximum-scale=1" />
 	<link rel="stylesheet" type="text/css" href="/stylesheets/cast.css">
 	<link rel="stylesheet" type="text/css" href="/stylesheets/cast_p.css">
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p><%= title %> Page</p>
-    <div class="contents">
-    	<div class="video">
-    		<video id="my_video" autoplay></video>
-    		<br>
-    		<button class="cast_stop_button" onclick="stopCast();">配信停止</button>
-    		<button class="cast_start_button" onclick="tellCastReady();">配信開始</button>
-    		<button class="video_start_button" onclick="startVideo();">映像取得開始</button>
-    	</div>
-    	<span class="br">
-    	<div class="score"></div>
-    </div>
-    <script src="//192.168.0.14:3001/socket.io/socket.io.js"></script>
-    <script src="/javascripts/cast.js"></script>
-    <script src="/javascripts/networkcheck.js"></script>
-  </body>
+</head>
+<body>
+	<h1><%= title %></h1>
+	<p><%= title %> Page</p>
+	<div class="contents">
+		<div class="video">
+			<video id="my_video" autoplay></video>
+			<br>
+			<button class="cast_stop_button" onclick="stopCast();">配信停止</button>
+			<button class="cast_start_button" onclick="tellCastReady();">配信開始</button>
+			<button class="video_start_button" onclick="startVideo();">映像取得開始</button>
+		</div>
+		<span class="br"></span>
+		<div class="score">
+			<div class="team-names">
+				<p class="team-name-title">チーム名</p>
+				<input type="text" name="team-name-a" id="team-name-a">
+				<input type="text" name="team-name-b" id="team-name-b">
+			</div>
+			<br>
+			<div class="points">
+				<p class="point-title">得点</p>
+				<input type="text" name="team-point-a" id="team-point-a">
+				<input type="text" name="team-point-b" id="team-point-b">
+			</div>
+			<div class="info">
+				<p class="info-title">チーム情報</p>
+				<textarea id="team-info-a"></textarea>
+				<textarea id="team-info-b"></textarea>
+			</div>
+			<div class="send-button">
+				<button id="score-send-button">競技状況送信</button>
+			</div>
+		</div>
+	</div>
+	<!-- <script src="//192.168.0.14:3001/socket.io/socket.io.js"></script> -->
+	<script src="/javascripts/cast.js"></script>
+	<script src="/javascripts/networkcheck.js"></script>
+</body>
 </html>
