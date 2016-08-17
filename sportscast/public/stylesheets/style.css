@@ -52,7 +52,7 @@
 		position: relative;
 	}
 	.soccer-image{
-		position: relative;
+		/*position: relative;*/
 		width: 32%;
 		border-style: solid;
 		border-color: #1976d2;
@@ -63,7 +63,7 @@
 	.soccer-title{
 		position: absolute;
 		top: 40%;
-		left: 0.5%;
+		left: 5px;
 		width: 32%;
 		height: 80px;
 		background-color: rgba(0,0,0,0.4);
@@ -74,7 +74,7 @@
 		color: #fff;
 	}
 	.fencing-image{
-		position: relative;
+		/*position: relative;*/
 		width: 32%;
 		border-style: solid;
 		border-color: #1976d2;
@@ -85,7 +85,7 @@
 	.fencing-title{
 		position: absolute;
 		top: 40%;
-		left: 33.5%;
+		left: 33%;
 		width: 32%;
 		height: 80px;
 		background-color: rgba(0,0,0,0.4);
@@ -107,7 +107,7 @@
 	.empty-title{
 		position: absolute;
 		top: 40%;
-		left: 67%;
+		left: 66%;
 		width: 32%;
 		height: 80px;
 		background-color: rgba(0,0,0,0.4);
