@@ -27,8 +27,8 @@
 			<br>
 			<div class="points">
 				<p class="point-title">得点</p>
-				<input type="text" name="team-point-a" id="team-point-a">
-				<input type="text" name="team-point-b" id="team-point-b">
+				<input type="number" name="team-point-a" id="team-point-a">
+				<input type="number" name="team-point-b" id="team-point-b">
 			</div>
 			<div class="info">
 				<p class="info-title">チーム情報</p>
@@ -36,7 +36,7 @@
 				<textarea id="team-info-b"></textarea>
 			</div>
 			<div class="send-button">
-				<button id="score-send-button">競技状況送信</button>
+				<button id="score-send-button" onclick="sendScore()">競技状況送信</button>
 			</div>
 		</div>
 	</div>

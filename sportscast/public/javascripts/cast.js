@@ -15,6 +15,12 @@ navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia 
 
 
 var localVideo = document.getElementById('my_video');
+var team_name_a=document.getElementById("team-name-a");
+var team_name_b=document.getElementById("team-name-b");
+var team_point_a=document.getElementById("team-point-a");
+var team_point_b=document.getElementById("team-point-b");
+var team_info_a=document.getElementById("team-info-a");
+var team_info_b=document.getElementById("team-info-b");
 var localStream = null;
 var mediaConstraints = {'mandatory': {'OfferToReceiveAudio':false, 'OfferToReceiveVideo':false }};
 
@@ -541,11 +547,19 @@ function hangUp() {
 }
 
 //競技状況配信
-/*function sendScore(){
-	var score=document.getElementById("score").value;
-	socket.emit('ClientToServer',score);
-	alert(score);
-}*/
+function sendScore(){
+	var json='{'+
+	'"team-name-a":"'+team_name_a.value+'",'+
+	'"team-name-b":"'+team_name_b.value+'",'+
+	'"team-point-a":'+team_point_a.value+','+
+	'"team-point-b":'+team_point_b.value+','+
+	'"team-info-a":"'+team_info_a.value+'",'+
+	'"team-info-b":"'+team_info_b.value+'"}';
+	console.log(json);
+	// var score=document.getElementById("score").value;
+	// socket.emit('ClientToServer',score);
+	// alert(score);
+}
 
 // var s = io.connect('http://192.168.0.20:9002/');
 // s.on( "ServerToClient", function (data) {
