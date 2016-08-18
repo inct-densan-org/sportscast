@@ -27,7 +27,8 @@ var socketStatus = false;
 //シグナリングサーバ―の接続待ち受けポート
 var PORT = 3001;
 //シグナリングサーバーに接続
-var ADDRESS='http://192.168.0.14:'+PORT+'/';
+//var ADDRESS='http://192.168.0.14:'+PORT+'/';
+var ADDRESS='http://localhost:'+PORT+'/';
 
 //配信映像を切断する関数
 //onMessage関数でメッセージがend_castのときに呼び出される
@@ -189,11 +190,10 @@ var socket = io.connect(ADDRESS); //IPアドレスの部分は実行環境によ
 //各イベントごとの処理を定義
 socket.on('connect', onOpened)
 	  .on('message', onMessage)
-	  .on('user disconnected', onUserDisconnect);
-/*	  .on( "ServerToClient", function (data) {//競技状況配信用のやつ
-		document.getElementById("score").innerHTML=data;
-		//notification(data)
-	  });*/
+	  .on('user disconnected', onUserDisconnect)
+	  .on('scoreData', function (data) {//競技状況配信用のやつ
+		readdata(data);
+	  });
 
 //接続したときの処理
 function onOpened(evt) {
@@ -535,10 +535,10 @@ function fullscreen() {
 	}
 }
 
-function readdata(){
-	var debug_textarea=document.getElementById("debug-textarea");
-	var json=debug_textarea.value;
-	var jsonobj=JSON.parse(json);
+function readdata(data){
+	// var debug_textarea=document.getElementById("debug-textarea");
+	// var json=debug_textarea.value;
+	var jsonobj=JSON.parse(data);
 	team_name_a.value=jsonobj.team_name_a;
 	team_name_b.value=jsonobj.team_name_b;
 	team_point_a.value=jsonobj.team_point_a;

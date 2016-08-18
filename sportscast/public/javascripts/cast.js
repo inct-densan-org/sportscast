@@ -28,7 +28,8 @@ var mediaConstraints = {'mandatory': {'OfferToReceiveAudio':false, 'OfferToRecei
 var socketStatus = false;
 //シグナリングサーバ―の接続待ち受けポート
 var PORT = 3001;
-var ADDRESS='http://192.168.0.14:'+PORT+'/';
+//var ADDRESS='http://192.168.0.14:'+PORT+'/';
+var ADDRESS='http://localhost:'+PORT+'/';
 
 //ローカルストリーム(カメラとマイクからのデータの取得)が開始されているか判定する関数
 //onMessage関数でメッセージがcast_requestのとき、tellCastReady関数から呼び出される
@@ -557,7 +558,7 @@ function sendScore(){
 	'"team_info_b":"'+team_info_b.value+'"}';
 	console.log(json);
 	// var score=document.getElementById("score").value;
-	// socket.emit('ClientToServer',score);
+	socket.emit('scoreData',json);
 	// alert(score);
 }
 //得点入力チェック用関数
