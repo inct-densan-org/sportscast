@@ -22,10 +22,6 @@ module.exports=function(io){
 		});
 
 		function setRoomname(room) {
-			//socketオブジェクトに部屋名を設定
-			//// for v0.9
-			//socket.set('roomname', room);
-
 			// for v1.0
 			socket.roomname = room;
 		}
@@ -33,12 +29,6 @@ module.exports=function(io){
 		function getRoomname() {
 			//socketオブジェクトから上記のメソッドで設定されている部屋名を取得するメソッド
 			var room = null;
-
-			//// for v0.9
-			//socket.get('roomname', function(err, _room) {
-			//  room = _room;
-			//});
-
 			// for v1.0
 			room = socket.roomname;
 

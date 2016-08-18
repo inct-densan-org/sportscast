@@ -192,7 +192,7 @@ socket.on('connect', onOpened)
 	  .on('message', onMessage)
 	  .on('user disconnected', onUserDisconnect)
 	  .on('scoreData', function (data) {//競技状況配信用のやつ
-		readdata(data);
+		readJSONdata(data);
 	  });
 
 //接続したときの処理
@@ -535,9 +535,7 @@ function fullscreen() {
 	}
 }
 
-function readdata(data){
-	// var debug_textarea=document.getElementById("debug-textarea");
-	// var json=debug_textarea.value;
+function readJSONdata(data){
 	var jsonobj=JSON.parse(data);
 	team_name_a.value=jsonobj.team_name_a;
 	team_name_b.value=jsonobj.team_name_b;
@@ -545,4 +543,5 @@ function readdata(data){
 	team_point_b.value=jsonobj.team_point_b;
 	team_info_a.value=jsonobj.team_info_a;
 	team_info_b.value=jsonobj.team_info_b;
+	notification("競技状況が更新されました。",getRoomName());
 }
