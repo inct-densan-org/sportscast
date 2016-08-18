@@ -1,0 +1,38 @@
+@media screen and (min-width: 999px){
+	body {
+		padding-left: 50px;
+		padding-right: 50px;
+		padding-top: 10px;
+		padding-bottom: 10px;
+		font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+		background: #fafafa;
+	}
+
+	a {
+		color: #1976d2;
+		text-decoration:none;
+	}
+	.forms{
+		margin:16px;
+	}
+	.create{
+		position: absolute;
+		width: 100px;
+		height: 40px;
+		padding: 2px;
+		border-style: solid;
+		border-color: #1976d2;
+		border-width: 2px;
+		border-radius: 20px;
+		margin:16px;
+		margin-left: 0px;
+		text-align: center;
+		font-size: 20px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		background: #1976d2;
+		color: #fafafa;
+		font-weight: bolder;
+	}
+}
