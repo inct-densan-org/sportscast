@@ -560,7 +560,31 @@ function sendScore(){
 	// socket.emit('ClientToServer',score);
 	// alert(score);
 }
-
+//得点入力チェック用関数
+function checkinput(input){
+	//数字かどうかチェック
+	if(isNaN(input)==false){
+		//0～1000の範囲かどうかチェック
+		if(input<0 || input>1000){
+			alert("0～1000の範囲で数字を入力してください。");
+			return false;
+		}
+	}
+	else{
+		alert("0～1000の範囲で数字を入力してください。");
+		return false;
+	}
+}
+function team_a_getpoint(){
+	if(checkinput(team_point_a.value)==false){
+		team_point_a.value="";
+	}
+}
+function team_b_getpoint(){
+	if(checkinput(team_point_b.value)==false){
+		team_point_b.value="";
+	}
+}
 // var s = io.connect('http://192.168.0.20:9002/');
 // s.on( "ServerToClient", function (data) {
 // 	document.getElementById("message").innerHTML="<div class=\"single\">"+ data + "</div>";
