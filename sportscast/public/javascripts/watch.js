@@ -13,6 +13,12 @@ navigator.getUserMedia = navigator.getUserMedia || navigator.mozGetUserMedia ||
 
 //var localVideo = document.getElementById('local-video');
 var castVideo = document.getElementById('cast_video');
+var team_name_a=document.getElementById("team-name-a");
+var team_name_b=document.getElementById("team-name-b");
+var team_point_a=document.getElementById("team-point-a");
+var team_point_b=document.getElementById("team-point-b");
+var team_info_a=document.getElementById("team-info-a");
+var team_info_b=document.getElementById("team-info-b");
 //var localStream = null;
 var mediaConstraints = {'mandatory': {'OfferToReceiveAudio':true, 'OfferToReceiveVideo':true }};
 
@@ -527,4 +533,16 @@ function fullscreen() {
 	} else {
 		castVideo.requestFullScreen();
 	}
+}
+
+function readdata(){
+	var debug_textarea=document.getElementById("debug-textarea");
+	var json=debug_textarea.value;
+	var jsonobj=JSON.parse(json);
+	team_name_a.value=jsonobj.team_name_a;
+	team_name_b.value=jsonobj.team_name_b;
+	team_point_a.value=jsonobj.team_point_a;
+	team_point_b.value=jsonobj.team_point_b;
+	team_info_a.value=jsonobj.team_info_a;
+	team_info_b.value=jsonobj.team_info_b;
 }

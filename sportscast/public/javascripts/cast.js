@@ -549,12 +549,12 @@ function hangUp() {
 //競技状況配信
 function sendScore(){
 	var json='{'+
-	'"team-name-a":"'+team_name_a.value+'",'+
-	'"team-name-b":"'+team_name_b.value+'",'+
-	'"team-point-a":'+team_point_a.value+','+
-	'"team-point-b":'+team_point_b.value+','+
-	'"team-info-a":"'+team_info_a.value+'",'+
-	'"team-info-b":"'+team_info_b.value+'"}';
+	'"team_name_a":"'+team_name_a.value+'",'+
+	'"team_name_b":"'+team_name_b.value+'",'+
+	'"team_point_a":'+team_point_a.value+','+
+	'"team_point_b":'+team_point_b.value+','+
+	'"team_info_a":"'+team_info_a.value+'",'+
+	'"team_info_b":"'+team_info_b.value+'"}';
 	console.log(json);
 	// var score=document.getElementById("score").value;
 	// socket.emit('ClientToServer',score);
