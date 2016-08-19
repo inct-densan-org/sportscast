@@ -20,12 +20,3 @@ function mail_check() {
 		$("#alert").hide(); // 不要かも(^^;
 	}
 }
-
-function disableSubmit(form) {
-  var elements = form.elements;
-  for (var i = 0; i < elements.length; i++) {
-    if (elements[i].type == 'submit') {
-      elements[i].disabled = true;
-    }
-  }
-}
