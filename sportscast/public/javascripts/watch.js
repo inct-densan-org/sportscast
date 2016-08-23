@@ -21,12 +21,6 @@ var team_point_b=document.getElementById("team-point-b");
 var team_info_a=document.getElementById("team-info-a");
 var team_info_b=document.getElementById("team-info-b");
 
-//試合が始まっているかどうかを表す変数
-var isGameStarted=false;
-
-//前半後半をあらわす変数
-var half="前半";
-
 //var localStream = null;
 var mediaConstraints = {'mandatory': {'OfferToReceiveAudio':true, 'OfferToReceiveVideo':true }};
 
@@ -40,6 +34,9 @@ var ADDRESS='http://localhost:'+PORT+'/';
 
 //競技時間を競技名に応じて初期化
 initGameTime(getRoomName());
+
+//競技によって前後半の表示を切り替える
+showhalf(getRoomName());
 
 //配信映像を切断する関数
 //onMessage関数でメッセージがend_castのときに呼び出される

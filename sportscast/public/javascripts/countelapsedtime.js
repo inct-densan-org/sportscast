@@ -3,7 +3,7 @@ var elapsedtime=0;
 
 function initGameTime(sports){
 	switch(sports){
-		case "soccer":gameTime=45*60;break;
+		case "soccer":gameTime=6;break;
 		case "fencing":gameTime=3*60;break;
 		default:gameTime=1*60;
 			console.log("競技名が不明なので、競技時間を60分に設定しました。");

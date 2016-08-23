@@ -26,6 +26,69 @@ function sendScore(){
 	socket.emit('scoreData',json);
 	// alert(score);
 }
+function first_half_start(){
+	var tmp;
+	isGameStarted=true;
+	sendScore();
+	setItv_f=setInterval(function(){
+		tmp=showElapsedTime();
+		if(tmp>0){
+			elapsed_time.innerHTML=half+"　"+sectominsec(tmp);
+		}
+		else{
+			elapsed_time.innerHTML="";
+			clearInterval(setItv_f);
+		}
+	},1000);
+	var first_half_start_button=document.getElementById("first-half-start-button");
+	first_half_start_button.disabled=true;
+}
+function latter_half_start(){
+	var tmp;
+	clearInterval(setItv_f);
+	initGameTime(getRoomName());
+	half="後半";
+	sendScore();
+	setItv_l=setInterval(function(){
+		tmp=showElapsedTime();
+		if(tmp>0){
+			elapsed_time.innerHTML=half+"　"+sectominsec(tmp);
+		}
+		else{
+			elapsed_time.innerHTML="";
+			clearInterval(setItv_l);
+		}
+	},1000);
+	var latter_half_start_button=document.getElementById("latter-half-start-button");
+	latter_half_start_button.disabled=true;
+}
+
+function finishgame(){
+	half="";
+	isGameStarted=false;
+	clearInterval(setItv_l);
+	initGameTime(getRoomName());
+	var finish_game_button=document.getElementById('finish-game-button');
+	finish_game_button.disabled=true;
+	sendScore();
+}
+//競技によって前後半の表示を切り替える関数
+function showhalf(sports){
+	switch(sports){
+		case"soccer":break;
+		case"fencing":half="";break;
+		default:half="";break;
+	}
+}
+
+function sectominsec(time) {
+	var sec,min;
+	var tmp;
+	min=((time/60)|0);
+	sec=time%60;
+	tmp=(("0"+min).slice(-2)+":"+("0"+sec).slice(-2));
+	return tmp;
+}
 //得点入力チェック用関数
 function checkinput(input){
 	//数字かどうかチェック
@@ -50,59 +113,4 @@ function team_b_getpoint(){
 	if(checkinput(team_point_b.value)==false){
 		team_point_b.value="";
 	}
-}
-function first_half_start(){
-	var tmp;
-	isGameStarted=true;
-	sendScore();
-	setItv_f=setInterval(function(){
-		tmp=showElapsedTime();
-		if(tmp>0){
-			elapsed_time.innerHTML=half+"　"+sectominsec(tmp);
-		}
-		else{
-			elapsed_time.innerHTML="";
-			clearInterval(setItv_f);
-		}
-	},1000);
-	var first_half_start_button=document.getElementById("first-half-start-button");
-	first_half_start_button.disabled=true;
-}
-function latter_half_start(){
-	var tmp;
-	clearInterval(setItv_f);
-	initGameTime(getRoomName());
-	half="後半";
-	sendScore();
-	half="";
-	setItv_l=setInterval(function(){
-		tmp=showElapsedTime();
-		if(tmp>0){
-			elapsed_time.innerHTML=half+"　"+sectominsec(tmp);
-		}
-		else{
-			elapsed_time.innerHTML="";
-			clearInterval(setItv_l);
-		}
-	},1000);
-	var latter_half_start_button=document.getElementById("latter-half-start-button");
-	latter_half_start_button.disabled=true;
-}
-
-//競技によって前後半の表示を切り替える関数
-function showhalf(sports){
-	switch(sports){
-		case"soccer":break;
-		case"fencing":half="";break;
-		default:half="";break;
-	}
-}
-
-function sectominsec(time) {
-	var sec,min;
-	var tmp;
-	min=((time/60)|0);
-	sec=time%60;
-	tmp=(("0"+min).slice(-2)+":"+("0"+sec).slice(-2));
-	return tmp;
 }
