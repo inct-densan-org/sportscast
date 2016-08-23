@@ -19,19 +19,26 @@
 		</div>
 		<span class="br"></span>
 		<div class="score">
+			<div class="elapsedtime">
+				<p class="elapsed-time-title">経過時間</p>
+				<p id="elapsed-time"></p>
+				<button id="first-half-start-button" onclick="first_half_start()">前半開始</button>
+				<button id="latter-half-start-button" onclick="latter_half_start()">後半開始</button>
+				<button id="finish-game-button" onclick="finishgame()">試合終了</button>
+			</div>
 			<div class="team-names">
-				<p class="team-name-title">チーム名</p>
+				<p id="team-name-title">チーム名</p>
 				<input type="text" name="team-name-a" id="team-name-a">
 				<input type="text" name="team-name-b" id="team-name-b">
 			</div>
 			<br>
 			<div class="points">
 				<p class="point-title">得点</p>
-				<input type="text" name="team-point-a" id="team-point-a" onkeyup="team_a_getpoint()">
-				<input type="text" name="team-point-b" id="team-point-b" onkeyup="team_b_getpoint()">
+				<input type="text" name="team-point-a" id="team-point-a" value="0" onkeyup="team_a_getpoint()">
+				<input type="text" name="team-point-b" id="team-point-b" value="0" onkeyup="team_b_getpoint()">
 			</div>
 			<div class="info">
-				<p class="info-title">チーム情報</p>
+				<p id="info-title">チーム情報</p>
 				<textarea id="team-info-a"></textarea>
 				<textarea id="team-info-b"></textarea>
 			</div>
@@ -42,7 +49,10 @@
 	</div>
 	<!-- <script src="//192.168.0.14:3001/socket.io/socket.io.js"></script> -->
 	<script src="//localhost:3001/socket.io/socket.io.js"></script>
+	<script src="/javascripts/countelapsedtime.js"></script>
+	<script src="/javascripts/layoutchanger.js"></script>
 	<script src="/javascripts/cast.js"></script>
+	<script src="/javascripts/gameinfocast.js"></script>
 	<script src="/javascripts/networkcheck.js"></script>
 </body>
 </html>

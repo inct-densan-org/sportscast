@@ -15,12 +15,14 @@ navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia 
 
 
 var localVideo = document.getElementById('my_video');
+var elapsed_time=document.getElementById("elapsed-time");
 var team_name_a=document.getElementById("team-name-a");
 var team_name_b=document.getElementById("team-name-b");
 var team_point_a=document.getElementById("team-point-a");
 var team_point_b=document.getElementById("team-point-b");
 var team_info_a=document.getElementById("team-info-a");
 var team_info_b=document.getElementById("team-info-b");
+
 var localStream = null;
 var mediaConstraints = {'mandatory': {'OfferToReceiveAudio':false, 'OfferToReceiveVideo':false }};
 
@@ -30,6 +32,15 @@ var socketStatus = false;
 var PORT = 3001;
 //var ADDRESS='http://192.168.0.14:'+PORT+'/';
 var ADDRESS='http://localhost:'+PORT+'/';
+
+//競技時間を競技名に応じて初期化
+initGameTime(getRoomName());
+
+//競技状況配信機能のUIを競技に応じて変更
+selectlayout(getRoomName());
+
+//競技によって前後半の表示を切り替える
+showhalf(getRoomName());
 
 //ローカルストリーム(カメラとマイクからのデータの取得)が開始されているか判定する関数
 //onMessage関数でメッセージがcast_requestのとき、tellCastReady関数から呼び出される
@@ -546,47 +557,3 @@ function hangUp() {
 	//デバッグ用ログ出力
 	console.log("ハングアップしました。");
 }
-
-//競技状況配信
-function sendScore(){
-	var json='{'+
-	'"team_name_a":"'+team_name_a.value+'",'+
-	'"team_name_b":"'+team_name_b.value+'",'+
-	'"team_point_a":'+team_point_a.value+','+
-	'"team_point_b":'+team_point_b.value+','+
-	'"team_info_a":"'+team_info_a.value+'",'+
-	'"team_info_b":"'+team_info_b.value+'"}';
-	console.log(json);
-	// var score=document.getElementById("score").value;
-	socket.emit('scoreData',json);
-	// alert(score);
-}
-//得点入力チェック用関数
-function checkinput(input){
-	//数字かどうかチェック
-	if(isNaN(input)==false){
-		//0～1000の範囲かどうかチェック
-		if(input<0 || input>1000){
-			alert("0～1000の範囲で数字を入力してください。");
-			return false;
-		}
-	}
-	else{
-		alert("0～1000の範囲で数字を入力してください。");
-		return false;
-	}
-}
-function team_a_getpoint(){
-	if(checkinput(team_point_a.value)==false){
-		team_point_a.value="";
-	}
-}
-function team_b_getpoint(){
-	if(checkinput(team_point_b.value)==false){
-		team_point_b.value="";
-	}
-}
-// var s = io.connect('http://192.168.0.20:9002/');
-// s.on( "ServerToClient", function (data) {
-// 	document.getElementById("message").innerHTML="<div class=\"single\">"+ data + "</div>";
-// });

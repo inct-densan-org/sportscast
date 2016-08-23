@@ -13,12 +13,20 @@ navigator.getUserMedia = navigator.getUserMedia || navigator.mozGetUserMedia ||
 
 //var localVideo = document.getElementById('local-video');
 var castVideo = document.getElementById('cast_video');
+var elapsed_time=document.getElementById("elapsed-time");
 var team_name_a=document.getElementById("team-name-a");
 var team_name_b=document.getElementById("team-name-b");
 var team_point_a=document.getElementById("team-point-a");
 var team_point_b=document.getElementById("team-point-b");
 var team_info_a=document.getElementById("team-info-a");
 var team_info_b=document.getElementById("team-info-b");
+
+//試合が始まっているかどうかを表す変数
+var isGameStarted=false;
+
+//前半後半をあらわす変数
+var half="前半";
+
 //var localStream = null;
 var mediaConstraints = {'mandatory': {'OfferToReceiveAudio':true, 'OfferToReceiveVideo':true }};
 
@@ -29,6 +37,9 @@ var PORT = 3001;
 //シグナリングサーバーに接続
 //var ADDRESS='http://192.168.0.14:'+PORT+'/';
 var ADDRESS='http://localhost:'+PORT+'/';
+
+//競技時間を競技名に応じて初期化
+initGameTime(getRoomName());
 
 //配信映像を切断する関数
 //onMessage関数でメッセージがend_castのときに呼び出される
@@ -533,15 +544,4 @@ function fullscreen() {
 	} else {
 		castVideo.requestFullScreen();
 	}
-}
-
-function readJSONdata(data){
-	var jsonobj=JSON.parse(data);
-	team_name_a.value=jsonobj.team_name_a;
-	team_name_b.value=jsonobj.team_name_b;
-	team_point_a.value=jsonobj.team_point_a;
-	team_point_b.value=jsonobj.team_point_b;
-	team_info_a.value=jsonobj.team_info_a;
-	team_info_b.value=jsonobj.team_info_b;
-	notification("競技状況が更新されました。",getRoomName());
 }
