@@ -24,7 +24,7 @@
 				<p id="elapsed-time"></p>
 			</div>
 			<div class="team-names">
-				<p class="team-name-title">チーム名</p>
+				<p id="team-name-title">チーム名</p>
 				<input type="text" name="team-name-a" id="team-name-a" readonly="readonly">
 				<input type="text" name="team-name-b" id="team-name-b" readonly="readonly">
 			</div>
@@ -35,7 +35,7 @@
 				<input type="text" name="team-point-b" id="team-point-b" readonly="readonly">
 			</div>
 			<div class="info">
-				<p class="info-title">チーム情報</p>
+				<p id="info-title">チーム情報</p>
 				<textarea id="team-info-a" readonly="readonly"></textarea>
 				<textarea id="team-info-b" readonly="readonly"></textarea>
 			</div>
@@ -43,7 +43,9 @@
 	</div>
 	<!-- <script src="//192.168.0.14:3001/socket.io/socket.io.js"></script> -->
 	<script src="//localhost:3001/socket.io/socket.io.js"></script>
+	<script src="/javascripts/getsportsname.js"></script>
 	<script src="/javascripts/countelapsedtime.js"></script>
+	<script src="/javascripts/layoutchanger.js"></script>
 	<script src="/javascripts/gameinfowatch.js"></script>
 	<script src="/javascripts/watch.js"></script>
 	<script src="/javascripts/networkcheck.js"></script>

@@ -47,7 +47,7 @@
 		padding-left: 50px;
 		padding-right: 50px;
 	}
-	.team-name-title{
+	#team-name-title{
 		text-align: center;
 		font-size: 18px;
 	}
@@ -72,7 +72,7 @@
 		float: right;
 		height: 48px;
 	}
-	.info-title{
+	#info-title{
 		text-align: center;
 		font-size: 18px;
 	}

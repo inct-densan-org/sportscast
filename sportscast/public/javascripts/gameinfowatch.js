@@ -22,16 +22,29 @@ function readJSONdata(data){
 	team_point_b.value=jsonobj.team_point_b;
 	team_info_a.value=jsonobj.team_info_a;
 	team_info_b.value=jsonobj.team_info_b;
-	if(jsonobj.half=="前半" && isFirstHalfStarted==false){
-		first_half_start();
+	//競技がサッカーのとき
+	if(getSportsName()=="soccer"){
+		if(jsonobj.half=="前半" && isFirstHalfStarted==false){
+			first_half_start();
+		}
+		else if(jsonobj.half=="後半" && isLatterHalfStarted==false){
+			latter_half_start();
+		}
+		else if(jsonobj.half=="後半" && isGameStarted==false){
+			finishgame();
+		}
 	}
-	else if(jsonobj.half=="後半" && isLatterHalfStarted==false){
-		latter_half_start();
+	//競技がフェンシングのとき
+	else if(getSportsName()=="fencing"){
+		if(isGameStarted==true){
+			half="";
+			first_half_start();
+		}
+		else{
+			finishgame();
+		}
 	}
-	else if(jsonobj.half=="後半" && isGameStarted==false){
-		finishgame();
-	}
-	notification("競技状況が更新されました。",getRoomName());
+	notification("競技状況が更新されました。",getSportsName());
 }
 function first_half_start(){
 	var tmp;
@@ -51,7 +64,7 @@ function latter_half_start(){
 	var tmp;
 	elapsed_time.innerHTML="";
 	clearInterval(setItv_f);
-	initGameTime(getRoomName());
+	initGameTime(getSportsName());
 	half="後半";
 	setItv_l=setInterval(function(){
 		tmp=showElapsedTime();
@@ -66,8 +79,16 @@ function latter_half_start(){
 	isLatterHalfStarted=true;
 }
 function finishgame() {
-	clearInterval(setItv_l);
-	initGameTime(getRoomName());
+	//競技がサッカーなら後半のタイマーを止める
+	if(getSportsName()=="soccer"){
+		clearInterval(setItv_l);
+	}
+	//フェンシングなら前半のタイマーを止める(後半はない)
+	else if(getSportsName()=="fencing"){
+		clearInterval(setItv_f);
+	}
+	initGameTime(getSportsName());
+	elapsed_time.innerHTML="";
 }
 function sectominsec(time) {
 	var sec,min;

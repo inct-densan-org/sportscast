@@ -46,7 +46,7 @@ function first_half_start(){
 function latter_half_start(){
 	var tmp;
 	clearInterval(setItv_f);
-	initGameTime(getRoomName());
+	initGameTime(getSportsName());
 	half="後半";
 	sendScore();
 	setItv_l=setInterval(function(){
@@ -66,8 +66,16 @@ function latter_half_start(){
 function finishgame(){
 	half="";
 	isGameStarted=false;
-	clearInterval(setItv_l);
-	initGameTime(getRoomName());
+	//競技がサッカーなら後半のタイマーを止める
+	if(getSportsName()=="soccer"){
+		clearInterval(setItv_l);
+	}
+	//フェンシングなら前半のタイマーを止める(後半はない)
+	else if(getSportsName()=="fencing"){
+		clearInterval(setItv_f);
+	}
+	initGameTime(getSportsName());
+	elapsed_time.innerHTML="";
 	var finish_game_button=document.getElementById('finish-game-button');
 	finish_game_button.disabled=true;
 	sendScore();
