@@ -392,7 +392,7 @@ function stopCast() {
 	//videoのsrcを空にする
 	localVideo.src = "";
 	//配信者の映像を停止する
-	localStream.getTracks().forEach(function(track) { track.stop() })
+	localStream.getTracks().forEach(function(track) { track.stop(); });
 	//localStream.stop();
 	//localstreamにnullを代入する
 	localStream = null;

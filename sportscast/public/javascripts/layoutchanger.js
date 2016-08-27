@@ -3,7 +3,7 @@ function selectlayout(sports,page) {
 		case"soccer":soccerlayout(page);break;
 		case"fencing":fencinglayout(page);break;
 		default:
-			console.log("競技が不明なので、通常レイアウトに設定しました。");
+			//console.log("競技が不明なので、通常レイアウトに設定しました。");
 			break;
 	}
 }
