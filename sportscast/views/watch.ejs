@@ -11,13 +11,14 @@
 	<p>Watch Page</p>
 	<div class="contents">
 		<div class="video">
-			<button id="fullscreen-button" onclick="fullscreen()">全画面表示</button>
-			<video id="cast_video" autoplay></video>
-			<br>
+			<div class="video-area">
+				<video id="cast_video" autoplay></video>
+				<div id="fullscreen-button" onclick="fullscreen()"></div>
+			</div>
 			<button class="watch_stop_button" onclick="hangUp();">視聴終了</button>
 			<button class="watch_start_button" onclick="sendRequest();">視聴開始</button>
 		</div>
-		<span class="br">
+		<span class="br"></span>
 		<div class="score">
 			<div class="elapsedtime">
 				<p class="elapsed-time-title">経過時間</p>
