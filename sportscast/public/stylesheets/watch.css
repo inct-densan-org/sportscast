@@ -12,28 +12,73 @@
 		color: #1976d2;
 	}
 
-	#fullscreen-button{
-		float: right;
-	}
 	.video{
 		width: 50%;
 		height: 100%;
 		float: left;
 		padding: 10px;
 		background: #eee;
+		border-style: solid;
+		border-color: #fff;
+		border-width: 2px;
+		border-radius: 10px;
+	}
+	.video-area{
+		position: relative;
 	}
 	#cast_video{
 		width: 100%;
 		height:360px;
 		background: #fff;
+		border-style: solid;
+		border-color: #1976d2;
+		border-width: 2px;
+		border-radius: 10px;
 	}
+	#fullscreen-button{
+		position: absolute;
+		bottom: 0px;
+		right: 0px;
+		height: 30px;
+		width: 30px;
+		background-image: url(/images/fullscreen.png);
+		-moz-background-size:cover;
+		background-size:cover;
+	}
+
 	.watch_start_button{
 		float: right;
+		height: 30px;
 		margin: 5px;
+		background-color: #1976d2;
+		border-radius: 10px;
+		font-size: 14px;
+		color: #fff;
+		border: 1px;
+	}
+	.watch_start_button:hover{
+		box-shadow: 2px 2px rgba(0,0,0,0.4);
+	}
+	.watch_start_button:active{
+		background-color: #59b1eb;
+		box-shadow: 0px 0px rgba(0,0,0,0.4);
 	}
 	.watch_stop_button{
 		float: right;
+		height: 30px;
 		margin:5px;
+		background-color: #1976d2;
+		border-radius: 10px;
+		font-size: 14px;
+		color: #fff;
+		border: 1px;
+	}
+	.watch_stop_button:hover{
+		box-shadow: 2px 2px rgba(0,0,0,0.4);
+	}
+	.watch_stop_button:active{
+		background-color: #59b1eb;
+		box-shadow: 0px 0px rgba(0,0,0,0.4);
 	}
 
 	.score{
@@ -42,35 +87,124 @@
 		float: right;
 		padding: 10px;
 		background: #aaa;
+		border-style: solid;
+		border-color: #fff;
+		border-width: 2px;
+		border-radius: 10px;
 	}
-		.team-names{
+
+	.elapsedtime{
 		padding-left: 50px;
 		padding-right: 50px;
+		padding-bottom: 4px;
+		border-bottom-style: solid;
+		border-bottom-color: #1976d2;
+		border-bottom-width: 2px;
+	}
+	.elapsed-time-title{
+		text-align: center;
+		font-size: 18px;
+	}
+	#elapsed-time{
+		text-align: center;
+		font-size: 24px;
+	}
+
+	.team-names{
+		padding-left: 30px;
+		padding-right: 30px;
+		padding-bottom: 4px;
+		border-bottom-style: solid;
+		border-bottom-color: #1976d2;
+		border-bottom-width: 2px;
 	}
 	#team-name-title{
 		text-align: center;
 		font-size: 18px;
 	}
 	#team-name-a{
-
+		font-size: 18px;
+		border-style: solid;
+		border-color: #1976d2;
+		border-radius: 4px;
+		border-width: 2px;
+	}
+	#team-name-a:focus{
+		border-style: solid;
+		border-color: #59b1eb;
+		border-radius: 4px;
+		border-width: 2px;
+		box-shadow: 2px 2px rgba(0,0,0,0.4);
 	}
 	#team-name-b{
 		float: right;
+		font-size: 18px;
+		border-style: solid;
+		border-color: #1976d2;
+		border-radius: 4px;
+		border-width: 2px;
 	}
+	#team-name-b:focus{
+		border-style: solid;
+		border-color: #59b1eb;
+		border-radius: 4px;
+		border-width: 2px;
+		box-shadow: 2px 2px rgba(0,0,0,0.4);
+	}
+
 	.points{
-		padding-left: 80px;
-		padding-right: 80px;
+		padding-left: 60px;
+		padding-right: 60px;
+		padding-bottom: 4px;
+		border-bottom-style: solid;
+		border-bottom-color: #1976d2;
+		border-bottom-width: 2px;
 	}
 	.point-title{
 		text-align: center;
 		font-size: 18px;
 	}
 	#team-point-a{
-		height: 48px;
+		height: 32px;
+		width: 40%;
+		font-size: 20px;
+		text-align: center;
+		border-style: solid;
+		border-color: #1976d2;
+		border-radius: 4px;
+		border-width: 2px;
+	}
+	#team-point-a:focus{
+		border-style: solid;
+		border-color: #59b1eb;
+		border-radius: 4px;
+		border-width: 2px;
+		box-shadow: 2px 2px rgba(0,0,0,0.4);
 	}
 	#team-point-b{
 		float: right;
-		height: 48px;
+		height: 32px;
+		width: 40%;
+		text-align: center;
+		font-size: 20px;
+		border-style: solid;
+		border-color: #1976d2;
+		border-radius: 4px;
+		border-width: 2px;
+	}
+	#team-point-b:focus{
+		border-style: solid;
+		border-color: #59b1eb;
+		border-radius: 4px;
+		border-width: 2px;
+		box-shadow: 2px 2px rgba(0,0,0,0.4);
+	}
+
+	.info{
+		padding-bottom: 4px;
+		border-bottom-style: solid;
+		border-bottom-color: #1976d2;
+		border-bottom-width: 2px;
 	}
 	#info-title{
 		text-align: center;
@@ -80,17 +214,33 @@
 		width: 48%;
 		height: 100px;
 		resize: vertical;
+		border-style: solid;
+		border-color: #1976d2;
+		border-radius: 4px;
+		border-width: 2px;
+	}
+	#team-info-a:focus{
+		border-style: solid;
+		border-color: #59b1eb;
+		border-radius: 4px;
+		border-width: 2px;
+		box-shadow: 2px 2px rgba(0,0,0,0.4);
 	}
 	#team-info-b{
 		float: right;
 		width: 48%;
 		height: 100px;
 		resize: vertical;
+		border-style: solid;
+		border-color: #1976d2;
+		border-radius: 4px;
+		border-width: 2px;
 	}
-	.send-button{
-		text-align: center;
-	}
-	#score-send-button{
-		height: 32px;
+	#team-info-b:focus{
+		border-style: solid;
+		border-color: #59b1eb;
+		border-radius: 4px;
+		border-width: 2px;
+		box-shadow: 2px 2px rgba(0,0,0,0.4);
 	}
 }
