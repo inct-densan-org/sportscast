@@ -42,6 +42,13 @@
 		color: #fff;
 		border: 1px;
 	}
+	.video_start_button:hover{
+		box-shadow: 2px 2px rgba(0,0,0,0.4);
+	}
+	.video_start_button:active{
+		background-color: #59b1eb;
+		box-shadow: 0px 0px rgba(0,0,0,0.4);
+	}
 	.cast_start_button{
 		float: right;
 		height:30px;
@@ -52,6 +59,13 @@
 		color: #fff;
 		border: 1px;
 	}
+	.cast_start_button:hover{
+		box-shadow: 2px 2px rgba(0,0,0,0.4);
+	}
+	.cast_start_button:active{
+		background-color: #59b1eb;
+		box-shadow: 0px 0px rgba(0,0,0,0.4);
+	}
 	.cast_stop_button{
 		float: right;
 		height:30px;
@@ -61,6 +75,13 @@
 		font-size: 14px;
 		color: #fff;
 		border: 1px;
+	}
+	.cast_stop_button:hover{
+		box-shadow: 2px 2px rgba(0,0,0,0.4);
+	}
+	.cast_stop_button:active{
+		background-color: #59b1eb;
+		box-shadow: 0px 0px rgba(0,0,0,0.4);
 	}
 
 	.score{
@@ -102,6 +123,13 @@
 		color: #fff;
 		border: 1px;
 	}
+	#first-half-start-button:hover{
+		box-shadow: 2px 2px rgba(0,0,0,0.4);
+	}
+	#first-half-start-button:active{
+		background-color: #59b1eb;
+		box-shadow: 0px 0px rgba(0,0,0,0.4);
+	}
 	#latter-half-start-button{
 		height: 30px;
 		background-color: #1976d2;
@@ -110,6 +138,13 @@
 		color: #fff;
 		border: 1px;
 	}
+	#latter-half-start-button:hover{
+		box-shadow: 2px 2px rgba(0,0,0,0.4);
+	}
+	#latter-half-start-button:active{
+		background-color: #59b1eb;
+		box-shadow: 0px 0px rgba(0,0,0,0.4);
+	}
 	#finish-game-button{
 		height: 30px;
 		background-color: #1976d2;
@@ -117,6 +152,13 @@
 		font-size: 14px;
 		color: #fff;
 		border: 1px;
+	}
+	#finish-game-button:hover{
+		box-shadow: 2px 2px rgba(0,0,0,0.4);
+	}
+	#finish-game-button:active{
+		background-color: #59b1eb;
+		box-shadow: 0px 0px rgba(0,0,0,0.4);
 	}
 
 	.team-names{
@@ -138,6 +180,13 @@
 		border-radius: 4px;
 		border-width: 2px;
 	}
+	#team-name-a:focus{
+		border-style: solid;
+		border-color: #59b1eb;
+		border-radius: 4px;
+		border-width: 2px;
+		box-shadow: 2px 2px rgba(0,0,0,0.4);
+	}
 	#team-name-b{
 		float: right;
 		font-size: 18px;
@@ -146,6 +195,14 @@
 		border-radius: 4px;
 		border-width: 2px;
 	}
+	#team-name-b:focus{
+		border-style: solid;
+		border-color: #59b1eb;
+		border-radius: 4px;
+		border-width: 2px;
+		box-shadow: 2px 2px rgba(0,0,0,0.4);
+	}
+
 	.points{
 		padding-left: 60px;
 		padding-right: 60px;
@@ -168,6 +225,13 @@
 		border-radius: 4px;
 		border-width: 2px;
 	}
+	#team-point-a:focus{
+		border-style: solid;
+		border-color: #59b1eb;
+		border-radius: 4px;
+		border-width: 2px;
+		box-shadow: 2px 2px rgba(0,0,0,0.4);
+	}
 	#team-point-b{
 		float: right;
 		height: 32px;
@@ -178,6 +242,13 @@
 		border-color: #1976d2;
 		border-radius: 4px;
 		border-width: 2px;
+	}
+	#team-point-b:focus{
+		border-style: solid;
+		border-color: #59b1eb;
+		border-radius: 4px;
+		border-width: 2px;
+		box-shadow: 2px 2px rgba(0,0,0,0.4);
 	}
 
 	.info{
@@ -199,6 +270,13 @@
 		border-radius: 4px;
 		border-width: 2px;
 	}
+	#team-info-a:focus{
+		border-style: solid;
+		border-color: #59b1eb;
+		border-radius: 4px;
+		border-width: 2px;
+		box-shadow: 2px 2px rgba(0,0,0,0.4);
+	}
 	#team-info-b{
 		float: right;
 		width: 48%;
@@ -208,6 +286,13 @@
 		border-color: #1976d2;
 		border-radius: 4px;
 		border-width: 2px;
+	}
+	#team-info-b:focus{
+		border-style: solid;
+		border-color: #59b1eb;
+		border-radius: 4px;
+		border-width: 2px;
+		box-shadow: 2px 2px rgba(0,0,0,0.4);
 	}
 	.send-button{
 		text-align: center;
@@ -221,5 +306,12 @@
 		font-size: 14px;
 		color: #fff;
 		border: 1px;
+	}
+	#score-send-button:hover{
+		box-shadow: 2px 2px rgba(0,0,0,0.4);
+	}
+	#score-send-button:active{
+		background-color: #59b1eb;
+		box-shadow: 0px 0px rgba(0,0,0,0.4);
 	}
 }
