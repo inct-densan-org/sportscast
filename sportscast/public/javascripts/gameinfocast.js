@@ -42,6 +42,14 @@ function first_half_start(){
 	},1000);
 	var first_half_start_button=document.getElementById("first-half-start-button");
 	first_half_start_button.disabled=true;
+	if(getSportsName()=='soccer'){
+		var latter_half_start_button=document.getElementById("latter-half-start-button");
+		latter_half_start_button.disabled=false;
+	}
+	else if(getSportsName()=='fencing'){
+		var finish_game_button=document.getElementById("finish-game-button");
+		finish_game_button.disabled=false;
+	}
 }
 function latter_half_start(){
 	var tmp;
@@ -61,6 +69,8 @@ function latter_half_start(){
 	},1000);
 	var latter_half_start_button=document.getElementById("latter-half-start-button");
 	latter_half_start_button.disabled=true;
+	var finish_game_button=document.getElementById("finish-game-button");
+	finish_game_button.disabled=false;
 }
 
 function finishgame(){
