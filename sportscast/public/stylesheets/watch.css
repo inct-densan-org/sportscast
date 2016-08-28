@@ -37,13 +37,16 @@
 	}
 	#fullscreen-button{
 		position: absolute;
-		bottom: 0px;
-		right: 0px;
+		bottom: 2px;
+		right: 2px;
 		height: 30px;
 		width: 30px;
 		background-image: url(/images/fullscreen.png);
 		-moz-background-size:cover;
 		background-size:cover;
+	}
+	#fullscreen-button:hover{
+		transform: scale(1.2);
 	}
 
 	.watch_start_button{
