@@ -15,6 +15,14 @@ navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia 
 
 
 var localVideo = document.getElementById('my_video');
+var elapsed_time=document.getElementById("elapsed-time");
+var team_name_a=document.getElementById("team-name-a");
+var team_name_b=document.getElementById("team-name-b");
+var team_point_a=document.getElementById("team-point-a");
+var team_point_b=document.getElementById("team-point-b");
+var team_info_a=document.getElementById("team-info-a");
+var team_info_b=document.getElementById("team-info-b");
+
 var localStream = null;
 var mediaConstraints = {'mandatory': {'OfferToReceiveAudio':false, 'OfferToReceiveVideo':false }};
 
@@ -22,7 +30,17 @@ var mediaConstraints = {'mandatory': {'OfferToReceiveAudio':false, 'OfferToRecei
 var socketStatus = false;
 //シグナリングサーバ―の接続待ち受けポート
 var PORT = 3001;
-var ADDRESS='http://192.168.0.14:'+PORT+'/';
+//var ADDRESS='http://192.168.0.14:'+PORT+'/';
+var ADDRESS='http://localhost:'+PORT+'/';
+
+//競技時間を競技名に応じて初期化
+initGameTime(getSportsName());
+
+//競技状況配信機能のUIを競技に応じて変更
+selectlayout(getSportsName(),'cast');
+
+//競技によって前後半の表示を切り替える
+showhalf(getSportsName());
 
 //ローカルストリーム(カメラとマイクからのデータの取得)が開始されているか判定する関数
 //onMessage関数でメッセージがcast_requestのとき、tellCastReady関数から呼び出される
@@ -169,7 +187,7 @@ function onOpened(evt) {
 	//デバッグ用ログ出力
 	console.log("socketを開きました。");
 	//部屋名の取得
-	var roomname = getRoomName();
+	var roomname = getSportsName();
 	//取得した部屋に入室
 	socket.emit('enter', roomname);
 	//デバッグ用ログ出力
@@ -231,26 +249,6 @@ function onUserDisconnect(evt) {
 		//デバッグ用ログ出力
 		console.log("切断しました。");
 	}
-}
-
-//部屋名を取得する関数
-//onOpened関数から呼び出される
-function getRoomName() { // たとえば、 URLに  ?roomname  とする
-	//URLを取得
-	var url = document.location.href;
-	//?でURLを分割する
-	var args = url.split('?');
-	//分割した数が1よりも大きかったら以下の処理を実行
-	if (args.length > 1) {
-		//配列から要素を取得
-		var room = args[1];
-		if (room != ""){
-			//部屋名が取得出来たら部屋名を返す
-			return room;
-		}
-	}
-	//取得できなかったら_defaultroomを返す
-	return "_defaultroom";
 }
 
 //onMessage関数でメッセージがanswerのときに呼び出される
@@ -394,7 +392,7 @@ function stopCast() {
 	//videoのsrcを空にする
 	localVideo.src = "";
 	//配信者の映像を停止する
-	localStream.getTracks().forEach(function(track) { track.stop() })
+	localStream.getTracks().forEach(function(track) { track.stop(); });
 	//localStream.stop();
 	//localstreamにnullを代入する
 	localStream = null;
@@ -539,15 +537,3 @@ function hangUp() {
 	//デバッグ用ログ出力
 	console.log("ハングアップしました。");
 }
-
-//競技状況配信
-/*function sendScore(){
-	var score=document.getElementById("score").value;
-	socket.emit('ClientToServer',score);
-	alert(score);
-}*/
-
-// var s = io.connect('http://192.168.0.20:9002/');
-// s.on( "ServerToClient", function (data) {
-// 	document.getElementById("message").innerHTML="<div class=\"single\">"+ data + "</div>";
-// });

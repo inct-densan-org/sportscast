@@ -11,17 +11,45 @@
 	<p>Watch Page</p>
 	<div class="contents">
 		<div class="video">
-			<button id="fullscreen-button" onclick="fullscreen()">全画面表示</button>
-			<video id="cast_video" autoplay></video>
-			<br>
+			<div class="video-area">
+				<video id="cast_video" autoplay></video>
+				<div id="fullscreen-button" onclick="fullscreen()"></div>
+			</div>
 			<button class="watch_stop_button" onclick="hangUp();">視聴終了</button>
 			<button class="watch_start_button" onclick="sendRequest();">視聴開始</button>
 		</div>
-		<span class="br">
-		<div class="score"></div>
+		<span class="br"></span>
+		<div class="score">
+			<div class="elapsedtime">
+				<p class="elapsed-time-title">経過時間</p>
+				<p id="elapsed-time"></p>
+			</div>
+			<div class="team-names">
+				<p id="team-name-title">チーム名</p>
+				<input type="text" name="team-name-a" id="team-name-a" readonly="readonly">
+				<input type="text" name="team-name-b" id="team-name-b" readonly="readonly">
+			</div>
+			<br>
+			<div class="points">
+				<p class="point-title">得点</p>
+				<input type="text" name="team-point-a" id="team-point-a" readonly="readonly">
+				<input type="text" name="team-point-b" id="team-point-b" readonly="readonly">
+			</div>
+			<div class="info">
+				<p id="info-title">チーム情報</p>
+				<textarea id="team-info-a" readonly="readonly"></textarea>
+				<textarea id="team-info-b" readonly="readonly"></textarea>
+			</div>
+		</div>
 	</div>
-	<script src="//192.168.0.14:3001/socket.io/socket.io.js"></script>
+	<!-- <script src="//192.168.0.14:3001/socket.io/socket.io.js"></script> -->
+	<script src="//localhost:3001/socket.io/socket.io.js"></script>
+	<script src="/javascripts/getsportsname.js"></script>
+	<script src="/javascripts/countelapsedtime.js"></script>
+	<script src="/javascripts/layoutchanger.js"></script>
+	<script src="/javascripts/gameinfowatch.js"></script>
 	<script src="/javascripts/watch.js"></script>
 	<script src="/javascripts/networkcheck.js"></script>
+	<script src="/javascripts/notification.js"></script>
 </body>
 </html>

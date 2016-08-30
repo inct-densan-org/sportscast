@@ -13,6 +13,14 @@ navigator.getUserMedia = navigator.getUserMedia || navigator.mozGetUserMedia ||
 
 //var localVideo = document.getElementById('local-video');
 var castVideo = document.getElementById('cast_video');
+var elapsed_time=document.getElementById("elapsed-time");
+var team_name_a=document.getElementById("team-name-a");
+var team_name_b=document.getElementById("team-name-b");
+var team_point_a=document.getElementById("team-point-a");
+var team_point_b=document.getElementById("team-point-b");
+var team_info_a=document.getElementById("team-info-a");
+var team_info_b=document.getElementById("team-info-b");
+
 //var localStream = null;
 var mediaConstraints = {'mandatory': {'OfferToReceiveAudio':true, 'OfferToReceiveVideo':true }};
 
@@ -21,7 +29,17 @@ var socketStatus = false;
 //シグナリングサーバ―の接続待ち受けポート
 var PORT = 3001;
 //シグナリングサーバーに接続
-var ADDRESS='http://192.168.0.14:'+PORT+'/';
+//var ADDRESS='http://192.168.0.14:'+PORT+'/';
+var ADDRESS='http://localhost:'+PORT+'/';
+
+//競技時間を競技名に応じて初期化
+initGameTime(getSportsName());
+
+//競技状況配信機能のUIを競技に応じて変更
+selectlayout(getSportsName(),'watch');
+
+//競技によって前後半の表示を切り替える
+showhalf(getSportsName());
 
 //配信映像を切断する関数
 //onMessage関数でメッセージがend_castのときに呼び出される
@@ -183,11 +201,10 @@ var socket = io.connect(ADDRESS); //IPアドレスの部分は実行環境によ
 //各イベントごとの処理を定義
 socket.on('connect', onOpened)
 	  .on('message', onMessage)
-	  .on('user disconnected', onUserDisconnect);
-/*	  .on( "ServerToClient", function (data) {//競技状況配信用のやつ
-		document.getElementById("score").innerHTML=data;
-		//notification(data)
-	  });*/
+	  .on('user disconnected', onUserDisconnect)
+	  .on('scoreData', function (data) {//競技状況配信用のやつ
+		readJSONdata(data);
+	  });
 
 //接続したときの処理
 function onOpened(evt) {
@@ -195,7 +212,7 @@ function onOpened(evt) {
 	//デバッグ用ログ出力
 	console.log("socketを開きました。");
 	//部屋名の取得
-	var roomname = getRoomName();
+	var roomname = getSportsName();
 	//取得した部屋に入室
 	socket.emit('enter', roomname);
 	//デバッグ用ログ出力
@@ -263,26 +280,6 @@ function onUserDisconnect(evt) {
 	}
 	//デバッグ用ログ出力
 	console.log("切断しました");
-}
-
-//部屋名を取得する関数
-//onOpened関数で呼び出される
-function getRoomName() { // たとえば、 URLに  ?roomname  とする
-	//URLを取得
-	var url = document.location.href;
-	//?でURLを分割する
-	var args = url.split('?');
-	//分割した数が1よりも大きかったら以下の処理を実行
-	if (args.length > 1) {
-		//配列から要素を取得
-		var room = args[1];
-		if (room != "") {
-			//部屋名が取得出来たら部屋名を返す
-			return room;
-		}
-	}
-	//取得できなかったら_defaultroomを返す
-	return "_defaultroom";
 }
 
 //接続要求を受信したときの処理

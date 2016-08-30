@@ -1,8 +1,8 @@
 @media screen and (max-width:1000px){
 	body {
-		padding-left: 20px;
-		padding-right: 20px;
-		padding-top: 10px;
+		padding-left: 4px;
+		padding-right: 4px;
+		padding-top: 4px;
 		padding-bottom: 10px;
 		font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 		background: #fafafa;
@@ -14,24 +14,56 @@
 
 	.video{
 		width: 100%;
-		height: 240px;
-		padding: 5px;
+		height: 230px;
+		padding: 2px;
 		background: #eee;
+		border-style: solid;
+		border-color: #fff;
+		border-width: 2px;
+		border-radius: 10px;
+	}
+	.video-area{
+		position: relative;
 	}
 	#cast_video{
-		width: 100%;
+		width: 98%;
 		height:180px;
 		background: #fff;
+		border-style: solid;
+		border-color: #1976d2;
+		border-width: 2px;
+		border-radius: 4px;
 	}
+	#fullscreen-button{
+		position: absolute;
+		bottom: 2px;
+		right: 2px;
+		height: 40px;
+		width: 40px;
+		background-image: url(/images/fullscreen.png);
+		-moz-background-size:cover;
+		background-size:cover;
+	}
+
 	.watch_start_button{
-		height: 30px;
 		float: right;
+		height: 30px;
 		margin: 5px;
+		background-color: #1976d2;
+		border-radius: 10px;
+		font-size: 14px;
+		color: #fff;
+		border: 1px;
 	}
 	.watch_stop_button{
-		height: 30px;
 		float: right;
+		height: 30px;
 		margin:5px;
+		background-color: #1976d2;
+		border-radius: 10px;
+		font-size: 14px;
+		color: #fff;
+		border: 1px;
 	}
 
 	.br:before {
@@ -41,7 +73,122 @@
 
 	.score{
 		width: 100%;
-		padding: 5px;
+		height: 100%;
 		background: #aaa;
+		background: #aaa;
+		border-style: solid;
+		border-color: #fff;
+		border-width: 2px;
+		border-radius: 4px;
+	}
+	.elapsedtime{
+		padding-left: 50px;
+		padding-right: 50px;
+		padding-bottom: 4px;
+		border-bottom-style: solid;
+		border-bottom-color: #1976d2;
+		border-bottom-width: 2px;
+	}
+	.elapsed-time-title{
+		text-align: center;
+		font-size: 18px;
+	}
+	#elapsed-time{
+		text-align: center;
+		font-size: 24px;
+	}
+
+	.team-names{
+		padding-left: 20px;
+		padding-right: 20px;
+		padding-bottom: 4px;
+		border-bottom-style: solid;
+		border-bottom-color: #1976d2;
+		border-bottom-width: 2px;
+	}
+	#team-name-title{
+		text-align: center;
+		font-size: 18px;
+	}
+	#team-name-a{
+		width: 45%;
+		font-size: 18px;
+		border-style: solid;
+		border-color: #1976d2;
+		border-radius: 4px;
+		border-width: 2px;
+	}
+	#team-name-b{
+		width: 45%;
+		float: right;
+		font-size: 18px;
+		border-style: solid;
+		border-color: #1976d2;
+		border-radius: 4px;
+		border-width: 2px;
+	}
+
+	.points{
+		padding-left: 60px;
+		padding-right: 60px;
+		padding-bottom: 4px;
+		border-bottom-style: solid;
+		border-bottom-color: #1976d2;
+		border-bottom-width: 2px;
+	}
+	.point-title{
+		text-align: center;
+		font-size: 18px;
+	}
+	#team-point-a{
+		height: 32px;
+		width: 40%;
+		font-size: 20px;
+		text-align: center;
+		border-style: solid;
+		border-color: #1976d2;
+		border-radius: 4px;
+		border-width: 2px;
+	}
+	#team-point-b{
+		float: right;
+		height: 32px;
+		width: 40%;
+		text-align: center;
+		font-size: 20px;
+		border-style: solid;
+		border-color: #1976d2;
+		border-radius: 4px;
+		border-width: 2px;
+	}
+
+	.info{
+		padding-bottom: 4px;
+		border-bottom-style: solid;
+		border-bottom-color: #1976d2;
+		border-bottom-width: 2px;
+	}
+	#info-title{
+		text-align: center;
+		font-size: 18px;
+	}
+	#team-info-a{
+		width: 48%;
+		height: 100px;
+		resize: vertical;
+		border-style: solid;
+		border-color: #1976d2;
+		border-radius: 4px;
+		border-width: 2px;
+	}
+	#team-info-b{
+		float: right;
+		width: 48%;
+		height: 100px;
+		resize: vertical;
+		border-style: solid;
+		border-color: #1976d2;
+		border-radius: 4px;
+		border-width: 2px;
 	}
 }
