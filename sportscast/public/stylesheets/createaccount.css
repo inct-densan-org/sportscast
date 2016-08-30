@@ -1,4 +1,4 @@
-@media screen and (min-width: 999px){
+@media screen and (min-width: 487px){
 	body {
 		padding-left: 50px;
 		padding-right: 50px;
@@ -12,9 +12,89 @@
 		color: #1976d2;
 		text-decoration:none;
 	}
-	.forms{
+
+	div.name {
+		margin: 16px;
+	}
+
+	div.date1 {
+		margin-bottom: 16px;
+	}
+	div.date2 {
+		margin-bottom: 16px;
+		margin-right: 16px;
+	}
+
+	.forms {
 		margin:16px;
 	}
+
+	.create{
+		position: absolute;
+		width: 100px;
+		height: 40px;
+		padding: 2px;
+		border-style: solid;
+		border-color: #1976d2;
+		border-width: 2px;
+		border-radius: 20px;
+		margin:16px;
+		margin-left: 0px;
+		text-align: center;
+		font-size: 20px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		background: #1976d2;
+		color: #fafafa;
+		font-weight: bolder;
+	}
+}
+
+@media screen and (max-width: 487px){
+	body {
+		padding-left: 10%;
+		padding-right: 10%;
+		padding-top: 10px;
+		padding-bottom: 10px;
+		font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+		background: #fafafa;
+	}
+
+	a {
+		color: #1976d2;
+		text-decoration:none;
+	}
+
+	div.name {
+		margin-top: 16px;
+		margin-bottom: 16px;
+		margin-left: 5%;
+		margin-right: 5%;
+		width: 40%;
+	}
+
+	input.text {
+		width: 100%;
+	}
+
+	div.date1 {
+		margin-bottom: 16px;
+		margin-right: 4px;
+		width: 43%;
+	}
+	div.date2 {
+		margin-bottom: 16px;
+		width: 43%;
+	}
+
+	.forms {
+		margin-top: 16px;
+		margin-bottom: 16px;
+		margin-left: 5%;
+		margin-right: 5%;
+	}
+
 	.create{
 		position: absolute;
 		width: 100px;

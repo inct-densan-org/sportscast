@@ -6,7 +6,8 @@ function console_output() {
 	console.log('mail1:', form.mail1.value);
 	console.log('mail2:', form.mail2.value);
 	console.log('Tournament:', form.Tournament.value);
-	console.log('date:', form.date.value);
+	console.log('start:', form.start.value);
+	console.log('finish:', form.finish.value);
 	console.log('policy:', form.policy.checked);
 	console.log('Terms:', form.Terms.checked);
 };
