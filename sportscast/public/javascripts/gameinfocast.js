@@ -12,19 +12,20 @@ var setItv_l;
 
 //競技状況配信
 function sendScore(){
-	var json='{'+
-	'"isGameStarted":'+isGameStarted+','+
-	'"team_name_a":"'+team_name_a.value+'",'+
-	'"team_name_b":"'+team_name_b.value+'",'+
-	'"team_point_a":'+team_point_a.value+','+
-	'"team_point_b":'+team_point_b.value+','+
-	'"team_info_a":"'+team_info_a.value+'",'+
-	'"team_info_b":"'+team_info_b.value+'",'+
-	'"half":"'+half+'"}';
-	console.log(json);
-	// var score=document.getElementById("score").value;
-	socket.emit('scoreData',json);
-	// alert(score);
+	//チーム(選手)名が入力されているかチェック
+	if(teamnameCheck(team_name_a.value,team_name_b.value)==true){
+		var json='{'+
+		'"isGameStarted":'+isGameStarted+','+
+		'"team_name_a":"'+team_name_a.value+'",'+
+		'"team_name_b":"'+team_name_b.value+'",'+
+		'"team_point_a":'+team_point_a.value+','+
+		'"team_point_b":'+team_point_b.value+','+
+		'"team_info_a":"'+team_info_a.value+'",'+
+		'"team_info_b":"'+team_info_b.value+'",'+
+		'"half":"'+half+'"}';
+		socket.emit('scoreData',json);
+		console.log(json);
+	}
 }
 function first_half_start(){
 	var tmp;
@@ -130,5 +131,25 @@ function team_a_getpoint(){
 function team_b_getpoint(){
 	if(checkinput(team_point_b.value)==false){
 		team_point_b.value="";
+	}
+}
+function teamnameCheck(teamA,teamB){
+	if(getSportsName()=='soccer'){
+		if(teamA=="" || teamB==""){
+			alert('チーム名が入力されていません');
+			return false;
+		}
+		else{
+			return true;
+		}
+	}
+	else if(getSportsName()=='fencing'){
+		if(teamA=="" || teamB==""){
+			alert('選手名が入力されていません');
+			return false;
+		}
+		else{
+			return true;
+		}
 	}
 }
