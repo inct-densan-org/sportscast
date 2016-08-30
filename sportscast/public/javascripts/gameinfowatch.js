@@ -14,6 +14,7 @@ var setItv_f;
 var setItv_l;
 
 function readJSONdata(data){
+	console.log(data);
 	var jsonobj=JSON.parse(data);
 	isGameStarted=jsonobj.isGameStarted;
 	team_name_a.value=jsonobj.team_name_a;
@@ -36,11 +37,12 @@ function readJSONdata(data){
 	}
 	//競技がフェンシングのとき
 	else if(getSportsName()=="fencing"){
-		if(isGameStarted==true){
+		if(isGameStarted==true && isFirstHalfStarted==false){
 			half="";
 			first_half_start();
+			isFirstHalfStarted=true;
 		}
-		else{
+		else if(isGameStarted==false && isFirstHalfStarted==true){
 			finishgame();
 		}
 	}

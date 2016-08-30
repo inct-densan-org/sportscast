@@ -74,7 +74,6 @@ function latter_half_start(){
 }
 
 function finishgame(){
-	half="";
 	isGameStarted=false;
 	//競技がサッカーなら後半のタイマーを止める
 	if(getSportsName()=="soccer"){
@@ -89,6 +88,7 @@ function finishgame(){
 	var finish_game_button=document.getElementById('finish-game-button');
 	finish_game_button.disabled=true;
 	sendScore();
+	half="";
 }
 //競技によって前後半の表示を切り替える関数
 function showhalf(sports){
