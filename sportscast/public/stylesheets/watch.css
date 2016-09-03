@@ -246,4 +246,39 @@
 		border-width: 2px;
 		box-shadow: 2px 2px rgba(0,0,0,0.4);
 	}
+
+	#chat-open-button{
+		background-color: #aaa;
+		position: fixed;
+		right: 4px;
+		top: 120px;
+		padding: 4px;
+		-ms-writing-mode: tb-rl; /* for MS IE8+ */
+		-webkit-writing-mode: vertical-rl;
+		writing-mode: vertical-rl;
+		border-style: solid;
+		border-color: #1976d2;
+		border-radius: 4px;
+		border-width: 2px;
+		box-shadow: 2px 2px rgba(0,0,0,0.4);
+	}
+	.chat-opne-icon{
+		width: 32px;
+		height: 32px;
+	}
+
+	#chat{
+		display: none;
+		position: fixed;
+		right: 4px;
+		top: 120px;
+		bottom: 4px;
+		background-color: #eee;
+		width: 240px;
+		border-style: solid;
+		border-color: #1976d2;
+		border-radius: 4px;
+		border-width: 2px;
+		box-shadow: 2px 2px rgba(0,0,0,0.4);
+	}
 }
