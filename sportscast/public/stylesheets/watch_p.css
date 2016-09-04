@@ -192,7 +192,7 @@
 		border-width: 2px;
 	}
 
-	.chat{
+	#chat{
 		position: fixed;
 		left: 14px;
 		right: 14px;
@@ -220,7 +220,7 @@
 		border-width: 2px;
 		box-shadow: 2px 2px rgba(0,0,0,0.4);
 	}
-	.chat-opne-icon{
+	#chat-open-icon{
 		width: 32px;
 		height: 32px;
 		transform: rotate(90deg);

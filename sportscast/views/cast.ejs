@@ -48,8 +48,8 @@
 				<button id="score-send-button" onclick="sendScore()">競技状況送信</button>
 			</div>
 		</div>
-		<div class="chat">
-			<div id="chat-open-button"><img class="chat-opne-icon" src="/images/arrow.png">チャット機能</div>
+		<div id="chat">
+			<div id="chat-open-button" onclick="openchat()"><img id="chat-open-icon" src="/images/arrow.png" onmouseover="expicon()" onmouseout="reducticon()">チャット機能</div>
 			<div id="chat-area"><p>チャットの場所</p></div>
 		</div>
 	</div>
@@ -61,5 +61,6 @@
 	<script src="/javascripts/gameinfocast.js"></script>
 	<script src="/javascripts/cast.js"></script>
 	<script src="/javascripts/networkcheck.js"></script>
+	<script src="/javascripts/chat.js"></script>
 </body>
 </html>
