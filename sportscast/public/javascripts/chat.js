@@ -6,7 +6,6 @@ var chat_open_icon=document.getElementById('chat-open-icon');
 
 function checkphone() {//画面の幅からスマホかどうか判定する関数
 	var width=window.innerWidth;
-	console.log(width);
 	if(width<1000){
 		isPhone=true;
 		return;
