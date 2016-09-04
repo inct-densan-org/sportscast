@@ -280,6 +280,10 @@
 	.chat-icon{
 		width: 32px;
 		height: 32px;
+		transition:transform 1.5s;
+	}
+	.chat-icon:hover{
+		transform: rotate(90deg);
 	}
 	#chat-area{
 		background-color: #aaa;

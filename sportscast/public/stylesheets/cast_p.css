@@ -255,6 +255,7 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
+		text-align: center;
 	}
 	#chat-open-icon{
 		width: 32px;
