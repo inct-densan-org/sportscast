@@ -90,6 +90,12 @@ function sendChat(){//chatデータ送信
 	socket.emit('chatData',msg);
 	console.log(msg);
 }
-socket.on('chatData', function(msg){
-	chat_messages.innerHTML+="<li>"+msg+"</li>";
+socket.on('chatData', function(msg){//chatデータ受信時の処理
+	chat_messages.innerHTML+='<li><small>'+getTime()+'</small><br>'+msg+'</li><hr>';
 });
+
+function getTime() {
+	var date=new Date();
+	var time=date.getHours()+':'+date.getMinutes()+':'+date.getSeconds();
+	return time;
+}
