@@ -237,7 +237,7 @@
 		height: 0px;
 		border-radius: 4px;
 		box-shadow: 2px 2px rgba(0,0,0,0.4);
-		overflow: scroll;
+		overflow: auto;
 	}
 	#chat-open-button{
 		background-color: #aaa;
@@ -270,8 +270,9 @@
 		position: relative;
 		margin-top: 0px;
 		background-color: #aaa;
-		height: 98%;
+		height: 80%;
 		z-index: 9;
+		overflow: auto;
 	}
 	.chat-input-button{
 		position: absolute;
