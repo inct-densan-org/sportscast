@@ -52,6 +52,9 @@ function openchat(){
 }
 
 function expicon(){
+	if(isPhone==true){
+		return;
+	}
 	if(isChatOpen==true){
 		chat_open_icon.style.transform='scale(1.2) rotate(180deg)';
 		chat_open_icon.style.MozTransform='scale(1.2) rotate(180deg)';
@@ -64,6 +67,9 @@ function expicon(){
 	}
 }
 function reducticon(){
+	if(isPhone==true){
+		return;
+	}
 	if(isChatOpen==true){
 		chat_open_icon.style.transform='scale(1.0) rotate(180deg)';
 		chat_open_icon.style.MozTransform='scale(1.0) rotate(180deg)';
