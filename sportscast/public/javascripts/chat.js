@@ -3,6 +3,8 @@ var isPhone=false;
 
 var chat=document.getElementById('chat');
 var chat_open_icon=document.getElementById('chat-open-icon');
+var chat_messages=document.getElementById('chat-messages');
+var chat_input=document.getElementById('chat-input');
 
 function checkphone() {//画面の幅からスマホかどうか判定する関数
 	var width=window.innerWidth;
@@ -11,6 +13,7 @@ function checkphone() {//画面の幅からスマホかどうか判定する関�
 		return;
 	}
 	else{
+		isPhone=false;
 		return;
 	}
 }
@@ -81,3 +84,12 @@ function reducticon(){
 		chat_open_icon.style.webkitTransform='scale(1.0)';
 	}
 }
+
+function sendChat(){//chatデータ送信
+	var msg=chat_input.value;
+	socket.emit('chatData',msg);
+	console.log(msg);
+}
+socket.on('chatData', function(msg){
+	chat_messages.innerHTML+="<li>"+msg+"</li>";
+});

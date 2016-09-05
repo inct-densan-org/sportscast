@@ -54,10 +54,10 @@
 				<img id="chat-open-icon" src="/images/arrow.png" onmouseover="expicon()" onmouseout="reducticon()">
 			</div>
 			<div id="chat-area">
-				<p>チャットの場所</p>
+				<p id="chat-messages"></p>
 				<div class="chat-input-button">
 					<input type="text" name="chat-input" id="chat-input">
-					<button id="chat-send-button">送信</button>
+					<button id="chat-send-button" onclick="sendChat()">送信</button>
 				</div>
 			</div>
 		</div>

@@ -177,9 +177,6 @@ var socket = io.connect(ADDRESS); //IPアドレスの部分は実行環境によ
 socket.on('connect', onOpened)
 	  .on('message', onMessage)
 	  .on('user disconnected', onUserDisconnect);
-/*	  .on('ServerToClient', function (data) {//協議状況配信用のやつ
- 			//document.getElementById("message").innerHTML="<div class=\"single\">"+ data + "</div>";
- 	   });*/
 
 //視聴者が接続したときの処理
 function onOpened(evt) {
