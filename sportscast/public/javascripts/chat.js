@@ -87,6 +87,7 @@ function reducticon(){
 
 function sendChat(){//chatデータ送信
 	var msg=chat_input.value;
+	msg=eschtml(msg);
 	socket.emit('chatData',msg);
 	console.log(msg);
 }
@@ -110,4 +111,15 @@ function keycheck(e){
 		sendChat();
 		return;
 	}
+}
+function eschtml(str) {
+	var eschtml_table={
+		'&': '&amp;',
+		'\'': '&quot;',
+		'<': '&lt;',
+		'>': '&gt;'
+	};
+	return str.replace(/[&'<>]/g, function(match) {
+		return eschtml_table[match];
+	});
 }
