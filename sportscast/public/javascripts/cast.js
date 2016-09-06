@@ -529,6 +529,8 @@ function tellCastReady() {
 function hangUp() {
 	//socketサーバーにJSON形式で配信が終了したことを伝える
 	socket.json.send({type: "end_cast"});
+	//試合終了の通知
+	finishgame();
 	//stopAllConnections関数を実行
 	stopAllConnections();
 	//デバッグ用ログ出力
