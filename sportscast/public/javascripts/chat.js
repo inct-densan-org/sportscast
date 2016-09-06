@@ -89,6 +89,7 @@ function sendChat(){//chatデータ送信
 	var msg=chat_input.value;
 	msg=eschtml(msg);
 	socket.emit('chatData',msg);
+	chat_input.value='';
 	console.log(msg);
 }
 socket.on('chatData', function(msg){//chatデータ受信時の処理
