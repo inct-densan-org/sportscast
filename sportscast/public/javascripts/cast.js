@@ -383,6 +383,9 @@ function startVideo() {
 //音声・映像の取得・再生を停止
 //配信者の映像を停止(Stop videoボタンをクリックすることで呼び出される)
 function stopCast() {
+	if(isGameStarted==true){
+		return;
+	}
 	//hangUp関数を呼び出す(下で定義されている)
 	hangUp();
 
@@ -529,8 +532,6 @@ function tellCastReady() {
 function hangUp() {
 	//socketサーバーにJSON形式で配信が終了したことを伝える
 	socket.json.send({type: "end_cast"});
-	//試合終了の通知
-	finishgame();
 	//stopAllConnections関数を実行
 	stopAllConnections();
 	//デバッグ用ログ出力
