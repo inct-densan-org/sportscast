@@ -99,3 +99,15 @@ function getTime() {
 	var time=date.getHours()+':'+date.getMinutes()+':'+date.getSeconds();
 	return time;
 }
+function keycheck(e){
+	if(e.keyCode){
+		if(e.keyCode==13){
+			sendChat();
+			return;
+		}
+	}
+	else if(window.event.keyCode==13){
+		sendChat();
+		return;
+	}
+}
