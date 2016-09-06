@@ -2,6 +2,7 @@ var isChatOpen=false;
 var isPhone=false;
 
 var chat=document.getElementById('chat');
+var chat_area=document.getElementById('chat-area');
 var chat_open_icon=document.getElementById('chat-open-icon');
 var chat_messages=document.getElementById('chat-messages');
 var chat_input=document.getElementById('chat-input');
@@ -91,9 +92,13 @@ function sendChat(){//chatデータ送信
 	socket.emit('chatData',msg);
 	chat_input.value='';
 	console.log(msg);
+	chat_messages.scrollTo(0,chat_area.scrollHeight);
+	console.log(chat_area.scrollHeight);
 }
 socket.on('chatData', function(msg){//chatデータ受信時の処理
 	chat_messages.innerHTML+='<li><small>'+getTime()+'</small><br>'+msg+'</li><hr>';
+	chat_area.scrollTo(0,chat_area.scrollHeight);
+	console.log(chat_messages.scrollHeight);
 });
 
 function getTime() {
