@@ -15,13 +15,13 @@ navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia 
 
 
 var localVideo = document.getElementById('my_video');
-var elapsed_time=document.getElementById("elapsed-time");
-var team_name_a=document.getElementById("team-name-a");
-var team_name_b=document.getElementById("team-name-b");
-var team_point_a=document.getElementById("team-point-a");
-var team_point_b=document.getElementById("team-point-b");
-var team_info_a=document.getElementById("team-info-a");
-var team_info_b=document.getElementById("team-info-b");
+var elapsed_time=document.getElementById('elapsed-time');
+var team_name_a=document.getElementById('team-name-a');
+var team_name_b=document.getElementById('team-name-b');
+var team_point_a=document.getElementById('team-point-a');
+var team_point_b=document.getElementById('team-point-b');
+var team_info_a=document.getElementById('team-info-a');
+var team_info_b=document.getElementById('team-info-b');
 
 var localStream = null;
 var mediaConstraints = {'mandatory': {'OfferToReceiveAudio':false, 'OfferToReceiveVideo':false }};
@@ -58,7 +58,7 @@ var MAX_CONNECTION_COUNT = 10;//最大接続数
 var connections = {}; //接続用の連想配列
 function Connection() { //接続用のクラス
 	var self = this;
-	var id = "";  //視聴者のsocket.id
+	var id = '';  //視聴者のsocket.id
 	var peerconnection = null; //RTCPeerConnectionインスタンス
 }
 
@@ -146,11 +146,11 @@ function stopConnection(id) {
 		//idさんの接続情報を削除
 		delete connections[id];
 		//デバッグ用ログ出力
-		console.log(id + "の接続を切断し、接続情報を削除しました。");
+		console.log(id + 'の接続を切断し、接続情報を削除しました。');
 	}
 	//idさんの情報が存在しなければ以下を実行
 	else {
-		console.error(id + "の接続の切断、接続情報の削除を試みましたが、" + id + "は見つかりませんでした。");
+		console.error(id + 'の接続の切断、接続情報の削除を試みましたが、' + id + 'は見つかりませんでした。');
 	}
 }
 
@@ -178,20 +178,20 @@ socket.on('connect', onOpened)
 	  .on('message', onMessage)
 	  .on('user disconnected', onUserDisconnect);
 /*	  .on('ServerToClient', function (data) {//協議状況配信用のやつ
- 			//document.getElementById("message").innerHTML="<div class=\"single\">"+ data + "</div>";
+ 			//document.getElementById('message').innerHTML='<div class=\'single\'>'+ data + '</div>';
  	   });*/
 
 //視聴者が接続したときの処理
 function onOpened(evt) {
 	socketStatus = true;
 	//デバッグ用ログ出力
-	console.log("socketを開きました。");
+	console.log('socketを開きました。');
 	//部屋名の取得
 	var roomname = getSportsName();
 	//取得した部屋に入室
 	socket.emit('enter', roomname);
 	//デバッグ用ログ出力
-	console.log(roomname + "に入室しました。");
+	console.log(roomname + 'に入室しました。');
 }
 
 //メッセージを受け取ったときの処理(メッセージ受信時のイベントハンドラを設定)
@@ -208,14 +208,14 @@ function onMessage(evt) {
 	if (evt.type === 'cast_request') {
 		if (! isLocalStreamStarted()) {
 			//音声・映像の取得が開始されていなかったらエラーのログ出力
-			console.warn("音声・映像の取得が開始されていないので要求を無視しました。");
+			console.warn('音声・映像の取得が開始されていないので要求を無視しました。');
 			//処理を終了する
 			return;
 		}
 		//sendOffer関数を呼び出し、視聴者のidを渡す。(下で定義されている)
 		sendOffer(id);
 		//デバッグ用ログ出力
-		console.log("リクエストを受け取りました。配信を開始します。");
+		console.log('リクエストを受け取りました。配信を開始します。');
 		return;
 	}
 	//メッセージがanswerであり、かつペア接続しているときの処理
@@ -223,21 +223,21 @@ function onMessage(evt) {
 		//onAnswer関数を呼び出す(下で定義されている)
 		onAnswer(evt);
 		//デバッグ用ログ出力
-		console.log("answerを受信しました。answerのSDPを設定します。");
+		console.log('answerを受信しました。answerのSDPを設定します。');
 	}
 	//メッセージがcandidateであり、かつペア接続しているときの処理
 	else if (evt.type === 'candidate' && isPeerStarted()) {
 		//onCandidate関数を呼び出す(下で定義されている)
 		onCandidate(evt);
 		//デバッグ用ログ出力
-		console.log("ICE candidateを受信しました。");
+		console.log('ICE candidateを受信しました。');
 	}
 	//メッセージがexitのときの処理
 	else if (evt.type === 'exit') {
 		//stopConnection関数を呼び出す(上で定義されている)
 		stopConnection(id);
 		//デバッグ用ログ出力
-		console.log("接続終了");
+		console.log('接続終了');
 	}
 }
 
@@ -247,7 +247,7 @@ function onUserDisconnect(evt) {
 		//stopConnection関数を呼び出し、視聴者のidを渡す(上で定義されている)
 		stopConnection(evt.id);
 		//デバッグ用ログ出力
-		console.log("切断しました。");
+		console.log('切断しました。');
 	}
 }
 
@@ -256,7 +256,7 @@ function onAnswer(evt) {
 	//setAnswe関数を呼び出す(下で定義されている)
 	setAnswer(evt);
 	//デバッグ用ログ出力
-	console.log("Answerを受信しました。");
+	console.log('Answerを受信しました。');
 	console.log(evt);
 }
 
@@ -269,7 +269,7 @@ function onCandidate(evt) {
 	//接続情報が得られなかった時の処理
 	if (! conn) {
 		//デバッグ用ログ出力
-		console.error("peerConnectionが存在しません");
+		console.error('peerConnectionが存在しません');
 		return;
 	}
 
@@ -285,7 +285,7 @@ function onCandidate(evt) {
 	//candidateを接続情報に追加
 	conn.peerconnection.addIceCandidate(candidate);
 	//デバッグ用ログ出力
-	console.log("Candidateを受信しました");
+	console.log('Candidateを受信しました');
 	console.log(candidate);
 }
 
@@ -297,7 +297,7 @@ function sendSDP(sdp) {
 	//sdpをsocketで送信
 	socket.json.send(sdp);
 	//デバッグ用ログ出力
-	console.log("SDPを送信しました。");
+	console.log('SDPを送信しました。');
 	console.log(text);
 }
 
@@ -309,7 +309,7 @@ function sendCandidate(candidate) {
 	//candidateをsocketで送信
 	socket.json.send(candidate);
 	//デバッグ用ログ出力
-	console.log("candidateを送信しました。");
+	console.log('candidateを送信しました。');
 	console.log(text);
 }
 
@@ -358,19 +358,19 @@ function startVideo() {
 		function (stream) { //取得成功時の処理
 			//localstreamに音声・映像を設定
 			localStream = stream;
-			console.log("localstreamに音声・映像を設定:OK");
+			console.log('localstreamに音声・映像を設定:OK');
 			//streamオブジェクトのURLを生成し、videoのsrcにセットする
 			localVideo.src= createObjectURL(stream);
 			//localVideo.src = window.webkitURL.createObjectURL(stream);
-			console.log("streamオブジェクトのURLを生成し、videoのsrcにセットする:OK");
+			console.log('streamオブジェクトのURLを生成し、videoのsrcにセットする:OK');
 			//映像の再生を開始
 			localVideo.play();
-			console.log("映像の再生を開始:OK");
+			console.log('映像の再生を開始:OK');
 			//音量を0に設定
 			localVideo.volume = 0;
-			console.log("音量を0に設定:OK");
+			console.log('音量を0に設定:OK');
 			//現在の状態を表示する
-			//document.getElementById("statusMessage").innerHTML="現在の状態:<b style=\"color:red;\">・配信中</b>";
+			//document.getElementById('statusMessage').innerHTML='現在の状態:<b style=\'color:red;\'>・配信中</b>';
 			//tellCastReady関数を呼び出す(下で定義されている)
 			tellCastReady();
 		},
@@ -390,21 +390,21 @@ function stopCast() {
 	hangUp();
 
 	//videoのsrcを空にする
-	localVideo.src = "";
+	localVideo.src = '';
 	//配信者の映像を停止する
 	localStream.getTracks().forEach(function(track) { track.stop(); });
 	//localStream.stop();
 	//localstreamにnullを代入する
 	localStream = null;
 	//現在の状態を表示する
-	//document.getElementById("statusMessage").innerHTML="現在の状態:<b>配信停止中</b>";
+	//document.getElementById('statusMessage').innerHTML='現在の状態:<b>配信停止中</b>';
 }
 
 //接続処理
 //sendOffer関数から呼び出される
 function prepareNewConnection(id) {
 	//STUNサーバーの設定(Googleのサーバーを使用)
-	var peercon_config = {"iceServers":[{"url": "stun:stun.l.google.com:19302"}]};
+	var peercon_config = {'iceServers':[{'url': 'stun:stun.l.google.com:19302'}]};
 	var peer = null;
 	try {
 		//peerオブジェクトを生成
@@ -414,7 +414,7 @@ function prepareNewConnection(id) {
 	//例外処理
 	catch (e) {
 		//デバッグ用ログ出力
-		console.error("PeerConnectionの作成に失敗しました。\n:" + e.message );
+		console.error('PeerConnectionの作成に失敗しました。\n:' + e.message );
 	}
 
 	//connオブジェクトを生成
@@ -433,7 +433,7 @@ function prepareNewConnection(id) {
 		if (evt.candidate) {
 			//sendCandidate関数の引数にCandidateを渡す
 			sendCandidate({
-				type: "candidate", 
+				type: 'candidate', 
 				sendto: conn.id,
 				sdpMLineIndex: evt.candidate.sdpMLineIndex,
 				sdpMid: evt.candidate.sdpMid,
@@ -444,7 +444,7 @@ function prepareNewConnection(id) {
 		} 
 		else {
 			//デバッグ用ログ出力
-			console.log("ICEイベントの段階:" + evt.eventPhase);
+			console.log('ICEイベントの段階:' + evt.eventPhase);
 			//conn.established = true;
 		}
 	};
@@ -452,7 +452,7 @@ function prepareNewConnection(id) {
 	//localstreamをpeerオブジェクトに追加
 	peer.addStream(localStream);
 	//デバッグ用ログ出力
-	console.log("localStreamを追加しました。");
+	console.log('localStreamを追加しました。');
 
 	//connオブジェクトを返す
 	return conn;
@@ -481,7 +481,7 @@ function sendOffer(id) {
 		},
 		function () { //失敗時の処理
 			//デバッグ用ログ出力
-			console.error("要求の作成に失敗しました。");
+			console.error('要求の作成に失敗しました。');
 		},
 		//受信する内容を指定(配信者は音声・映像どちらもfalse)
 		mediaConstraints
@@ -497,7 +497,7 @@ function setAnswer(evt) {
 	var conn = getConnection(id);
 	if (! conn) {//取得できなかった場合の処理
 		//デバッグ用ログ出力
-		console.error("peerConnectionが存在しません");
+		console.error('peerConnectionが存在しません');
 		return;
 	}
 	//接続に関連付けられたリモートの接続情報を変更
@@ -510,20 +510,20 @@ function setAnswer(evt) {
 function tellCastReady() {
 	if (! isLocalStreamStarted()) {//音声・映像の取得が開始されていない場合
 		//警告メッセージ表示(アラート)
-		alert("ローカルストリームがまだ実行されていません。Start Videoボタンを押してください");
+		alert('ローカルストリームがまだ実行されていません。Start Videoボタンを押してください');
 		return;
 	}
 	if (! socketStatus) {//socketサーバーに接続できていない場合
 		//警告メッセージ表示(アラート)
-		alert("サーバーに接続されていません。リロードして、もう一度お試しください。");
+		alert('サーバーに接続されていません。リロードして、もう一度お試しください。');
 		return;
 	}
 
 	//同じ部屋の視聴者を呼び出します
 	//socketサーバーにJSON形式で準備ができていることを伝える
-	socket.json.send({type: "cast_ready"});
+	socket.json.send({type: 'cast_ready'});
 	//デバッグ用ログ出力
-	console.log("要求を送る前に同じ部屋の視聴者に準備ができていることを伝えます");
+	console.log('要求を送る前に同じ部屋の視聴者に準備ができていることを伝えます');
 }
 
 
@@ -531,9 +531,9 @@ function tellCastReady() {
 //stopCast関数から呼び出される
 function hangUp() {
 	//socketサーバーにJSON形式で配信が終了したことを伝える
-	socket.json.send({type: "end_cast"});
+	socket.json.send({type: 'end_cast'});
 	//stopAllConnections関数を実行
 	stopAllConnections();
 	//デバッグ用ログ出力
-	console.log("ハングアップしました。");
+	console.log('ハングアップしました。');
 }

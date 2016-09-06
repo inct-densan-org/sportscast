@@ -6,7 +6,7 @@ var isFirstHalfStarted=false;
 var isLatterHalfStarted=false;
 
 //前半後半をあらわす変数
-var half="前半";
+var half='前半';
 
 //前半のタイマー
 var setItv_f;
@@ -24,21 +24,21 @@ function readJSONdata(data){
 	team_info_a.value=jsonobj.team_info_a;
 	team_info_b.value=jsonobj.team_info_b;
 	//競技がサッカーのとき
-	if(getSportsName()=="soccer"){
-		if(jsonobj.half=="前半" && isFirstHalfStarted==false){
+	if(getSportsName()=='soccer'){
+		if(jsonobj.half=='前半' && isFirstHalfStarted==false){
 			first_half_start();
 		}
-		else if(jsonobj.half=="後半" && isLatterHalfStarted==false){
+		else if(jsonobj.half=='後半' && isLatterHalfStarted==false){
 			latter_half_start();
 		}
-		else if(jsonobj.half=="後半" && isGameStarted==false){
+		else if(jsonobj.half=='後半' && isGameStarted==false){
 			finishgame();
 		}
 	}
 	//競技がフェンシングのとき
-	else if(getSportsName()=="fencing"){
+	else if(getSportsName()=='fencing'){
 		if(isGameStarted==true && isFirstHalfStarted==false){
-			half="";
+			half='';
 			first_half_start();
 			isFirstHalfStarted=true;
 		}
@@ -46,17 +46,17 @@ function readJSONdata(data){
 			finishgame();
 		}
 	}
-	notification("競技状況が更新されました。",getSportsName());
+	notification('競技状況が更新されました。',getSportsName());
 }
 function first_half_start(){
 	var tmp;
 	setItv_f=setInterval(function(){
 		tmp=showElapsedTime();
 		if(tmp>0){
-			elapsed_time.innerHTML=half+"　"+sectominsec(tmp);
+			elapsed_time.innerHTML=half+'　'+sectominsec(tmp);
 		}
 		else{
-			elapsed_time.innerHTML="";
+			elapsed_time.innerHTML='';
 			clearInterval(setItv_f);
 		}
 	},1000);
@@ -64,17 +64,17 @@ function first_half_start(){
 }
 function latter_half_start(){
 	var tmp;
-	elapsed_time.innerHTML="";
+	elapsed_time.innerHTML='';
 	clearInterval(setItv_f);
 	initGameTime(getSportsName());
-	half="後半";
+	half='後半';
 	setItv_l=setInterval(function(){
 		tmp=showElapsedTime();
 		if(tmp>0){
-			elapsed_time.innerHTML=half+"　"+sectominsec(tmp);
+			elapsed_time.innerHTML=half+'　'+sectominsec(tmp);
 		}
 		else{
-			elapsed_time.innerHTML="";
+			elapsed_time.innerHTML='';
 			clearInterval(setItv_l);
 		}
 	},1000);
@@ -82,29 +82,29 @@ function latter_half_start(){
 }
 function finishgame() {
 	//競技がサッカーなら後半のタイマーを止める
-	if(getSportsName()=="soccer"){
+	if(getSportsName()=='soccer'){
 		clearInterval(setItv_l);
 	}
 	//フェンシングなら前半のタイマーを止める(後半はない)
-	else if(getSportsName()=="fencing"){
+	else if(getSportsName()=='fencing'){
 		clearInterval(setItv_f);
 	}
 	initGameTime(getSportsName());
-	elapsed_time.innerHTML="";
+	elapsed_time.innerHTML='';
 }
 function sectominsec(time) {
 	var sec,min;
 	var tmp;
 	min=((time/60)|0);
 	sec=time%60;
-	tmp=(("0"+min).slice(-2)+":"+("0"+sec).slice(-2));
+	tmp=(('0'+min).slice(-2)+':'+('0'+sec).slice(-2));
 	return tmp;
 }
 //競技によって前後半の表示を切り替える関数
 function showhalf(sports){
 	switch(sports){
-		case"soccer":break;
-		case"fencing":half="";break;
-		default:half="";break;
+		case'soccer':break;
+		case'fencing':half='';break;
+		default:half='';break;
 	}
 }

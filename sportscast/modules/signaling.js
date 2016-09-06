@@ -16,8 +16,8 @@ module.exports=function(io){
 			setRoomname(roomname);
 		});
 
-		socket.on("scoreData",function(data){
-			io.sockets.to(getRoomname()).emit("scoreData",data);
+		socket.on('scoreData',function(data){
+			io.sockets.to(getRoomname()).emit('scoreData',data);
 			console.log(data);
 		});
 
@@ -45,13 +45,13 @@ module.exports=function(io){
 				//部屋名が取得出来たらその部屋に引数のメッセージをブロードキャスト
 				socket.broadcast.to(roomname).emit(type, message);
 				//デバッグ用ログ出力
-				console.log(roomname + "にブロードキャストしました。");
+				console.log(roomname + 'にブロードキャストしました。');
 			}
 			else {
 				//取得できなかったら全体に引数のメッセージをブロードキャスト
 				socket.broadcast.emit(type, message);
 				//デバッグ用ログ出力
-				console.log("全体にブロードキャストしました。");
+				console.log('全体にブロードキャストしました。');
 			}
 		}
 
@@ -66,7 +66,7 @@ module.exports=function(io){
 				//targetにmessageを送信する
 				socket.to(target).emit('message', message);
 				//デバッグ用ログ出力
-				console.log(target + "に" + message + "と送信しました。");
+				console.log(target + 'に' + message + 'と送信しました。');
 				return;
 			}
 
@@ -79,7 +79,7 @@ module.exports=function(io){
 			//ブロードキャストする
 			emitMessage('user disconnected', {id: socket.id});
 			//デバッグ用ログ出力
-			console.log(socket.id + "が接続を終了しました");
+			console.log(socket.id + 'が接続を終了しました');
 
 			//部屋から退出する
 			var roomname = getRoomname();

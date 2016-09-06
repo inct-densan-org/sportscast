@@ -9,11 +9,11 @@ function getSportsName() { // たとえば、 URLに  ?roomname  とする
 	if (args.length > 1) {
 		//配列から要素を取得
 		var sports = args[1];
-		if (sports != "") {
+		if (sports != '') {
 			//部屋名が取得出来たら部屋名を返す
 			return sports;
 		}
 	}
 	//取得できなかったら_defaultroomを返す
-	return "_defaultroom";
+	return '_defaultroom';
 }

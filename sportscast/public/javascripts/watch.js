@@ -13,13 +13,13 @@ navigator.getUserMedia = navigator.getUserMedia || navigator.mozGetUserMedia ||
 
 //var localVideo = document.getElementById('local-video');
 var castVideo = document.getElementById('cast_video');
-var elapsed_time=document.getElementById("elapsed-time");
-var team_name_a=document.getElementById("team-name-a");
-var team_name_b=document.getElementById("team-name-b");
-var team_point_a=document.getElementById("team-point-a");
-var team_point_b=document.getElementById("team-point-b");
-var team_info_a=document.getElementById("team-info-a");
-var team_info_b=document.getElementById("team-info-b");
+var elapsed_time=document.getElementById('elapsed-time');
+var team_name_a=document.getElementById('team-name-a');
+var team_name_b=document.getElementById('team-name-b');
+var team_point_a=document.getElementById('team-point-a');
+var team_point_b=document.getElementById('team-point-b');
+var team_info_a=document.getElementById('team-info-a');
+var team_info_b=document.getElementById('team-info-b');
 
 //var localStream = null;
 var mediaConstraints = {'mandatory': {'OfferToReceiveAudio':true, 'OfferToReceiveVideo':true }};
@@ -51,13 +51,13 @@ function detachVideo(id) {
 		var conn = getConnection(id);
 		if (conn) {
 			castVideo.pause();
-			castVideo.src = "";
+			castVideo.src = '';
 		}
 	}
 	else {
 		//強制切断
 		castVideo.pause();
-		castVideo.src = "";
+		castVideo.src = '';
 	}
 }
 
@@ -74,7 +74,7 @@ function detachVideo(id) {
 // 	castVideo.style.top = top_margin + 'px';
 // 	castVideo.style.left = left_margin + 'px';
 // 	//デバッグ用ログ出力
-// 	console.log("リサイズしました。");
+// 	console.log('リサイズしました。');
 // }
 
 //画面のサイズに応じてvideo要素のサイズを変える
@@ -86,7 +86,7 @@ var MAX_CONNECTION_COUNT = 1;//最大接続数(自分が視聴するので1)
 var connections = {}; //接続用の連想配列
 function Connection() { //接続用のクラス
 	var self = this;
-	var id = "";  //視聴者のsocket.id
+	var id = '';  //視聴者のsocket.id
 	var peerconnection = null; //RTCPeerConnectionインスタンス
 }
 
@@ -173,11 +173,11 @@ function stopConnection(id) {
 		//idさんの接続情報を削除
 		delete connections[id];
 		//デバッグ用ログ出力
-		console.log(id + "の接続を切断し、接続情報を削除しました。");
+		console.log(id + 'の接続を切断し、接続情報を削除しました。');
 	}
 	//idさんの情報が存在しなければ以下を実行
 	else {
-		console.error(id + "の接続の切断、接続情報の削除を試みましたが、" + id + "は見つかりませんでした。");
+		console.error(id + 'の接続の切断、接続情報の削除を試みましたが、' + id + 'は見つかりませんでした。');
 	}
 }
 
@@ -210,13 +210,13 @@ socket.on('connect', onOpened)
 function onOpened(evt) {
 	socketStatus = true;
 	//デバッグ用ログ出力
-	console.log("socketを開きました。");
+	console.log('socketを開きました。');
 	//部屋名の取得
 	var roomname = getSportsName();
 	//取得した部屋に入室
 	socket.emit('enter', roomname);
 	//デバッグ用ログ出力
-	console.log(roomname + "に入室しました。");
+	console.log(roomname + 'に入室しました。');
 }
 
 //メッセージを受け取ったときの処理(メッセージ受信時のイベントハンドラを設定)
@@ -240,11 +240,11 @@ function onMessage(evt) {
 		//接続可能なら以下を実行
 		if (isConnectPossible()) {
 			//socketにJSON形式でidなどを送信
-			socket.json.send({type: "cast_request", sendto: id });
+			socket.json.send({type: 'cast_request', sendto: id });
 		}
 		//接続不可能なら以下を実行
 		else {
-			console.warn("接続数が最大なので呼び出しを無視します");
+			console.warn('接続数が最大なので呼び出しを無視します');
 		}
 		return;
 	}
@@ -252,13 +252,13 @@ function onMessage(evt) {
 	else if (evt.type === 'offer') {
 		onOffer(evt);
 		//デバッグ用ログ出力
-		console.log("offerを受信しました。offerを設定し、Answerを送信しています。");
+		console.log('offerを受信しました。offerを設定し、Answerを送信しています。');
 	}
 	//メッセージがcandidateであり、ペア接続しているときの処理
 	else if (evt.type === 'candidate' && isPeerStarted()) {
 		onCandidate(evt);
 		//デバッグ用ログ出力
-		console.log("ICE candidateを受信しました。");
+		console.log('ICE candidateを受信しました。');
 	}
 	//メッセージがend_castであるときの処理
 	else if (evt.type === 'end_cast') { 
@@ -266,7 +266,7 @@ function onMessage(evt) {
 		stopConnection(id);
 
 		//デバッグ用ログ出力
-		console.log("接続終了");
+		console.log('接続終了');
 	}
 
 }
@@ -279,7 +279,7 @@ function onUserDisconnect(evt) {
 		stopConnection(evt.id);
 	}
 	//デバッグ用ログ出力
-	console.log("切断しました");
+	console.log('切断しました');
 }
 
 //接続要求を受信したときの処理
@@ -288,7 +288,7 @@ function onOffer(evt) {
 	setOffer(evt);
 	sendAnswer(evt);
 	//デバッグ用ログ出力
-	console.log("offerを受信しました。");
+	console.log('offerを受信しました。');
 	console.log(evt);
 }
 
@@ -301,7 +301,7 @@ function onCandidate(evt) {
 	//接続情報が得られなかった時の処理
 	if (! conn) {
 		//デバッグ用ログ出力
-		console.error("ペア接続は存在しません");
+		console.error('ペア接続は存在しません');
 		return;
 	}
 
@@ -317,7 +317,7 @@ function onCandidate(evt) {
 	//candidateを接続情報に追加
 	conn.peerconnection.addIceCandidate(candidate);
 	//デバッグ用ログ出力
-	console.log("Candidateを受信しました");
+	console.log('Candidateを受信しました');
 	console.log(candidate);
 }
 
@@ -329,7 +329,7 @@ function sendSDP(sdp) {
 	//sdpをsocketで送信
 	socket.json.send(sdp);
 	//デバッグ用ログ出力
-	console.log("SDPを送信しました。");
+	console.log('SDPを送信しました。');
 	console.log(text);
 }
 
@@ -341,7 +341,7 @@ function sendCandidate(candidate) {
 	//candidateをsocketで送信
 	socket.json.send(candidate);
 	//デバッグ用ログ出力	
-	console.log("candidateを送信しました。");
+	console.log('candidateを送信しました。');
 	console.log(text);
 }
 
@@ -364,17 +364,17 @@ function createObjectURL(file){
 //setOffer関数で呼び出される
 function prepareNewConnection(id) {
 	if (id==null) {
-		console.log("idがnullです")
+		console.log('idがnullです')
 	}
 	//STUNサーバーの設定(Googleのサーバーを使用)
-	var peercon_config = {"iceServers":[{"url": "stun:stun.l.google.com:19302"}]};
+	var peercon_config = {'iceServers':[{'url': 'stun:stun.l.google.com:19302'}]};
 	var peer = null;
 	try {
 		//peerオブジェクトを生成
 		peer = new peerConnection(peercon_config);
 	} catch (e) {
 		//デバッグ用ログ出力
-		console.error("PeerConnectionの作成に失敗しました。\n:" + e.message);
+		console.error('PeerConnectionの作成に失敗しました。\n:' + e.message);
 	}
 	//connオブジェクトを生成
 	var conn = new Connection();
@@ -392,7 +392,7 @@ function prepareNewConnection(id) {
 		if (evt.candidate) {
 			//sendCandidate関数の引数にCandidateを渡す
 			sendCandidate({
-				type: "candidate", 
+				type: 'candidate', 
 				sendto: conn.id,
 				sdpMLineIndex: evt.candidate.sdpMLineIndex,
 				sdpMid: evt.candidate.sdpMid,
@@ -403,7 +403,7 @@ function prepareNewConnection(id) {
 		}
 		else {
 			//デバッグ用ログ出力
-			console.log("ICEイベントの段階:" + evt.eventPhase);
+			console.log('ICEイベントの段階:' + evt.eventPhase);
 		}
 	};
 
@@ -411,8 +411,8 @@ function prepareNewConnection(id) {
 	//peer.addStream(localStream);
 
 	//イベントハンドラを定義
-	peer.addEventListener("addstream", onRemoteStreamAdded, false);
-	peer.addEventListener("removestream", onRemoteStreamRemoved, false)
+	peer.addEventListener('addstream', onRemoteStreamAdded, false);
+	peer.addEventListener('removestream', onRemoteStreamRemoved, false)
 
 	//リモートストリームを追加した時に、ローカルのvideo要素に渡す
 	function onRemoteStreamAdded(event) {
@@ -420,14 +420,14 @@ function prepareNewConnection(id) {
 		castVideo.src = createObjectURL(event.stream);
 		//castVideo.src = window.webkitURL.createObjectURL(event.stream);
 		//デバッグ用ログ出力
-		console.log("リモートストリームを追加しました。");
+		console.log('リモートストリームを追加しました。');
 	}
 
 	//リモートストリームが削除されたときに、ローカルのvideo要素から削除
 	function onRemoteStreamRemoved(event) {
 		detachVideo(this.id);
 		//デバッグ用ログ出力
-		console.log("リモートストリームを削除しました。");
+		console.log('リモートストリームを削除しました。');
 	}
 
 	//connオブジェクトを返す
@@ -450,7 +450,7 @@ function setOffer(evt) {
 	}
 	else {
 		//デバッグ用ログ出力
-		console.error("ピア接続は既に存在しています");
+		console.error('ピア接続は既に存在しています');
 	}
 }
 
@@ -463,7 +463,7 @@ function sendAnswer(evt) {
 	var conn = getConnection(id);
 	if (! conn) {
 		//デバッグ用ログ出力
-		console.error("ピア接続は存在しません");
+		console.error('ピア接続は存在しません');
 		return;
 	}
 
@@ -476,13 +476,13 @@ function sendAnswer(evt) {
 			sendSDP(sessionDescription);
 		},
 		function () {//失敗時の処理
-			console.error("Answerの作成に失敗しました");
+			console.error('Answerの作成に失敗しました');
 		},
 		//受信する内容を指定(視聴者は音声・映像どちらもtrue)
 		mediaConstraints
 	);
 	//デバッグ用ログ出力
-	console.log("Answerを送信しました。リモートセッションの接続情報を作成しました。");
+	console.log('Answerを送信しました。リモートセッションの接続情報を作成しました。');
 }
 
 //リクエストの送信用関数
@@ -490,28 +490,28 @@ function sendAnswer(evt) {
 function sendRequest() {
 	if (! socketStatus) {
 		//警告メッセージ(アラート)
-		alert("サーバーに接続されていません。リロードして、もう一度お試しください。");
+		alert('サーバーに接続されていません。リロードして、もう一度お試しください。');
 		return;
 	}
 
 	//同じ部屋の視聴者を呼び出します
 	//socketサーバーにJSON形式でリクエストを伝える
-	socket.json.send({type: "cast_request"});
+	socket.json.send({type: 'cast_request'});
 	//デバッグ用ログ出力
-	console.log("同じ部屋にofferを訪ねるリクエストを送信します");
+	console.log('同じ部屋にofferを訪ねるリクエストを送信します');
 }
 
 //ユーザの要求に応じて接続を停止
 //Hang Upボタンがクリックされたときに呼び出される
 function hangUp() {
 	//socketサーバーにJSON形式で視聴を終了したことを伝える
-	socket.json.send({type: "exit"});
+	socket.json.send({type: 'exit'});
 	//映像を切断
 	detachVideo(null);
 	//stopAllConnections関数を実行
 	stopAllConnections();
 	//デバッグ用ログ出力
-	console.log("ハングアップしました");
+	console.log('ハングアップしました');
 }
 
 

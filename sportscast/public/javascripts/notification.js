@@ -23,6 +23,6 @@ if (window.Notification) { // Permissionの確認
 }
 function notification(message,sports){
 	if(notificationPossible){
-		var n = new Notification(message,{body:sports+"の情報が更新されました。",icon:'favicon.ico'});
+		var n = new Notification(message,{body:sports+'の情報が更新されました。',icon:'favicon.ico'});
 	}
 }
