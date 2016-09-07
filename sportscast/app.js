@@ -14,9 +14,6 @@ var createaccount = require('./routes/createaccount');
 
 var app = express();
 
-// var port=3000;
-// app.listen(port);
-
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
