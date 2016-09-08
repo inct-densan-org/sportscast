@@ -33,8 +33,25 @@
 					<div style="float:left; margin-top: 0px; margin-left: 0px;">
 						<input class="text" type="email" name="mail2" id="mail2" size="51" placeholder="info@example.com" required onchange="mail_check();" />
 					</div>
-					<div id="alert" style="color: red; float:left; margin-top: 0px; visibility: hidden">
+					<div id="mailalert" style="color: red; float:left; margin-top: 0px; visibility: hidden">
 						メールアドレスが一致していません
+					</div>
+				</label>
+			</div>
+			<div class="forms" style="clear:both;margin-top:32px;">
+				<label>
+					パスワード<br>
+					<input class="text" type="password" name="pass1" id="pass1" size="51" placeholder="" required onchange="pass_check();" />
+				</label>
+			</div>
+			<div class="forms" style="clear:both;">
+				<label>
+					パスワードをもう一度入力してください<br>
+					<div style="float:left; margin-top: 0px; margin-left: 0px;">
+						<input class="text" type="password" name="pass2" id="pass2" size="51" placeholder="" required onchange="pass_check();" />
+					</div>
+					<div id="passalert" style="color: red; float:left; margin-top: 0px; visibility: hidden">
+						パスワードが一致していません
 					</div>
 				</label>
 			</div>
@@ -42,6 +59,12 @@
 				<label>
 					本サービスを使用する大会名<br>
 					<input class="text" type="text" name="Tournament" id="Tournament" size="51" placeholder="プログラミングコンテスト" required />
+				</label>
+			</div>
+			<div class="forms" style="clear:both;">
+				<label>
+					競技名<br>
+					<input class="text" type="text" name="sports" id="sports" size="51" placeholder="soccer" required />
 				</label>
 			</div>
 			<div class="forms" style="clear:both;">
