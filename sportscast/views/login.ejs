@@ -3,11 +3,23 @@
   <head>
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
-    <script src="/javascripts/networkcheck.js"></script>
   </head>
   <body>
     <h1><%= title %></h1>
-    <p>Login Page</p>
-    <a href="./cast">cast</a><br>
+    <p>Welcome to <%= title %></p>
+    <p style="color:red;font-size:20px;"><b><%= message %></b></p>
+    <form action="/login" method="post">
+    <div>
+        <label>ユーザーID：</label>
+        <input type="text" name="username"/>
+    </div>
+    <div>
+        <label>パスワード：</label>
+        <input type="password" name="password"/>
+    </div>
+    <div>
+        <input type="submit" value="ログイン"/>
+    </div>
+</form>
   </body>
 </html>
