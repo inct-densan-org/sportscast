@@ -18,7 +18,12 @@ module.exports=function(io){
 
 		socket.on("scoreData",function(data){
 			io.sockets.to(getRoomname()).emit("scoreData",data);
-			console.log(data);
+			console.log('scoreData:'+data);
+		});
+
+		socket.on('chatData',function (data) {
+			io.sockets.to(getRoomname()).emit('chatData',data);
+			console.log('ID=' + socket.id +' chatData:'+data);
 		});
 
 		function setRoomname(room) {

@@ -55,17 +55,15 @@
 	}
 
 	.titles{
-		/*position: relative;*/
 		height: 280px;
 	}
-	.soccer-image{
+	#soccer-image{
 		position: relative;
 		background-image: url(/images/soccer.png);
 		-moz-background-size:cover;
 		background-size:cover;
 		display: inline-block;
 		width: 45%;
-		height: 50%;
 		border-style: solid;
 		border-color: #1976d2;
 		border-width: 2px;
@@ -85,14 +83,13 @@
 		font-size: 18px;
 		color: #fff;
 	}
-	.fencing-image{
+	#fencing-image{
 		position: relative;
 		background-image: url(/images/fencing.png);
 		-moz-background-size:cover;
 		background-size:cover;
 		display: inline-block;
 		width: 45%;
-		height: 50%;
 		border-style: solid;
 		border-color: #1976d2;
 		border-width: 2px;
@@ -112,14 +109,13 @@
 		font-size: 18px;
 		color: #fff;
 	}
-	.empty-image{
+	#empty-image{
 		position: relative;
 		background-image: url(/images/empty.png);
 		-moz-background-size:cover;
 		background-size:cover;
 		display: inline-block;
 		width: 45%;
-		height: 50%;
 		border-style: solid;
 		border-color: #1976d2;
 		border-width: 2px;

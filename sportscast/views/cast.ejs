@@ -48,6 +48,19 @@
 				<button id="score-send-button" onclick="sendScore()">競技状況送信</button>
 			</div>
 		</div>
+		<div id="chat">
+			<div id="chat-open-button" onclick="openchat()">
+				<img class="chat-icon" src="/images/chat.png" title="chatを開きます。">
+				<img id="chat-open-icon" src="/images/arrow.png" title="chatを開きます。" onmouseover="expicon()" onmouseout="reducticon()">
+			</div>
+			<div id="chat-area">
+				<p id="chat-messages"></p>
+			</div>
+			<div class="chat-input-button">
+				<input type="text" name="chat-input" id="chat-input" onkeydown="keycheck(event)">
+				<button id="chat-send-button" onclick="sendChat()">送信</button>
+			</div>
+		</div>
 	</div>
 	<!-- <script src="//192.168.0.14:3001/socket.io/socket.io.js"></script> -->
 	<script src="//localhost:3001/socket.io/socket.io.js"></script>
@@ -57,5 +70,6 @@
 	<script src="/javascripts/gameinfocast.js"></script>
 	<script src="/javascripts/cast.js"></script>
 	<script src="/javascripts/networkcheck.js"></script>
+	<script src="/javascripts/chat.js"></script>
 </body>
 </html>

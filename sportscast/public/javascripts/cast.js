@@ -177,9 +177,6 @@ var socket = io.connect(ADDRESS); //IPアドレスの部分は実行環境によ
 socket.on('connect', onOpened)
 	  .on('message', onMessage)
 	  .on('user disconnected', onUserDisconnect);
-/*	  .on('ServerToClient', function (data) {//協議状況配信用のやつ
- 			//document.getElementById("message").innerHTML="<div class=\"single\">"+ data + "</div>";
- 	   });*/
 
 //視聴者が接続したときの処理
 function onOpened(evt) {
@@ -386,6 +383,9 @@ function startVideo() {
 //音声・映像の取得・再生を停止
 //配信者の映像を停止(Stop videoボタンをクリックすることで呼び出される)
 function stopCast() {
+	if(isGameStarted==true){
+		return;
+	}
 	//hangUp関数を呼び出す(下で定義されている)
 	hangUp();
 

@@ -13,24 +13,29 @@ var setItv_l;
 //競技状況配信
 function sendScore(){
 	//チーム(選手)名が入力されているかチェック
-	if(teamnameCheck(team_name_a.value,team_name_b.value)==true){
-		var json='{'+
-		'"isGameStarted":'+isGameStarted+','+
-		'"team_name_a":"'+team_name_a.value+'",'+
-		'"team_name_b":"'+team_name_b.value+'",'+
-		'"team_point_a":'+team_point_a.value+','+
-		'"team_point_b":'+team_point_b.value+','+
-		'"team_info_a":"'+team_info_a.value+'",'+
-		'"team_info_b":"'+team_info_b.value+'",'+
-		'"half":"'+half+'"}';
-		socket.emit('scoreData',json);
-		console.log(json);
+	if(teamnameCheck(team_name_a.value,team_name_b.value)==false){
+		return false;
 	}
+	var json='{'+
+	'"isGameStarted":'+isGameStarted+','+
+	'"team_name_a":"'+team_name_a.value+'",'+
+	'"team_name_b":"'+team_name_b.value+'",'+
+	'"team_point_a":'+team_point_a.value+','+
+	'"team_point_b":'+team_point_b.value+','+
+	'"team_info_a":"'+team_info_a.value+'",'+
+	'"team_info_b":"'+team_info_b.value+'",'+
+	'"half":"'+half+'"}';
+	socket.emit('scoreData',json);
+	console.log(json);
+	return true;
 }
 function first_half_start(){
 	var tmp;
 	isGameStarted=true;
-	sendScore();
+	if(sendScore()==false){
+		isGameStarted=false;
+		return;
+	}
 	setItv_f=setInterval(function(){
 		tmp=showElapsedTime();
 		if(tmp>0){
