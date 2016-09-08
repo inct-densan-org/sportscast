@@ -1,5 +1,5 @@
 var express = require('express');
-var mail=require('../modules/mail.js')
+var mail=require('../modules/mail.js');
 var router = express.Router();
 
 /* GET home page. */
