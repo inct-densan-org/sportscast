@@ -12,8 +12,6 @@ var passport = require('passport'),
 var mongoose = require('mongoose');
 
 mongoose.connect('mongodb://61.23.8.105:47017/sportscasttestdb',
-//id g14506
-//pass passw0rd2
 	function(err) {
 		if (err) {
 			console.log(err);
@@ -38,12 +36,12 @@ passport.use(new LocalStrategy(
 		}, function(err, docs) {
 			if (err) {
 				return done(null, false, {
-					message: 'ƒ†[ƒU[–¼‚ªŠÔˆá‚Á‚Ä‚¢‚Ü‚·'
+					message: 'ãƒ¦ãƒ¼ã‚¶ãƒ¼åãŒé–“é•ã£ã¦ã„ã¾ã™'
 				});
 			}
 			if (!docs.length) {
 				return done(null, false, {
-					message: 'ƒ†[ƒU[–¼‚ªŠÔˆá‚Á‚Ä‚¢‚Ü‚·'
+					message: 'ãƒ¦ãƒ¼ã‚¶ãƒ¼åãŒé–“é•ã£ã¦ã„ã¾ã™'
 				});
 			}
 			docs.forEach(function(doc) {
@@ -52,12 +50,12 @@ passport.use(new LocalStrategy(
 				}
 				if (!doc) {
 					return done(null, false, {
-						message: 'ƒ†[ƒU[–¼‚ªŠÔˆá‚Á‚Ä‚¢‚Ü‚·'
+						message: 'ãƒ¦ãƒ¼ã‚¶ãƒ¼åãŒé–“é•ã£ã¦ã„ã¾ã™'
 					});
 				}
 				if (doc.pass != password) {
 					return done(null, false, {
-						message: 'ƒpƒXƒ[ƒh‚ªŠÔˆá‚Á‚Ä‚¢‚Ü‚·'
+						message: 'ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ãŒé–“é•ã£ã¦ã„ã¾ã™'
 					});
 				}
 				return done(null, doc);
@@ -103,7 +101,7 @@ router.post('/',
 		failureFlash: true
 	}),
 	function(req, res, next) {
-		res.redirect('/user');
+		res.redirect('/cast?'+req.user.sports);
 	}
 );
 module.exports = router;
