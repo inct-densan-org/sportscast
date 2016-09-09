@@ -2,7 +2,9 @@
 <html>
 	<head>
 		<title><%= title %></title>
-		<link rel="stylesheet" href="stylesheets/createaccount.css" />
+		<meta name="viewport" content="width=device-width,user-scalable=no,maximum-scale=1" />
+		<link rel="stylesheet" type="text/css" href="/stylesheets/createaccount.css">
+		<link rel="stylesheet" type="text/css" href="/stylesheets/createaccount_p.css">
 	</head>
 	<body>
 		<h1><%= title %></h1>
@@ -96,12 +98,8 @@
 			</div>
 			<div class="forms" style="clear:both;">
 				<input type="submit" value="登録" class="create"/>
-				<!--
-					return fales; をなくすことでリロードできる
-				-->
 			</div>
 		</form>
 	</body>
-	<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 	<script src="/javascripts/createaccount.js"></script>
 </html>
