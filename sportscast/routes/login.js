@@ -1,17 +1,12 @@
 var express = require('express');
 var router = express.Router();
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('login', { title: 'Login', message:''});
-});
-
 var passport = require('passport'),
 	LocalStrategy = require('passport-local').Strategy;
 
 var mongoose = require('mongoose');
 
-mongoose.connect('mongodb://61.23.8.105:47017/sportscasttestdb',
+mongoose.connect('mongodb://61.23.8.105:47017/SportsCastDB',
 	function(err) {
 		if (err) {
 			console.log(err);
@@ -23,16 +18,20 @@ mongoose.connect('mongodb://61.23.8.105:47017/sportscasttestdb',
 
 var schema = mongoose.Schema;
 
-var article = mongoose.model('users', new schema({
-	id: String,
+var article = mongoose.model('usersdatas', new schema({
+	email: String,
 	pass: String,
-	sports: String
+	sports: String,
+	enable: Boolean,
+	lastname: String,
+	tournament: String,
+	firstname: String
 }));
 
 passport.use(new LocalStrategy(
 	function(username, password, done) {
 		article.find({
-			id: username
+			email: username
 		}, function(err, docs) {
 			if (err) {
 				return done(null, false, {
@@ -58,6 +57,12 @@ passport.use(new LocalStrategy(
 						message: 'パスワードが間違っています'
 					});
 				}
+				if(doc.enable === false){
+					console.log(doc.enable);
+					return done(null, false, {
+						message: 'このアカウントはまだ有効化されていません。'
+					});
+				}
 				return done(null, doc);
 			});
 		});
@@ -65,12 +70,12 @@ passport.use(new LocalStrategy(
 
 // Configure Passport authenticated session persistence.
 passport.serializeUser(function(user, done) {
-	done(null, user.id);
+	done(null, user.email);
 });
 
-passport.deserializeUser(function(id, done) {
+passport.deserializeUser(function(email, done) {
 	article.find({
-		id: id
+		email: email
 	}, function(err, docs) {
 		docs.forEach(function(doc) {
 			if (err) {
@@ -82,18 +87,17 @@ passport.deserializeUser(function(id, done) {
 });
 
 
-router.get('/',
-	function(req, res, next) {
-		var errorMsg = '';
-		var error = req.flash().error;
-		if (error) {
-			errorMsg = error[0];
-		}
-		res.render('login', {
-			title: 'Login',
-			message: errorMsg
-		});
+router.get('/',function(req, res, next) {
+	var errorMsg = '';
+	var error = req.flash().error;
+	if (error) {
+		errorMsg = error[0];
+	}
+	res.render('login', {
+		title: 'Login',
+		message: errorMsg
 	});
+});
 
 router.post('/',
 	passport.authenticate('local', {
