@@ -1,0 +1,28 @@
+@media screen and (max-width:1000px){
+	body {
+		padding: 5px;
+		font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+		background: #fafafa;
+	}
+
+	a {
+		color: #1976d2;
+		text-decoration:none;
+	}
+	.submit{
+		width: 100px;
+		height: 40px;
+		background-color: #1976d2;
+		border-radius: 10px;
+		font-size: 20px;
+		color: #fff;
+		border: 1px;
+	}
+	.text{
+		font-size: 14px;
+		border-style: solid;
+		border-color: #1976d2;
+		border-radius: 4px;
+		border-width: 2px;
+	}
+}
