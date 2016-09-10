@@ -1,6 +1,6 @@
 var BROADCAST_ID = '_broadcast_';
 
-module.exports=function(io){
+module.exports = function(io) {
 	io.on('connect', function(socket) {
 		//以下接続成功後の処理
 
@@ -16,6 +16,7 @@ module.exports=function(io){
 			setRoomname(roomname);
 		});
 
+<<<<<<< HEAD
 		socket.on("scoreData",function(data){
 			io.sockets.to(getRoomname()).emit("scoreData",data);
 			console.log('scoreData:'+data);
@@ -24,6 +25,11 @@ module.exports=function(io){
 		socket.on('chatData',function (data) {
 			io.sockets.to(getRoomname()).emit('chatData',data);
 			console.log('ID=' + socket.id +' chatData:'+data);
+=======
+		socket.on('scoreData', function(data) {
+			io.sockets.to(getRoomname()).emit('scoreData', data);
+			console.log(data);
+>>>>>>> source-formatting
 		});
 
 		function setRoomname(room) {
@@ -50,13 +56,12 @@ module.exports=function(io){
 				//部屋名が取得出来たらその部屋に引数のメッセージをブロードキャスト
 				socket.broadcast.to(roomname).emit(type, message);
 				//デバッグ用ログ出力
-				console.log(roomname + "にブロードキャストしました。");
-			}
-			else {
+				console.log(roomname + 'にブロードキャストしました。');
+			} else {
 				//取得できなかったら全体に引数のメッセージをブロードキャスト
 				socket.broadcast.emit(type, message);
 				//デバッグ用ログ出力
-				console.log("全体にブロードキャストしました。");
+				console.log('全体にブロードキャストしました。');
 			}
 		}
 
@@ -67,11 +72,11 @@ module.exports=function(io){
 
 			//ブロードキャストする対象を取得
 			var target = message.sendto;
-			if ( (target) && (target != BROADCAST_ID) ) {
+			if ((target) && (target != BROADCAST_ID)) {
 				//targetにmessageを送信する
 				socket.to(target).emit('message', message);
 				//デバッグ用ログ出力
-				console.log(target + "に" + message + "と送信しました。");
+				console.log(target + 'に' + message + 'と送信しました。');
 				return;
 			}
 
@@ -82,9 +87,11 @@ module.exports=function(io){
 		//配信者が終了したときに、部屋内の全ての視聴者に終了シグナルをブロードキャストする
 		socket.on('disconnect', function() {
 			//ブロードキャストする
-			emitMessage('user disconnected', {id: socket.id});
+			emitMessage('user disconnected', {
+				id: socket.id
+			});
 			//デバッグ用ログ出力
-			console.log(socket.id + "が接続を終了しました");
+			console.log(socket.id + 'が接続を終了しました');
 
 			//部屋から退出する
 			var roomname = getRoomname();
