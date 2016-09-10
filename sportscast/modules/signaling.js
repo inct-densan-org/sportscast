@@ -16,7 +16,7 @@ module.exports = function(io) {
 			setRoomname(roomname);
 		});
 
-		socket.on'scoreData',function(data){
+		socket.on('scoreData',function(data){
 			io.sockets.to(getRoomname()).emit("scoreData",data);
 			console.log('scoreData:'+data);
 		});

@@ -18,7 +18,7 @@ var dataschema=new schema({
 	enable : Boolean
 });
 
-mongoose.model('usersdatas',dataschema);
+mongoose.model('usersdata',dataschema);
 mongoose.connect('mongodb://61.23.8.105:47017/SportsCastDB',
 	function(err) {
 		if (err) {
