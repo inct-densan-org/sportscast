@@ -16,8 +16,7 @@ module.exports = function(io) {
 			setRoomname(roomname);
 		});
 
-<<<<<<< HEAD
-		socket.on("scoreData",function(data){
+		socket.on'scoreData',function(data){
 			io.sockets.to(getRoomname()).emit("scoreData",data);
 			console.log('scoreData:'+data);
 		});
@@ -25,11 +24,6 @@ module.exports = function(io) {
 		socket.on('chatData',function (data) {
 			io.sockets.to(getRoomname()).emit('chatData',data);
 			console.log('ID=' + socket.id +' chatData:'+data);
-=======
-		socket.on('scoreData', function(data) {
-			io.sockets.to(getRoomname()).emit('scoreData', data);
-			console.log(data);
->>>>>>> source-formatting
 		});
 
 		function setRoomname(room) {
