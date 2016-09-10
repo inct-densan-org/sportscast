@@ -11,11 +11,10 @@ var settings = {
 var smtp = mailer.createTransport(settings);
 
 module.exports=function(message){
-	var msg='<p>'+JSON.stringify(message)+'</p>';
 	var options = {
 		to : 'example@example.org',
 		subject : 'SportsCast! アカウント作成申請',
-		html : msg,
+		html : message,
 		form : 'SportsCast! Server'
 	};
 	smtp.sendMail(options, function(error, result) {

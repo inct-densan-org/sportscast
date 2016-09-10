@@ -55,8 +55,8 @@ router.post('/',function(req,res,next){
 			console.log(err);
 		}
 	});
-	var mailmsg=req.body.LastName+'　'+req.body.FirstName+'さんがアカウント作成を申請しました。'
-	//mail(mailmsg);
+	var mailmsg=req.body.LastName+'　'+req.body.FirstName+'さんがアカウント作成を申請しました。';
+	mail(mailmsg);
 	res.send('<p>登録が完了しました。</p><br><a href=\"/\">トップページに戻る</a>');
 });
 module.exports = router;
