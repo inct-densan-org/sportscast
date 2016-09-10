@@ -3,9 +3,9 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    res.render('createaccount', {
-        title: 'CreateAccount'
-    });
+	res.render('createaccount', {
+		title: 'CreateAccount'
+	});
 });
 
 module.exports = router;
