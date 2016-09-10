@@ -1,11 +1,105 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title><%= title %></title>
-	<link rel='stylesheet' href='/stylesheets/style.css' />
-</head>
-<body>
-	<h1><%= title %></h1>
-	<p><%= title %> Page</p>
-</body>
+	<head>
+		<title><%= title %></title>
+		<meta name="viewport" content="width=device-width,user-scalable=no,maximum-scale=1" />
+		<link rel="stylesheet" type="text/css" href="/stylesheets/createaccount.css">
+		<link rel="stylesheet" type="text/css" href="/stylesheets/createaccount_p.css">
+	</head>
+	<body>
+		<h1><%= title %></h1>
+		<p><%= title %> Page</p>
+		<form method="post" name="form1" id="form1" action="/createaccount">
+			すべて必須項目です。すべての項目を入力したうえで登録ボタンを押してください。<br>
+			<div class="name" style="float:left;">
+				<label>
+					氏<br>
+					<input class="text" type="text" name="LastName" id="LastName" placeholder="高専" required />
+				</label>
+			</div>
+			<div class="name" style="float:left;">
+				<label>
+					名<br>
+					<input class="text" type="text" name="FirstName" id="FirstName" placeholder="太郎" required />
+				</label>
+			</div>
+			<div class="forms" style="clear:both;">
+				<label>
+					メールアドレス<br>
+					<input class="text" type="email" name="mail1" id="mail1" size="51" placeholder="info@example.com" required onchange="mail_check();" />
+				</label>
+			</div>
+			<div class="forms" style="clear:both;">
+				<label>
+					メールアドレスをもう一度入力してください<br>
+					<div style="float:left; margin-top: 0px; margin-left: 0px;">
+						<input class="text" type="email" name="mail2" id="mail2" size="51" placeholder="info@example.com" required onchange="mail_check();" />
+					</div>
+					<div id="mailalert" style="color: red; float:left; margin-top: 0px; visibility: hidden">
+						メールアドレスが一致していません
+					</div>
+				</label>
+			</div>
+			<div class="forms" style="clear:both;margin-top:32px;">
+				<label>
+					パスワード<br>
+					<input class="text" type="password" name="pass1" id="pass1" size="51" placeholder="" required onchange="pass_check();" />
+				</label>
+			</div>
+			<div class="forms" style="clear:both;">
+				<label>
+					パスワードをもう一度入力してください<br>
+					<div style="float:left; margin-top: 0px; margin-left: 0px;">
+						<input class="text" type="password" name="pass2" id="pass2" size="51" placeholder="" required onchange="pass_check();" />
+					</div>
+					<div id="passalert" style="color: red; float:left; margin-top: 0px; visibility: hidden">
+						パスワードが一致していません
+					</div>
+				</label>
+			</div>
+			<div class="forms" style="clear:both; margin-top: 32px;">
+				<label>
+					本サービスを使用する大会名<br>
+					<input class="text" type="text" name="Tournament" id="Tournament" size="51" placeholder="プログラミングコンテスト" required />
+				</label>
+			</div>
+			<div class="forms" style="clear:both;">
+				<label>
+					競技名<br>
+					<input class="text" type="text" name="sports" id="sports" size="51" placeholder="soccer" required />
+				</label>
+			</div>
+			<div class="forms" style="clear:both;">
+				使用日時<br>
+				<div class="date1" style="float:left;">
+					<label>
+						<input class="text" type="date" name="start" id="start" placeholder="2016-11-03" required />
+					</label>
+				</div>
+				<div style="float:left; margin-bottom:16px;">
+					～
+				</div>
+				<div class="date1" style="float:left;">
+					<label>
+						<input class="text" type="date" name="finish" id="finish" placeholder="2016-11-06" required />
+					</label>
+				</div>
+			</div>
+
+			<div class="forms" style="clear:both;">
+				<label>
+					<input type="checkbox" name="policy" id="policy" value="1" required /><a href="htmls/policy.html" target="_blank">プライバシーポリシー</a>に同意する
+				</label>
+			</div>
+			<div class="forms" style="clear:both;">
+				<label>
+					<input type="checkbox" name="Terms" id="Terms" value="1" required /><a href="htmls/terms.html" target="_blank">利用規約</a>に同意する
+				</label>
+			</div>
+			<div class="forms" style="clear:both;">
+				<input type="submit" value="登録" class="create"/>
+			</div>
+		</form>
+	</body>
+	<script src="/javascripts/createaccount.js"></script>
 </html>
