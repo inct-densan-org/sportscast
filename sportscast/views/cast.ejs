@@ -7,8 +7,9 @@
 	<link rel="stylesheet" type="text/css" href="/stylesheets/cast_p.css">
 </head>
 <body>
-	<h1><%= title %></h1>
-	<p><%= title %> Page</p>
+	<h1><%= title %></h1><a href="/logout">Logout</a>
+	<p>Cast Page</p>
+	<p>配信者:<%= caster %>　大会名:<%= Tournament %>　競技名:<%= sports %></p>
 	<div class="contents">
 		<div class="video">
 			<video id="my_video" autoplay></video>
