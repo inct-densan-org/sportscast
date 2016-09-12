@@ -7,9 +7,8 @@
 	<link rel="stylesheet" type="text/css" href="/stylesheets/cast_p.css">
 </head>
 <body>
-	<h1><%= title %></h1><a href="/logout">Logout</a>
-	<p>Cast Page</p>
-	<p>配信者:<%= caster %>　大会名:<%= Tournament %>　競技名:<%= sports %></p>
+	<h1><%= title %></h1>
+	<a href="/logout"><div class="logout-button">Logout</div></a>
 	<div class="contents">
 		<div class="video">
 			<video id="my_video" autoplay></video>
@@ -17,6 +16,9 @@
 			<button class="cast_stop_button" onclick="stopCast();">配信停止</button>
 			<button class="cast_start_button" onclick="tellCastReady();">配信開始</button>
 			<button class="video_start_button" onclick="startVideo();">映像取得開始</button>
+			<div class="userdata">
+				<p>配信者:<%= caster %>　<span class="br"></span>大会名:<%= Tournament %>　<span class="br"></span>競技名:<%= sports %></p>
+			</div>
 		</div>
 		<span class="br"></span>
 		<div class="score">
