@@ -13,10 +13,15 @@
 		<div class="video">
 			<div class="video-area">
 				<video id="cast_video" autoplay></video>
+				<video id="replay_video" autoplay></video>
 				<div id="fullscreen-button" onclick="fullscreen()"></div>
 			</div>
 			<button class="watch_stop_button" onclick="hangUp();">視聴終了</button>
 			<button class="watch_start_button" onclick="sendRequest();">視聴開始</button>
+			<!-- <button id="rec" onclick="startRecording()">REC START</button> -->
+			<!-- <button id="rec" onclick="stopRecording()">REC STOP</button> -->
+			<br>
+			<button id="play_button" onclick="playRecorded()">Play</button>
 		</div>
 		<span class="br"></span>
 		<div class="score">
@@ -65,5 +70,6 @@
 	<script src="/javascripts/networkcheck.js"></script>
 	<script src="/javascripts/notification.js"></script>
 	<script src="/javascripts/chat.js"></script>
+	<!-- <script src="/javascripts/replay.js"></script> -->
 </body>
 </html>
