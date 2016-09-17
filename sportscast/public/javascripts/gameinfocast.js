@@ -18,13 +18,13 @@ function sendScore() {
 	}
 	var json = '{' +
 			'"isGameStarted":' + isGameStarted + ',' +
-			'"team_name_a":' + team_name_a.value + ',' +
-			'"team_name_b":' + team_name_b.value + ',' +
-			'"team_point_a":' + team_point_a.value + ',' +
-			'"team_point_b":' + team_point_b.value + ',' +
-			'"team_info_a":' + team_info_a.value + ',' +
-			'"team_info_b":' + team_info_b.value + ',' +
-			'"half:' + half +
+			'"team_name_a":"' + team_name_a.value + '",' +
+			'"team_name_b":"' + team_name_b.value + '",' +
+			'"team_point_a":"' + team_point_a.value + '",' +
+			'"team_point_b":"' + team_point_b.value + '",' +
+			'"team_info_a":"' + team_info_a.value + '",' +
+			'"team_info_b":"' + team_info_b.value + '",' +
+			'"half:"' + half +'"'+
 			'}';
 	socket.emit('scoreData',json);
 	console.log(json);
