@@ -12,6 +12,7 @@ navigator.getUserMedia = navigator.getUserMedia || navigator.mozGetUserMedia ||
 
 
 var castVideo = document.getElementById('cast_video');
+var replayVideo = document.getElementById('replay_video');
 var elapsed_time = document.getElementById('elapsed-time');
 var team_name_a = document.getElementById('team-name-a');
 var team_name_b = document.getElementById('team-name-b');
@@ -19,6 +20,15 @@ var team_point_a = document.getElementById('team-point-a');
 var team_point_b = document.getElementById('team-point-b');
 var team_info_a = document.getElementById('team-info-a');
 var team_info_b = document.getElementById('team-info-b');
+
+var remoteStream;
+var recorder =  null;
+var blobUrl = null;
+var timerID = null;
+var keepRecording = false;
+var fileIndex = 0;
+var recordIndex = 0;
+var startRecording;
 
 var mediaConstraints = {
 	'mandatory': {
@@ -247,6 +257,7 @@ function onMessage(evt) {
 	}
 	//メッセージがend_castであるときの処理
 	else if (evt.type === 'end_cast') {
+		stopRecording();
 		detachVideo(id); //映像を切断
 		stopConnection(id);
 
@@ -348,7 +359,7 @@ function createObjectURL(file) {
 //setOffer関数で呼び出される
 function prepareNewConnection(id) {
 	if (id == null) {
-		console.log('idがnullです')
+		console.log('idがnullです');
 	}
 	//STUNサーバーの設定(Googleのサーバーを使用)
 	var peercon_config = {
@@ -401,6 +412,9 @@ function prepareNewConnection(id) {
 	//リモートストリームを追加した時に、ローカルのvideo要素に渡す
 	function onRemoteStreamAdded(event) {
 		castVideo.src = createObjectURL(event.stream);
+		remoteStream=event.stream;
+		keepRecording=true;
+		setTimeout(startRecording, 5*1000);
 		//デバッグ用ログ出力
 		console.log('リモートストリームを追加しました。');
 	}
@@ -486,6 +500,7 @@ function sendRequest() {
 //ユーザの要求に応じて接続を停止
 //Hang Upボタンがクリックされたときに呼び出される
 function hangUp() {
+	stopRecording();
 	//socketサーバーにJSON形式で視聴を終了したことを伝える
 	socket.json.send({
 		type: 'exit'
