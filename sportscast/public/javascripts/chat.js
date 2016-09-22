@@ -87,13 +87,11 @@ function sendChat() { //chatデータ送信
 	socket.emit('chatData', msg);
 	chat_input.value = '';
 	console.log(msg);
-	chat_messages.scrollTo(0, chat_area.scrollHeight);
 	console.log(chat_area.scrollHeight);
 }
 socket.on('chatData', function(msg) { //chatデータ受信時の処理
 	chat_messages.innerHTML += '<p><small>' + getTime() + '</small><br>' + msg + '</p><hr>';
-	chat_area.scrollTo(0, chat_area.scrollHeight);
-	console.log(chat_messages.scrollHeight);
+	chat_messages.parentNode.scrollTop=chat_messages.parentNode.scrollHeight;
 });
 
 function getTime() {
