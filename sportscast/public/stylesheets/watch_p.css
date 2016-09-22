@@ -192,7 +192,8 @@
 		font-size: 18px;
 	}
 	#team-info-a{
-		width: 48%;
+		width: 45%;
+		margin-left: 4px;
 		height: 100px;
 		resize: vertical;
 		border-style: solid;
@@ -202,7 +203,8 @@
 	}
 	#team-info-b{
 		float: right;
-		width: 48%;
+		margin-right:4px;
+		width: 45%;
 		height: 100px;
 		resize: vertical;
 		border-style: solid;
