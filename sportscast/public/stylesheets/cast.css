@@ -191,8 +191,8 @@
 	}
 
 	.team-names{
-		padding-left: 30px;
-		padding-right: 30px;
+		padding-left: 20px;
+		padding-right: 20px;
 		padding-bottom: 4px;
 		border-bottom-style: solid;
 		border-bottom-color: #1976d2;
@@ -203,6 +203,7 @@
 		font-size: 18px;
 	}
 	#team-name-a{
+		width: 45%;
 		font-size: 18px;
 		border-style: solid;
 		border-color: #1976d2;
@@ -217,6 +218,7 @@
 		box-shadow: 2px 2px rgba(0,0,0,0.4);
 	}
 	#team-name-b{
+		width: 45%;
 		float: right;
 		font-size: 18px;
 		border-style: solid;
