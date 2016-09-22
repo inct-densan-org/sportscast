@@ -24,7 +24,7 @@ function sendScore() {
 			'"team_point_b":"' + team_point_b.value + '",' +
 			'"team_info_a":"' + team_info_a.value + '",' +
 			'"team_info_b":"' + team_info_b.value + '",' +
-			'"half:"' + half +'"'+
+			'"half":"' + half +'"'+
 			'}';
 	socket.emit('scoreData',json);
 	console.log(json);
