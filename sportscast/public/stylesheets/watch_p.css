@@ -75,7 +75,7 @@
 		color: #fff;
 		border: 1px;
 	}
-	.replay_button{
+	#replay_button{
 		height: 30px;
 		margin:5px;
 		background-color: #1976d2;

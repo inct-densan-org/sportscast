@@ -13,6 +13,7 @@ navigator.getUserMedia = navigator.getUserMedia || navigator.mozGetUserMedia ||
 
 var castVideo = document.getElementById('cast_video');
 var replayVideo = document.getElementById('replay_video');
+var replay_button=document.getElementById('replay_button');
 var elapsed_time = document.getElementById('elapsed-time');
 var team_name_a = document.getElementById('team-name-a');
 var team_name_b = document.getElementById('team-name-b');
@@ -414,7 +415,13 @@ function prepareNewConnection(id) {
 		castVideo.src = createObjectURL(event.stream);
 		remoteStream=event.stream;
 		keepRecording=true;
-		setTimeout(startRecording, 5*1000);
+		if(browser==='firefox'){
+			setTimeout(startRecording, 5*1000);
+		}
+		else{
+			alert('お使いのブラウザではリプレイ機能は使用できません');
+			replay_button.style.display='none';
+		}
 		//デバッグ用ログ出力
 		console.log('リモートストリームを追加しました。');
 	}
