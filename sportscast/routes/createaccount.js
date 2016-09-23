@@ -1,34 +1,7 @@
 var express = require('express');
 var mail=require('../modules/mail.js');
+var dbconnection = require('../modules/dbconnection.js');
 var router = express.Router();
-
-var mongoose = require('mongoose');
-var schema=mongoose.Schema;
-var dataschema=new schema({
-	lastname : String,
-	firstname : String,
-	email : String,
-	pass : String,
-	tournament : String,
-	sports : String,
-	startday : String,
-	finishday : String,
-	policy : Boolean,
-	terms : Boolean,
-	enable : Boolean
-});
-
-mongoose.model('usersdata',dataschema);
-mongoose.connect('mongodb://61.23.8.105:47017/SportsCastDB',
-	function(err) {
-		if (err) {
-			console.log(err);
-		}
-		else {
-			console.log('DB connection success!');
-		}
-	}
-); 
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -37,10 +10,9 @@ router.get('/', function(req, res, next) {
 	});
 });
 
-
 router.post('/',function(req,res,next){
 	console.log(req.body);
-	var Data=mongoose.model('usersdatas');
+	var Data=dbconnection;
 	var data=new Data();
 	data.lastname=req.body.LastName;
 	data.firstname=req.body.FirstName;
@@ -50,8 +22,6 @@ router.post('/',function(req,res,next){
 	data.sports=req.body.sports;
 	data.startday=req.body.startday;
 	data.finishday=req.body.finishday;
-	data.policy=true;
-	data.terms=true;
 	data.enable=false;
 	data.save(function(err){
 		if(err){
