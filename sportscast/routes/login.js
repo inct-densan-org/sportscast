@@ -1,36 +1,12 @@
 var express = require('express');
 var router = express.Router();
-
+var dbconnection = require('../modules/dbconnection.js');
 var passport = require('passport'),
 	LocalStrategy = require('passport-local').Strategy;
 
-var mongoose = require('mongoose');
-
-mongoose.connect('mongodb://61.23.8.105:47017/SportsCastDB',
-	function(err) {
-		if (err) {
-			console.log(err);
-		} else {
-			console.log('DB connection success!');
-		}
-	}
-);
-
-var schema = mongoose.Schema;
-
-var article = mongoose.model('usersdatas', new schema({
-	email: String,
-	pass: String,
-	sports: String,
-	enable: Boolean,
-	lastname: String,
-	tournament: String,
-	firstname: String
-}));
-
 passport.use(new LocalStrategy(
 	function(username, password, done) {
-		article.find({
+		dbconnection.find({
 			email: username
 		}, function(err, docs) {
 			if (err) {
@@ -74,7 +50,7 @@ passport.serializeUser(function(user, done) {
 });
 
 passport.deserializeUser(function(email, done) {
-	article.find({
+	dbconnection.find({
 		email: email
 	}, function(err, docs) {
 		docs.forEach(function(doc) {
