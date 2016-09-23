@@ -374,6 +374,8 @@ function startVideo() {
 			console.log('音量を0に設定:OK');
 			//tellCastReady関数を呼び出す(下で定義されている)
 			tellCastReady();
+			//配信時にvideoタグの縁の色を変える
+			localVideo.style.border = 'solid #f00 2px';
 		},
 		function(error) { //取得失敗時の処理
 			//デバッグ用ログ出力
@@ -402,6 +404,8 @@ function stopCast() {
 	//localStream.stop();
 	//localstreamにnullを代入する
 	localStream = null;
+	//配信時にvideoタグの縁の色を変える
+	localVideo.style.border = 'solid #1976d2 2px';
 }
 
 //接続処理
