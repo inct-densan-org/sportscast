@@ -21,3 +21,4 @@ SportsCast!の開発用リポジトリです。
 * Passport
 * Passport-local
 * mongoose
+* nodemailer
