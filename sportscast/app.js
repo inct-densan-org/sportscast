@@ -15,6 +15,7 @@ var watch = require('./routes/watch');
 var cast = require('./routes/cast');
 var createaccount = require('./routes/createaccount');
 var sportsnames = require('./routes/sportsnames');
+var sportsid = require('./routes/sportsid');
 
 var app = express();
 
@@ -51,6 +52,7 @@ app.use('/watch',watch);
 app.use('/cast',cast);
 app.use('/createaccount',createaccount);
 app.use('/sportsnames',sportsnames);
+app.use('/sportsid',sportsid);
 app.use('/logout', function(req, res) {
 	req.logout();
 	res.redirect('/');
