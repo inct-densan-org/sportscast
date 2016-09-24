@@ -2,6 +2,7 @@ var express = require('express');
 var dbconnection = require('../modules/dbconnection.js');
 var router = express.Router();
 
+//IDをもとに競技名を検索して返す
 router.post('/', function(req, res) {
 	console.log(req.body.id);
 	dbconnection.find({
