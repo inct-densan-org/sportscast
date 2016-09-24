@@ -9,7 +9,7 @@
 		color: #1976d2;
 		text-decoration:none;
 	}
-	img{
+	/*img{
 		position: relative;
 		width: 45%;
 		border-style: solid;
@@ -17,7 +17,7 @@
 		border-width: 2px;
 		border-radius: 10px;
 		margin:3px;
-	}
+	}*/
 	.menu{
 		position: absolute;
 		top: 24px;
@@ -54,85 +54,32 @@
 		align-items: center;
 	}
 
-	.titles{
-		height: 280px;
-	}
-	#soccer-image{
-		position: relative;
-		background-image: url(/images/soccer.png);
-		-moz-background-size:cover;
-		background-size:cover;
-		display: inline-block;
-		width: 45%;
+	.sportstitle{
+		width: calc(92%/2);
 		border-style: solid;
 		border-color: #1976d2;
 		border-width: 2px;
 		border-radius: 10px;
 		margin:3px;
-	}
-	.soccer-title{
-		position: absolute;
-		top: 20%;
-		left: 0px;
-		width: 100%;
-		height: 80px;
-		background-color: rgba(0,0,0,0.4);
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		font-size: 18px;
-		color: #fff;
-	}
-	#fencing-image{
-		position: relative;
-		background-image: url(/images/fencing.png);
-		-moz-background-size:cover;
-		background-size:cover;
 		display: inline-block;
-		width: 45%;
-		border-style: solid;
-		border-color: #1976d2;
-		border-width: 2px;
-		border-radius: 10px;
-		margin:3px;
 	}
-	.fencing-title{
-		position: absolute;
-		top: 20%;
-		left: 0px;
+	.sportstitle div{
 		width: 100%;
-		height: 80px;
-		background-color: rgba(0,0,0,0.4);
+		height: 45%;
+	}
+	.sports{
+		font-size: 18px;
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		font-size: 18px;
-		color: #fff;
 	}
-	#empty-image{
-		position: relative;
-		background-image: url(/images/empty.png);
-		-moz-background-size:cover;
-		background-size:cover;
-		display: inline-block;
-		width: 45%;
-		border-style: solid;
-		border-color: #1976d2;
-		border-width: 2px;
-		border-radius: 10px;
-		margin:3px;
-	}
-	.empty-title{
-		position: absolute;
-		top: 20%;
-		left: 0px;
+	.data{
 		width: 100%;
-		height: 80px;
+	}
+	.sportstitle div ul{
+		padding-left: 20px;
+		font-size: 12px;
 		background-color: rgba(0,0,0,0.4);
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		font-size: 18px;
 		color: #fff;
 	}
 }
