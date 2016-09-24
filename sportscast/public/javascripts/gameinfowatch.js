@@ -8,10 +8,14 @@ var isLatterHalfStarted = false;
 //前半後半をあらわす変数
 var half = '前半';
 
-//前半のタイマー
-var setItv_f;
-//後半のタイマー
-var setItv_l;
+function countStart(evt){
+	if(evt=='reset'){
+		elapsed_time.innerHTML = '';
+	}
+	else{
+		elapsed_time.innerHTML = half + '　' + evt;
+	}
+}
 
 function readJSONdata(data) {
 	console.log(data);
@@ -23,26 +27,6 @@ function readJSONdata(data) {
 	team_point_b.value = jsonobj.team_point_b;
 	team_info_a.value = jsonobj.team_info_a;
 	team_info_b.value = jsonobj.team_info_b;
-	//競技がサッカーのとき
-	if (getSportsName() == 'soccer') {
-		if (jsonobj.half == '前半' && isFirstHalfStarted == false) {
-			first_half_start();
-		} else if (jsonobj.half == '後半' && isLatterHalfStarted == false) {
-			latter_half_start();
-		} else if (jsonobj.half == '後半' && isGameStarted == false) {
-			finishgame();
-		}
-	}
-	//競技がフェンシングのとき
-	else if (getSportsName() == 'fencing') {
-		if (isGameStarted == true && isFirstHalfStarted == false) {
-			half = '';
-			first_half_start();
-			isFirstHalfStarted = true;
-		} else if (isGameStarted == false && isFirstHalfStarted == true) {
-			finishgame();
-		}
-	}
 	notification('競技状況が更新されました。', getSportsName());
 }
 

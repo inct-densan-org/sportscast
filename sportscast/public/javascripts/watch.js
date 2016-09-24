@@ -47,7 +47,7 @@ var PORT = 3001;
 var ADDRESS = 'http://localhost:' + PORT + '/';
 
 //競技時間を競技名に応じて初期化
-initGameTime(getSportsName());
+//initGameTime(getSportsName());
 
 //競技状況配信機能のUIを競技に応じて変更
 selectlayout(getSportsName(), 'watch');
@@ -197,7 +197,8 @@ socket.on('connect', onOpened)
 	.on('user disconnected', onUserDisconnect)
 	.on('scoreData', function(data) { //競技状況配信用のやつ
 		readJSONdata(data);
-	});
+	})
+	.on('countStart', countStart);
 
 //接続したときの処理
 function onOpened(evt) {
