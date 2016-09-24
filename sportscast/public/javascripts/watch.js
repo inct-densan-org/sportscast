@@ -46,14 +46,17 @@ var PORT = 3001;
 //var ADDRESS='http://192.168.0.14:'+PORT+'/';
 var ADDRESS = 'http://localhost:' + PORT + '/';
 
+var sportsname='';
+sportsname=getSportsName();
+
 //競技時間を競技名に応じて初期化
-initGameTime(getSportsName());
+initGameTime(sportsname);
 
 //競技状況配信機能のUIを競技に応じて変更
-selectlayout(getSportsName(), 'watch');
+selectlayout(sportsname, 'watch');
 
 //競技によって前後半の表示を切り替える
-showhalf(getSportsName());
+showhalf(sportsname);
 
 //配信映像を切断する関数
 //onMessage関数でメッセージがend_castのときに呼び出される
@@ -205,7 +208,7 @@ function onOpened(evt) {
 	//デバッグ用ログ出力
 	console.log('socketを開きました。');
 	//部屋名の取得
-	var roomname = getSportsName();
+	var roomname = sportsname;
 	//取得した部屋に入室
 	socket.emit('enter', roomname);
 	//デバッグ用ログ出力
