@@ -326,4 +326,14 @@
 		color: #fff;
 		border: 1px;
 	}
+	.connect_count {
+		float: left;
+		margin-top: 4px;
+		margin-bottom: 4px;
+		font-size: 15px;
+	}
+	.connect_count span {
+		font-size: 22px;
+		color: #1976d2;
+	}
 }

@@ -551,6 +551,7 @@ function hangUp() {
 	});
 	//stopAllConnections関数を実行
 	stopAllConnections();
+	getConnectionCount();
 	//デバッグ用ログ出力
 	console.log('ハングアップしました。');
 }
