@@ -13,10 +13,12 @@
 	<div class="contents">
 		<div class="video">
 			<video id="my_video" autoplay></video>
-			<br>
-			<button class="cast_stop_button" onclick="stopCast();">配信停止</button>
-			<button class="cast_start_button" onclick="tellCastReady();">配信開始</button>
-			<button class="video_start_button" onclick="startVideo();">映像取得開始</button>
+			<div>
+				<div class="overlay" style="float:left;">視聴者は<span id="connect-count">0</span>人</div>
+				<button class="cast_stop_button" onclick="stopCast();">配信停止</button>
+				<button class="cast_start_button" onclick="tellCastReady();">配信開始</button>
+				<button class="video_start_button" onclick="startVideo();">映像取得開始</button>
+			</div>
 			<div class="userdata">
 				<p>配信者:<%= caster %>　<span class="br"></span>大会名:<%= Tournament %>　<span class="br"></span>競技名:<%= sports %></p>
 			</div>

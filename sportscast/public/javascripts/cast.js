@@ -83,15 +83,17 @@ function addConnection(id, connection) {
 //接続数をカウントして結果を返す関数
 //isConnectPossible関数、isPeerStarted関数から呼び出される
 function getConnectionCount() {
-		var count = 0;
-		//connectionsのid(socket.id)をカウント
-		for (var id in connections) {
-			count++;
-		}
-		//デバッグ用ログ出力
-		console.log('接続数は' + count);
-		return count;
+	var count = 0;
+	var span = document.getElementById('connect-count');
+	//connectionsのid(socket.id)をカウント
+	for (var id in connections) {
+		count++;
 	}
+	//デバッグ用ログ出力
+	console.log('接続数は' + count);
+	span.innerHTML = count;
+	return count;
+}
 	//接続可能かを判定する関数
 function isConnectPossible() {
 	//接続数が10未満ならtrueを返す
@@ -239,6 +241,7 @@ function onMessage(evt) {
 		stopConnection(id);
 		//デバッグ用ログ出力
 		console.log('接続終了');
+		getConnectionCount();
 	}
 }
 
@@ -249,6 +252,7 @@ function onUserDisconnect(evt) {
 		stopConnection(evt.id);
 		//デバッグ用ログ出力
 		console.log('切断しました。');
+		getConnectionCount();
 	}
 }
 
