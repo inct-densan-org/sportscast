@@ -58,6 +58,13 @@
 		display: inline-block;
 		background-size:cover;
 	}
+	.sportstitle:hover{
+		box-shadow: 2px 2px rgba(0,0,0,0.4);
+	}
+	.sportstitle:active{
+		background-color: #59b1eb;
+		box-shadow: 0px 0px rgba(0,0,0,0.4);
+	}
 	.sports{
 		width: 100%;
 		height: 50%;
@@ -67,6 +74,10 @@
 		align-items: center;
 		color: #fff;
 		text-align: center;
+		transition:transform 0.5s;
+	}
+	.sports:hover{
+		transform: scale(1.1);
 	}
 	.sportsname{
 		width: 100%;
