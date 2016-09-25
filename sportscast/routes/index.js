@@ -18,9 +18,10 @@ function generationTitles(res){
 				return done(err);
 			}
 			htmltext+='<a href=\"/watch?'+doc._id+'\">'+
-				'<div class=\"sportstitle\"><div class=\"sports\">競技名　'+
+				'<div class=\"sportstitle\" style=\"background-image: url(/images/'+doc.sports+'.png);\">'+
+				'<div class=\"sports\"><span class=\"sportsname\">競技名　<span>'+
 					doc.sports+
-				'</div><div class=\"data\">'+
+				'</span></span></div><div class=\"data\">'+
 				'<ul>'+
 				'<li>配信者　'+doc.lastname+' '+doc.firstname+'</li>'+
 				'<li>大会名　'+doc.tournament+'</li></ul>'+
