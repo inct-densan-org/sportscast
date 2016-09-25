@@ -4,11 +4,6 @@ var isGameStarted = false;
 //前半後半をあらわす変数
 var half = '前半';
 
-//前半のタイマー
-var setItv_f;
-//後半のタイマー
-var setItv_l;
-
 
 //競技状況配信
 function sendScore() {
@@ -31,6 +26,14 @@ function sendScore() {
 	return true;
 }
 
+function countStart(evt){
+	if(evt=='reset'){
+		elapsed_time.innerHTML = '';
+	}
+	else{
+		elapsed_time.innerHTML = half + '　' + evt;
+	}
+}
 function first_half_start() {
 	var tmp;
 	isGameStarted=true;
@@ -38,16 +41,7 @@ function first_half_start() {
 		isGameStarted=false;
 		return;
 	}
-	setItv_f=setInterval(function(){
-		tmp=showElapsedTime();
-		if(tmp>0){
-			elapsed_time.innerHTML=half+'　'+sectominsec(tmp);
-		}
-		else{
-			elapsed_time.innerHTML='';
-			clearInterval(setItv_f);
-		}
-	}, 1000);
+	socket.emit('countStart');
 	var first_half_start_button = document.getElementById('first-half-start-button');
 	first_half_start_button.disabled = true;
 	if (getSportsName() == 'soccer') {
@@ -61,19 +55,11 @@ function first_half_start() {
 
 function latter_half_start() {
 	var tmp;
-	clearInterval(setItv_f);
-	initGameTime(getSportsName());
+	socket.emit('countStop');
 	half = '後半';
 	sendScore();
-	setItv_l = setInterval(function() {
-		tmp = showElapsedTime();
-		if (tmp > 0) {
-			elapsed_time.innerHTML = half + '　' + sectominsec(tmp);
-		} else {
-			elapsed_time.innerHTML = '';
-			clearInterval(setItv_l);
-		}
-	}, 1000);
+	socket.emit('countStart');
+
 	var latter_half_start_button = document.getElementById('latter-half-start-button');
 	latter_half_start_button.disabled = true;
 	var finish_game_button = document.getElementById('finish-game-button');
@@ -82,15 +68,8 @@ function latter_half_start() {
 
 function finishgame() {
 		isGameStarted = false;
-		//競技がサッカーなら後半のタイマーを止める
-		if (getSportsName() == 'soccer') {
-			clearInterval(setItv_l);
-		}
-		//フェンシングなら前半のタイマーを止める(後半はない)
-		else if (getSportsName() == 'fencing') {
-			clearInterval(setItv_f);
-		}
-		initGameTime(getSportsName());
+
+		socket.emit('countStop');
 		elapsed_time.innerHTML = '';
 		var finish_game_button = document.getElementById('finish-game-button');
 		finish_game_button.disabled = true;
@@ -110,15 +89,6 @@ function showhalf(sports) {
 			break;
 	}
 }
-
-function sectominsec(time) {
-		var sec, min;
-		var tmp;
-		min = ((time / 60) | 0);
-		sec = time % 60;
-		tmp = (('0' + min).slice(-2) + ':' + ('0' + sec).slice(-2));
-		return tmp;
-	}
 	//得点入力チェック用関数
 function checkinput(input) {
 	//数字かどうかチェック

@@ -1,4 +1,7 @@
 var BROADCAST_ID = '_broadcast_';
+var counter=null;
+var scoredata='';
+var isSendedScore=false;
 
 module.exports = function(io) {
 	io.on('connect', function(socket) {
@@ -14,16 +17,43 @@ module.exports = function(io) {
 			console.log('ID=' + socket.id + ' 部屋名=' + roomname);
 			//入室した部屋名をsetRoomnameメソッドで設定(下記のメソッド)
 			setRoomname(roomname);
+
+			initGameTime(roomname);
+
+			if(isSendedScore==true){
+				io.sockets.to(getRoomname()).emit('scoreData',scoredata);
+			}
 		});
 
 		socket.on('scoreData',function(data){
-			io.sockets.to(getRoomname()).emit("scoreData",data);
+			isSendedScore=true;
+			io.sockets.to(getRoomname()).emit('scoreData',data);
 			console.log('scoreData:'+data);
+			scoredata=data;
 		});
 
 		socket.on('chatData',function (data) {
 			io.sockets.to(getRoomname()).emit('chatData',data);
 			console.log('ID=' + socket.id +' chatData:'+data);
+		});
+
+		socket.on('countStart',function () {
+			counter=setInterval(function(){
+				tmp=showElapsedTime();
+				if(tmp>0){
+					io.sockets.to(getRoomname()).emit('countStart',sectominsec(tmp));
+				}
+				else{
+					io.sockets.to(getRoomname()).emit('countStart','reset');
+					clearInterval(counter);
+				}
+			}, 1000);
+		});
+
+		socket.on('countStop',function () {
+			clearInterval(counter);
+			initGameTime(getRoomname());
+			io.sockets.to(getRoomname()).emit('countStart','reset');
 		});
 
 		function setRoomname(room) {
@@ -59,6 +89,42 @@ module.exports = function(io) {
 			}
 		}
 
+		var gameTime = 0;
+		var elapsedtime = 0;
+
+		function initGameTime(sports) {
+			switch (sports) {
+				case 'soccer':
+					gameTime = 45 * 60;
+					break;
+				case 'fencing':
+					gameTime = 3 * 60;
+					break;
+				default:
+					gameTime = 1 * 60;
+					break;
+			}
+			elapsedtime = 0;
+		}
+
+		function showElapsedTime() {
+			elapsedtime++;
+			if (elapsedtime <= gameTime) {
+				return elapsedtime;
+			} else {
+				elapsedtime = 0;
+				return -1;
+			}
+		}
+		function sectominsec(time) {
+			var sec, min;
+			var tmp;
+			min = ((time / 60) | 0);
+			sec = time % 60;
+			tmp = (('0' + min).slice(-2) + ':' + ('0' + sec).slice(-2));
+			return tmp;
+		}
+
 		//配信者がSDPメッセージを送信した時に部屋内の全ての視聴者にブロードキャスト(配信)する
 		socket.on('message', function(message) {
 			//socket.idによりuserの管理を行うことができる。(この場合はsocket.idは配信者のid)
@@ -84,6 +150,11 @@ module.exports = function(io) {
 			emitMessage('user disconnected', {
 				id: socket.id
 			});
+
+			clearInterval(counter);
+			initGameTime(getRoomname());
+			io.sockets.to(getRoomname()).emit('countStart','reset');
+
 			//デバッグ用ログ出力
 			console.log(socket.id + 'が接続を終了しました');
 

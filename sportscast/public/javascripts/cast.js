@@ -41,9 +41,6 @@ var ADDRESS = 'http://localhost:' + PORT + '/';
 var sportsname='';
 sportsname=getSportsName();
 
-//競技時間を競技名に応じて初期化
-initGameTime(sportsname);
-
 //競技状況配信機能のUIを競技に応じて変更
 selectlayout(sportsname, 'cast');
 
@@ -185,7 +182,8 @@ var socket = io.connect(ADDRESS); //IPアドレスの部分は実行環境によ
 //各イベントごとの処理を定義
 socket.on('connect', onOpened)
 	.on('message', onMessage)
-	.on('user disconnected', onUserDisconnect);
+	.on('user disconnected', onUserDisconnect)
+	.on('countStart', countStart);
 
 //視聴者が接続したときの処理
 function onOpened(evt) {
