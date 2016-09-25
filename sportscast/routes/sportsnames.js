@@ -15,7 +15,6 @@ router.post('/', function(req, res) {
 			res.send(doc.sports);
 		});
 	});
-	
 });
 
 module.exports = router;

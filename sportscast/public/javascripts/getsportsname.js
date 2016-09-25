@@ -1,5 +1,5 @@
-//部屋名を取得する関数
-function getSportsName() { // たとえば、 URLに  ?roomname  とする
+//競技IDを取得する関数
+function getSportsId(){
 	//URLを取得
 	var url = document.location.href;
 	//?でURLを分割する
@@ -10,9 +10,21 @@ function getSportsName() { // たとえば、 URLに  ?roomname  とする
 		var id = args[1];
 		if (id != '') {
 			//部屋名が取得出来たら部屋名を返す
-			return getSportsNameById(id);
+			return id;
 		}
 	}
+	//取得できなかったら空文字を返す
+	return '';
+}
+//競技名を取得する関数
+function getSportsName() {
+	var id=getSportsId();
+
+	if (id != '') {
+		//競技IDが取得出来たら部屋名を返す
+		return getSportsNameById(id);
+	}
+	
 	//取得できなかったら_defaultroomを返す
 	return '_defaultroom';
 }

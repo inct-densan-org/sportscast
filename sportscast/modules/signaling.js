@@ -1,7 +1,10 @@
+var dbconnection = require('../modules/dbconnection.js');
+
 var BROADCAST_ID = '_broadcast_';
 var counter=null;
 var scoredata='';
 var isSendedScore=false;
+var sportsname='';
 
 module.exports = function(io) {
 	io.on('connect', function(socket) {
@@ -18,7 +21,17 @@ module.exports = function(io) {
 			//入室した部屋名をsetRoomnameメソッドで設定(下記のメソッド)
 			setRoomname(roomname);
 
-			initGameTime(roomname);
+			dbconnection.find({
+				_id: roomname
+			}, function(err, docs) {
+				docs.forEach(function(doc) {
+					if (err) {
+						return done(err);
+					}
+					sportsname=doc.sports;
+				});
+			});
+			initGameTime(sportsname);
 
 			if(isSendedScore==true){
 				io.sockets.to(getRoomname()).emit('scoreData',scoredata);

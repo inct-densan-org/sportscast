@@ -48,6 +48,8 @@ var ADDRESS = 'http://localhost:' + PORT + '/';
 
 var sportsname='';
 sportsname=getSportsName();
+var sportsid='';
+sportsid=getSportsId();
 
 //競技状況配信機能のUIを競技に応じて変更
 selectlayout(sportsname, 'watch');
@@ -206,7 +208,7 @@ function onOpened(evt) {
 	//デバッグ用ログ出力
 	console.log('socketを開きました。');
 	//部屋名の取得
-	var roomname = sportsname;
+	var roomname = sportsid;
 	//取得した部屋に入室
 	socket.emit('enter', roomname);
 	//デバッグ用ログ出力
