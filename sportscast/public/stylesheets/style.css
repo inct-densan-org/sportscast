@@ -48,85 +48,31 @@
 		justify-content: center;
 		align-items: center;
 	}
-	.titles{
-		height: 300px;
-	}
-	#soccer-image{
-		position: relative;
-		background-image: url(/images/soccer.png);
-		-moz-background-size:cover;
-		background-size:cover;
-		display: inline-block;
-		width: 32%;
+	.sportstitle{
+		width: calc(96%/3);
 		border-style: solid;
 		border-color: #1976d2;
 		border-width: 2px;
 		border-radius: 10px;
 		margin:3px;
-	}
-	.soccer-title{
-		position: absolute;
-		top: 40%;
-		left: 0px;
-		width: 100%;
-		height: 80px;
-		background-color: rgba(0,0,0,0.4);
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		font-size: 48px;
-		color: #fff;
-	}
-	#fencing-image{
-		position: relative;
-		background-image: url(/images/fencing.png);
-		-moz-background-size:cover;
-		background-size:cover;
 		display: inline-block;
-		width: 32%;
-		border-style: solid;
-		border-color: #1976d2;
-		border-width: 2px;
-		border-radius: 10px;
-		margin:3px;
 	}
-	.fencing-title{
-		position: absolute;
-		top: 40%;
-		left: 0px;
+	.sports{
 		width: 100%;
-		height: 80px;
-		background-color: rgba(0,0,0,0.4);
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		font-size: 48px;
-		color: #fff;
-	}
-	#empty-image{
-		position: relative;
-		background-image: url(/images/empty.png);
-		-moz-background-size:cover;
-		background-size:cover;
-		display: inline-block;
-		width: 32%;
-		border-style: solid;
-		border-color: #1976d2;
-		border-width: 2px;
-		border-radius: 10px;
-		margin:3px;
-	}
-	.empty-title{
-		position: absolute;
-		top: 40%;
-		left: 0px;
-		width: 100%;
-		height: 80px;
-		background-color: rgba(0,0,0,0.4);
-		display: flex;
-		justify-content: center;
-		align-items: center;
+		height: 50%;
 		font-size: 32px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	.sportstitle div{
+		width: 100%;
+		margin-top: 4px;
+		margin-bottom: 4px;
+	}
+	.sportstitle div ul{
+		font-size: 24px;
+		background-color: rgba(0,0,0,0.4);
 		color: #fff;
 	}
 }

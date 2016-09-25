@@ -23,35 +23,21 @@
 		</a>
 	</div>
 	<div class="titles">
-		<a href="/watch?soccer">
-			<div id="soccer-image">
-				<div class="soccer-title">サッカー</div>
-			</div>
-		</a>
-		<a href="/watch?fencing">
-			<div id="fencing-image">
-				<div class="fencing-title">フェンシング</div>
-			</div>
-		</a>
-		<a href="/watch">
-			<div id="empty-image">
-				<div class="empty-title">COMING SOON...</div>
-			</div>
-		</a>
+		<%- sportstitle %>
 	</div>
 	<script type="text/javascript">
-		var height=document.getElementById('soccer-image').clientWidth;
-		var soccer=document.getElementById('soccer-image');
-		var fencing=document.getElementById('fencing-image');
-		var empty=document.getElementById('empty-image');
-		soccer.style.height=height+'px';
-		fencing.style.height=height+'px';
-		empty.style.height=height+'px';
-		window.onresize=function(){
-			var height=document.getElementById('soccer-image').clientWidth;
-			soccer.style.height=height+'px';
-			fencing.style.height=height+'px';
-			empty.style.height=height+'px';
+		var title = document.getElementsByClassName('sportstitle');
+		var height=title[0].clientWidth;
+		for(var i=0;i<title.length; i++) {
+			var element = title[i] ;
+			element.style.height=height+'px';
+		}
+		window.onresize=function(){var title = document.getElementsByClassName('sportstitle');
+			var height=title[0].clientWidth;
+			for(var i=0;i<title.length; i++) {
+				var element = title[i] ;
+				element.style.height=height+'px';
+			}
 		};
 	</script>
 </body>

@@ -11,8 +11,8 @@ function initGameTime(sports) {
 			break;
 		default:
 			gameTime = 1 * 60;
-			alert('競技が不明です。');
-			location.href = './';
+			// alert('競技が不明です。');
+			// location.href = './';
 			break;
 	}
 	elapsedtime = 0;

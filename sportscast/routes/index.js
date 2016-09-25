@@ -1,14 +1,37 @@
 var express = require('express');
 var router = express.Router();
+var dbconnection = require('../modules/dbconnection.js');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-	res.render('index', {
-		title: 'SportCast!'
-	});
+	generationTitles(res);
 	console.log('Accessed '+getTime()+' '+getIpAddress(req));
 });
 
+function generationTitles(res){
+	var htmltext='';
+	dbconnection.find({
+		enable: true
+	}, function(err, docs) {
+		docs.forEach(function(doc) {
+			if (err) {
+				return done(err);
+			}
+			htmltext+='<a href=\"/watch?'+doc._id+'\">'+
+				'<div class=\"sportstitle\"><div class=\"sports\">競技名　'+
+					doc.sports+
+				'</div><div class=\"data\">'+
+				'<ul>'+
+				'<li>配信者　'+doc.lastname+' '+doc.firstname+'</li>'+
+				'<li>大会名　'+doc.tournament+'</li></ul>'+
+				'</div></div></a>\n';
+		});
+		res.render('index', {
+			title: 'SportCast!',
+			sportstitle: htmltext
+		});
+	});
+}
 function getIpAddress(req) {
 	if (req.headers['x-forwarded-for']) {
 		return req.headers['x-forwarded-for'];

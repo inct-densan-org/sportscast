@@ -81,7 +81,7 @@ router.post('/',
 		failureFlash: true
 	}),
 	function(req, res, next) {
-		res.redirect('/cast?'+req.user.sports);
+		res.redirect('/cast?'+req.user._id);
 	}
 );
 module.exports = router;

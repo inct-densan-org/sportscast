@@ -1,5 +1,4 @@
 //部屋名を取得する関数
-//onOpened関数で呼び出される
 function getSportsName() { // たとえば、 URLに  ?roomname  とする
 	//URLを取得
 	var url = document.location.href;
@@ -8,12 +7,25 @@ function getSportsName() { // たとえば、 URLに  ?roomname  とする
 	//分割した数が1よりも大きかったら以下の処理を実行
 	if (args.length > 1) {
 		//配列から要素を取得
-		var sports = args[1];
-		if (sports != '') {
+		var id = args[1];
+		if (id != '') {
 			//部屋名が取得出来たら部屋名を返す
-			return sports;
+			return getSportsNameById(id);
 		}
 	}
 	//取得できなかったら_defaultroomを返す
 	return '_defaultroom';
+}
+//IDから競技名を取得する関数
+function getSportsNameById(id){
+	var request = new XMLHttpRequest();
+	request.open('POST', '/sportsnames', false);
+	request.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+	request.send('id='+id);
+
+	if (request.status === 200) {
+		console.log('競技名は'+request.responseText+'です。');
+		return request.responseText;
+	}
+	request.abort();
 }
