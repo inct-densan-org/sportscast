@@ -31,7 +31,7 @@
 	}
 	.video{
 		width: auto;
-		height: 280px;
+		height: 100%;
 		padding: 2px;
 		background: #eee;
 		border-style: solid;
@@ -76,6 +76,7 @@
 		font-size: 14px;
 		color: #fff;
 		border: 1px;
+		margin-right: 1%;
 	}
 	.userdata{
 		margin-top: 32px;

@@ -76,5 +76,14 @@
 	<script src="/javascripts/cast.js"></script>
 	<script src="/javascripts/networkcheck.js"></script>
 	<script src="/javascripts/chat.js"></script>
+	<script type="text/javascript">
+		var my_video = document.getElementById('my_video');
+		var height=(my_video.clientWidth*0.55);
+		my_video.style.height=height+'px';
+		window.onresize=function(){
+			var height=(my_video.clientWidth*0.55);
+			my_video.style.height=height+'px';
+		};
+	</script>
 </body>
 </html>
