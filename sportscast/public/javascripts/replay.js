@@ -31,6 +31,7 @@ startRecording=function() {//録画開始
 			startRecording();
 			//ログ出力
 			console.log('stop and start..');
+			replay_button.style.display='block';
 		}, 5 * 1000);//{}で囲まれた処理を5*1000ミリ秒ごとに繰り返す
 	}
 };

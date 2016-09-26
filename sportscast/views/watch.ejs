@@ -11,7 +11,7 @@
 	<h1><%= title %></h1>
 	<p>Watch Page</p>
 	<div class="contents">
-		<div class="video">
+		<div id="video">
 			<div class="video-area">
 				<video id="cast_video" autoplay></video>
 				<video id="replay_video" autoplay></video>
@@ -68,5 +68,20 @@
 	<script src="/javascripts/notification.js"></script>
 	<script src="/javascripts/chat.js"></script>
 	<script src="/javascripts/replay.js"></script>
+	<script type="text/javascript">
+		var video = document.getElementById('video');
+		var cast_video = document.getElementById('cast_video');
+		var replay_video = document.getElementById('replay_video');
+		var height=(cast_video.clientWidth*0.75);
+		video.style.height=(height+50)+'px';
+		cast_video.style.height=height+'px';
+		replay_video.style.height=height+'px';
+		window.onresize=function(){
+			var height=(cast_video.clientWidth*0.75);
+			video.style.height=(height+50)+'px';
+			cast_video.style.height=height+'px';
+			replay_video.style.height=height+'px';
+		};
+	</script>
 </body>
 </html>

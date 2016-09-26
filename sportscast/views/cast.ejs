@@ -11,7 +11,7 @@
 	<h1><%= title %></h1>
 	<a href="/logout"><div class="logout-button">Logout</div></a>
 	<div class="contents">
-		<div class="video">
+		<div id="video">
 			<video id="my_video" autoplay></video>
 			<div>
 				<div class="connect_count">視聴者数 : <span id="connect-count">0</span></div>
@@ -19,7 +19,7 @@
 				<button class="cast_start_button" onclick="tellCastReady();">配信開始</button>
 				<button class="video_start_button" onclick="startVideo();">映像取得開始</button>
 			</div>
-			<div class="userdata">
+			<div id="userdata">
 				<p>配信者:<%= caster %>　<span class="br"></span>大会名:<%= Tournament %>　<span class="br"></span>競技名:<%= sports %></p>
 			</div>
 		</div>
@@ -76,5 +76,18 @@
 	<script src="/javascripts/cast.js"></script>
 	<script src="/javascripts/networkcheck.js"></script>
 	<script src="/javascripts/chat.js"></script>
+	<script type="text/javascript">
+		var video = document.getElementById('video');
+		var my_video = document.getElementById('my_video');
+		var userdata = document.getElementById('userdata');
+		var height=(my_video.clientWidth*0.75);
+		video.style.height=(height+50+userdata.clientHeight)+'px';
+		my_video.style.height=height+'px';
+		window.onresize=function(){
+			var height=(my_video.clientWidth*0.75);
+			video.style.height=(height+50+userdata.clientHeight)+'px';
+			my_video.style.height=height+'px';
+		};
+	</script>
 </body>
 </html>
