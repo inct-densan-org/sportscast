@@ -12,9 +12,8 @@
 		color: #1976d2;
 	}
 
-	.video{
+	#video{
 		width: 50%;
-		height: 100%;
 		float: left;
 		padding: 10px;
 		background: #eee;
