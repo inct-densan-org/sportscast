@@ -101,6 +101,7 @@
 		font-size: 14px;
 		color: #fff;
 		border: 1px;
+		display: none;
 	}
 	#replay_button:hover{
 		box-shadow: 2px 2px rgba(0,0,0,0.4);
