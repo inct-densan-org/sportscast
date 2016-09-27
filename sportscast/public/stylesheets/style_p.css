@@ -46,6 +46,9 @@
 		align-items: center;
 	}
 
+	.titles{
+		margin-top: 60px;
+	}
 	.sportstitle{
 		width: calc(92%/2);
 		border-style: solid;

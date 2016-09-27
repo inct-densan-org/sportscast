@@ -48,6 +48,10 @@
 		justify-content: center;
 		align-items: center;
 	}
+
+	.titles{
+		margin-top: 40px;
+	}
 	.sportstitle{
 		width: calc(96%/3);
 		border-style: solid;
