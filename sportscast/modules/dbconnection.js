@@ -11,7 +11,8 @@ var dataschema=new schema({
 	sports : String,
 	startday : String,
 	finishday : String,
-	enable : Boolean
+	enable : Boolean,
+	watchableuser : 
 });
 
 var article = mongoose.model('usersdata',dataschema);

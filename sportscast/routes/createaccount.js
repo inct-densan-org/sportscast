@@ -23,6 +23,19 @@ router.post('/',function(req,res,next){
 	data.startday=req.body.startday;
 	data.finishday=req.body.finishday;
 	data.enable=false;
+
+	data.watchableuser.push(req.body.watchID00);
+	data.watchableuser.push(req.body.watchID01);
+	data.watchableuser.push(req.body.watchID02);
+	data.watchableuser.push(req.body.watchID03);
+	data.watchableuser.push(req.body.watchID04);
+	data.watchableuser.push(req.body.watchID05);
+	data.watchableuser.push(req.body.watchID06);
+	data.watchableuser.push(req.body.watchID07);
+	data.watchableuser.push(req.body.watchID08);
+	data.watchableuser.push(req.body.watchID09);
+	data.watchableuser.push(req.body.watchID10);
+
 	data.save(function(err){
 		if(err){
 			console.log(err);
