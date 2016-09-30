@@ -12,7 +12,7 @@ var dataschema=new schema({
 	startday : String,
 	finishday : String,
 	enable : Boolean,
-	watchableuser : 
+	watchableuser : []
 });
 
 var article = mongoose.model('usersdata',dataschema);

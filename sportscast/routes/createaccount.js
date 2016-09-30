@@ -14,6 +14,7 @@ router.post('/',function(req,res,next){
 	console.log(req.body);
 	var Data=dbconnection;
 	var data=new Data();
+	var watchusers = [];
 	data.lastname=req.body.LastName;
 	data.firstname=req.body.FirstName;
 	data.email=req.body.mail1;
@@ -24,17 +25,17 @@ router.post('/',function(req,res,next){
 	data.finishday=req.body.finishday;
 	data.enable=false;
 
-	data.watchableuser.push(req.body.watchID00);
-	data.watchableuser.push(req.body.watchID01);
-	data.watchableuser.push(req.body.watchID02);
-	data.watchableuser.push(req.body.watchID03);
-	data.watchableuser.push(req.body.watchID04);
-	data.watchableuser.push(req.body.watchID05);
-	data.watchableuser.push(req.body.watchID06);
-	data.watchableuser.push(req.body.watchID07);
-	data.watchableuser.push(req.body.watchID08);
-	data.watchableuser.push(req.body.watchID09);
-	data.watchableuser.push(req.body.watchID10);
+	watchusers.push(req.body.watchID00);
+	watchusers.push(req.body.watchID01);
+	watchusers.push(req.body.watchID02);
+	watchusers.push(req.body.watchID03);
+	watchusers.push(req.body.watchID04);
+	watchusers.push(req.body.watchID05);
+	watchusers.push(req.body.watchID06);
+	watchusers.push(req.body.watchID07);
+	watchusers.push(req.body.watchID08);
+	watchusers.push(req.body.watchID09);
+	data.watchableuser = watchusers.filter(function(e){return e !== "";});
 
 	data.save(function(err){
 		if(err){
