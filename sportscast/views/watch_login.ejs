@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title><%= title %></title>
+	<script src="/javascripts/browsercheck.js"></script>
+	<meta name="viewport" content="width=device-width,user-scalable=no,maximum-scale=1" />
+	<link rel="stylesheet" type="text/css" href="/stylesheets/login.css">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/login_p.css">
+</head>
+<body>
+	<h1><%= title %></h1>
+	<p style="color:red;font-size:20px;"><b><%= message %></b></p>
+	<form action="/login" method="post">
+		<div>
+			<label>チャットネーム<br>
+			<input class="text" type="text" name="username"/></label>
+		</div>
+		<div>
+			<label>パスワード<br>
+			<input class="text" type="password" name="password"/></label>
+		</div>
+		<br>
+		<div>
+			<input class="submit" type="submit" value="ログイン"/>
+		</div>
+	</form>
+</body>
+</html>
