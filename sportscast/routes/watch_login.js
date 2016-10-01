@@ -7,7 +7,7 @@ var passport = require('passport'),
 passport.use(new LocalStrategy(
 	function(username, password, done) {
 		dbconnection.find({
-			email: username
+			watchableuser: username
 		}, function(err, docs) {
 			if (err) {
 				return done(null, false, {
@@ -28,7 +28,7 @@ passport.use(new LocalStrategy(
 						message: 'ユーザー名が間違っています'
 					});
 				}
-				if (doc.pass != password) {
+				if (doc.watchpass != password) {
 					return done(null, false, {
 						message: 'パスワードが間違っています'
 					});
@@ -77,11 +77,11 @@ router.get('/',function(req, res, next) {
 
 router.post('/',
 	passport.authenticate('local', {
-		failureRedirect: '/login',
+		failureRedirect: '/watch_login',
 		failureFlash: true
 	}),
 	function(req, res, next) {
-		res.redirect('/cast?'+req.user._id);
+		res.redirect('/watch?'+req.user._id);
 	}
 );
 module.exports = router;
