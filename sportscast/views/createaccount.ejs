@@ -69,10 +69,18 @@
 					<input class="text" type="text" name="sports" id="sports" size="51" placeholder="soccer" required />
 				</label>
 			</div>
-			<!-- ここから視聴用アカウントの入力フォーム -->
 			<div class="forms">
+				<div class="watchable-switch" id="watchable_opne" onclick="watchable_opne();">
+					公開範囲指定する
+				</div>
+				<div class="watchable-switch" id="watchable_close" onclick="watchable_close();" style="display: none;">
+					公開範囲指定しない
+				</div>
+			</div>
+			<!-- ここから視聴用アカウントの入力フォーム -->
+			<div class="forms" id="watchable" style="display: none;">
 				<div>
-					<div>視聴者用アカウントの登録</div>
+					<div id="watchable_button">視聴者用アカウントの登録</div>
 					<div id="watchID00">
 						<label>
 							<input type="text" class="watch-user" name="watchID00">
@@ -115,9 +123,7 @@
 						<label><input type="text" class="watch-user" name="watchID09"></label>
 					</div>
 				</div>
-			</div>
-			<div>
-				<div class="forms" style="clear:both;margin-top:32px;">
+				<div style="margin-top: 13px;">
 					<label>
 						<div>視聴者用パスワード</div>
 						<input class="text" type="text" name="watchpass" id="watchpass" size="51" placeholder=""  />

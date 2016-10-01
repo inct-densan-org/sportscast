@@ -41,15 +41,20 @@
 		margin-left: 5%;
 		margin-right: 5%;
 	}
-
 	.create{
 		width: 100px;
 		height: 40px;
 		background-color: #1976d2;
+		border: 2px solid #1976d2;
 		border-radius: 10px;
 		font-size: 20px;
 		color: #fff;
-		border: 1px;
+	}
+	.create:hover {
+			background-color: #fff;
+			border-color: #1976d2;
+			color: #1976d2;
+			transition: all .4s;
 	}
 	.text{
 		font-size: 14px;
@@ -73,5 +78,20 @@
 		background-color: #1976d2;
 		border-color: #1976d2;
 		color: #fff;
+	}
+	.watchable-switch {
+		width: 140px;
+		text-align: center;
+		background-color: #1976d2;
+		border: 2px solid #1976d2;
+		border-radius: 10px;
+		color: #fff;
+		line-height: 40px;
+	}
+	.watchable-switch:hover {
+		background-color: #fff;
+		border-color: #1976d2;
+		color: #1976d2;
+		transition: all .4s;
 	}
 }
