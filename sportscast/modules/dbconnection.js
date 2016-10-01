@@ -12,6 +12,7 @@ var dataschema=new schema({
 	startday : String,
 	finishday : String,
 	enable : Boolean,
+	watchpass: String,
 	watchableuser : []
 });
 

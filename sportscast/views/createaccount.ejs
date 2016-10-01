@@ -25,13 +25,13 @@
 			</div>
 			<div class="forms" style="clear:both;">
 				<label>
-					メールアドレス<br>
+					<div>メールアドレス</div>
 					<input class="text" type="email" name="mail1" id="mail1" size="51" placeholder="info@example.com" required onchange="mail_check();" />
 				</label>
 			</div>
 			<div class="forms" style="clear:both;">
 				<label>
-					メールアドレスをもう一度入力してください<br>
+					<div>メールアドレスをもう一度入力してください</div>
 					<div style="float:left; margin-top: 0px; margin-left: 0px;">
 						<input class="text" type="email" name="mail2" id="mail2" size="51" placeholder="info@example.com" required onchange="mail_check();" />
 					</div>
@@ -42,13 +42,13 @@
 			</div>
 			<div class="forms" style="clear:both;margin-top:32px;">
 				<label>
-					パスワード<br>
+					<div>パスワード</div>
 					<input class="text" type="password" name="pass1" id="pass1" size="51" placeholder="" required onchange="pass_check();" />
 				</label>
 			</div>
 			<div class="forms" style="clear:both;">
 				<label>
-					パスワードをもう一度入力してください<br>
+					<div>パスワードをもう一度入力してください</div>
 					<div style="float:left; margin-top: 0px; margin-left: 0px;">
 						<input class="text" type="password" name="pass2" id="pass2" size="51" placeholder="" required onchange="pass_check();" />
 					</div>
@@ -59,30 +59,69 @@
 			</div>
 			<div class="forms" style="clear:both; margin-top: 32px;">
 				<label>
-					本サービスを使用する大会名<br>
+					<div>本サービスを使用する大会名</div>
 					<input class="text" type="text" name="Tournament" id="Tournament" size="51" placeholder="プログラミングコンテスト" required />
 				</label>
 			</div>
 			<div class="forms" style="clear:both;">
 				<label>
-					競技名<br>
+					<div>競技名</div>
 					<input class="text" type="text" name="sports" id="sports" size="51" placeholder="soccer" required />
 				</label>
 			</div>
 			<!-- ここから視聴用アカウントの入力フォーム -->
 			<div class="forms">
 				<div>
-					<div>視聴アカウントの登録</div>
-					<label><input type="text" class="text" name="watchID00" id="watchID00"></label>
-					<label><input type="text" class="text" name="watchID01" id="watchID01"></label>
-					<label><input type="text" class="text" name="watchID02" id="watchID02"></label>
-					<label><input type="text" class="text" name="watchID03" id="watchID03"></label>
-					<label><input type="text" class="text" name="watchID04" id="watchID04"></label>
-					<label><input type="text" class="text" name="watchID05" id="watchID05"></label>
-					<label><input type="text" class="text" name="watchID06" id="watchID06"></label>
-					<label><input type="text" class="text" name="watchID07" id="watchID07"></label>
-					<label><input type="text" class="text" name="watchID08" id="watchID08"></label>
-					<label><input type="text" class="text" name="watchID09" id="watchID09"></label>
+					<div>視聴者用アカウントの登録</div>
+					<div id="watchID00">
+						<label>
+							<input type="text" class="watch-user" name="watchID00">
+						</label>
+						<button class="add-btn" onclick="document.getElementById('watchID01').style.display = '';">+</button>
+					</div>
+					<div id="watchID01" style="display: none;">
+						<label><input type="text" class="watch-user" name="watchID01"></label>
+						<button class="add-btn" onclick="document.getElementById('watchID02').style.display = '';">+</button>
+					</div>
+					<div id="watchID02" style="display: none;">
+						<label><input type="text" class="watch-user" name="watchID02"></label>
+						<button class="add-btn" onclick="document.getElementById('watchID03').style.display = '';">+</button>
+					</div>
+					<div id="watchID03" style="display: none;">
+						<label><input type="text" class="watch-user" name="watchID03"></label>
+						<button class="add-btn" onclick="document.getElementById('watchID04').style.display = '';">+</button>
+					</div>
+					<div id="watchID04" style="display: none;">
+						<label><input type="text" class="watch-user" name="watchID04"></label>
+						<button class="add-btn" onclick="document.getElementById('watchID05').style.display = '';">+</button>
+					</div>
+					<div id="watchID05" style="display: none;">
+						<label><input type="text" class="watch-user" name="watchID05"></label>
+						<button class="add-btn" onclick="document.getElementById('watchID06').style.display = '';">+</button>
+					</div>
+					<div id="watchID06" style="display: none;">
+						<label><input type="text" class="watch-user" name="watchID06"></label>
+						<button class="add-btn" onclick="document.getElementById('watchID07').style.display = '';">+</button>
+					</div>
+					<div id="watchID07" style="display: none;">
+						<label><input type="text" class="watch-user" name="watchID07"></label>
+						<button class="add-btn" onclick="document.getElementById('watchID08').style.display = '';">+</button>
+					</div>
+					<div id="watchID08" style="display: none;">
+						<label><input type="text" class="watch-user" name="watchID08"></label>
+						<button class="add-btn" onclick="document.getElementById('watchID09').style.display = '';">+</button>
+					</div>
+					<div id="watchID09" style="display: none;">
+						<label><input type="text" class="watch-user" name="watchID09"></label>
+					</div>
+				</div>
+			</div>
+			<div>
+				<div class="forms" style="clear:both;margin-top:32px;">
+					<label>
+						<div>視聴者用パスワード</div>
+						<input class="text" type="text" name="watchpass" id="watchpass" size="51" placeholder=""  />
+					</label>
 				</div>
 			</div>
 			<!-- ここまで視聴用アカウントの入力フォーム -->

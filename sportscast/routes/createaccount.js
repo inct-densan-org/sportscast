@@ -24,6 +24,7 @@ router.post('/',function(req,res,next){
 	data.startday=req.body.startday;
 	data.finishday=req.body.finishday;
 	data.enable=false;
+	data.watchpass = req.body.watchpass;
 
 	watchusers.push(req.body.watchID00);
 	watchusers.push(req.body.watchID01);
