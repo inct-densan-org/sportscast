@@ -8,12 +8,12 @@ var passport = require('passport');
 var session = require('express-session');
 var flash = require("connect-flash");
 
+var watch_login = require('./routes/watch_login');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var login = require('./routes/login');
 var watch = require('./routes/watch');
 var cast = require('./routes/cast');
-var watch_login = require('./routes/watch_login');
 var createaccount = require('./routes/createaccount');
 var sportsnames = require('./routes/sportsnames');
 var sportsid = require('./routes/sportsid');
@@ -51,9 +51,9 @@ app.use('/users', users);
 app.use('/login',login);
 app.use('/watch',watch);
 app.use('/cast',cast);
-app.use('/watch_login',watch_login);
 app.use('/createaccount',createaccount);
 app.use('/sportsnames',sportsnames);
+app.use('/watch_login',watch_login);
 app.use('/sportsid',sportsid);
 app.use('/logout', function(req, res) {
 	req.logout();
