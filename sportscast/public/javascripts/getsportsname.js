@@ -1,6 +1,7 @@
 //競技IDを取得する関数
 function getSportsId(){
 	//URLを取得
+	/*
 	var url = document.location.href;
 	//?でURLを分割する
 	var args = url.split('?');
@@ -14,7 +15,8 @@ function getSportsId(){
 		}
 	}
 	//取得できなかったら空文字を返す
-	return '';
+	return ''; */
+	return arg.id;
 }
 //競技名を取得する関数
 function getSportsName() {
@@ -24,7 +26,7 @@ function getSportsName() {
 		//競技IDが取得出来たら部屋名を返す
 		return getSportsNameById(id);
 	}
-	
+
 	//取得できなかったら_defaultroomを返す
 	return '_defaultroom';
 }

@@ -341,7 +341,7 @@ function sendCandidate(candidate) {
 	var text = JSON.stringify(candidate);
 	//candidateをsocketで送信
 	socket.json.send(candidate);
-	//デバッグ用ログ出力	
+	//デバッグ用ログ出力
 	console.log('candidateを送信しました。');
 	console.log(text);
 }
