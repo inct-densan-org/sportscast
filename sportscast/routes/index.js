@@ -17,15 +17,30 @@ function generationTitles(res){
 			if (err) {
 				return done(err);
 			}
-			htmltext+='<a href=\"/watch?'+doc._id+'\">'+
-				'<div class=\"sportstitle\" style=\"background-image: url(/images/'+doc.sports+'.png);\">'+
-				'<div class=\"sports\"><span class=\"sportsname\">競技名　<span>'+
-					doc.sports+
-				'</span></span></div><div class=\"data\">'+
-				'<ul>'+
-				'<li>配信者　'+doc.lastname+' '+doc.firstname+'</li>'+
-				'<li>大会名　'+doc.tournament+'</li></ul>'+
-				'</div></div></a>\n';
+			console.log();
+			if (!doc.watchpass) {
+				htmltext+='<a href=\"/watch?'+doc._id+'\">'+
+					'<div class=\"sportstitle\" style=\"background-image: url(/images/'+doc.sports+'.png);\">'+
+					'<div class=\"sports\"><span class=\"sportsname\">競技名　<span>'+
+						doc.sports+
+					'</span></span></div><div class=\"data\">'+
+					'<ul>'+
+					'<li>配信者　'+doc.lastname+' '+doc.firstname+'</li>'+
+					'<li>大会名　'+doc.tournament+'</li></ul>'+
+					'</div></div></a>\n';
+			}
+			else {
+				htmltext+='<a href=\"/watch_login?'+doc._id+'\">'+
+					'<div class=\"sportstitle\" style=\"background-image: url(/images/'+doc.sports+'.png);\">'+
+					'<div class=\"sports\"><span class=\"sportsname\">競技名　<span>'+
+						doc.sports+
+					'</span></span></div><div class=\"data\">'+
+					'<ul>'+
+					'<li>公開範囲指定</li>'+
+					'<li>配信者　'+doc.lastname+' '+doc.firstname+'</li>'+
+					'<li>大会名　'+doc.tournament+'</li></ul>'+
+					'</div></div></a>\n';
+			}
 		});
 		res.render('index', {
 			title: 'SportCast!',
