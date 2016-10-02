@@ -4,10 +4,12 @@ var dbconnection = require('../modules/dbconnection.js');
 var passport = require('passport'),
 	LocalStrategy = require('passport-local').Strategy;
 
+var user = "";
+
 passport.use(new LocalStrategy(
 	function(username, password, done) {
 		dbconnection.find({
-			watchableuser: username
+			_id: ObjectId(arg.id)
 		}, function(err, docs) {
 			if (err) {
 				return done(null, false, {
@@ -27,6 +29,17 @@ passport.use(new LocalStrategy(
 					return done(null, false, {
 						message: 'ユーザー名が間違っています'
 					});
+				}
+				for (var i = 0; i < doc.watchableuser.length; i++) {
+					if (doc.watchableuser[i] == username){
+						user = doc.watchableuser[i];
+						break;
+					}
+				}
+				if (-1 == user) {
+					return done(null, false, {
+						message: 'ユーザー名が間違っています'
+					})
 				}
 				if (doc.watchpass != password) {
 					return done(null, false, {
@@ -81,7 +94,7 @@ router.post('/',
 		failureFlash: true
 	}),
 	function(req, res, next) {
-		res.redirect('/watch?'+req.user._id);
+		res.redirect('/watch?id='+req.user._id+'&user='+user);
 	}
 );
 module.exports = router;

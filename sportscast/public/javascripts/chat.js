@@ -82,7 +82,7 @@ function reducticon() {
 }
 
 function sendChat() { //chatデータ送信
-	var msg = chat_input.value;
+	var msg = decodeURIComponent(arg.user)+' '+chat_input.value;
 	msg = eschtml(msg);
 	socket.emit('chatData', msg);
 	chat_input.value = '';
