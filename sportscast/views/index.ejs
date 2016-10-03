@@ -15,11 +15,16 @@
 			配信者用<br>アカウント作成
 		</span>
 		</a>
-		<SELECT name="cname">
-		<OPTION value="soccer">soccer/サッカー</OPTION>
-		<OPTION value="fencing">fencing/フェンシング</OPTION>
-		<OPTION value="others">others/その他</OPTION>
-		</SELECT>
+		<span>
+		<div>
+			<input class="text" type="text" id="competition" autocomplete="on" list="kyougishumoku">
+			<datalist id="kyougishumoku">
+				<option value="soccer" />
+				<option value="fencing" />
+			</datalist>
+			<input class="create" type="button" value="search" onClick="onkeyup()">
+		</div>
+		</span>
 		<a href="/login">
 		<span class="login">
 			ログイン
@@ -44,5 +49,6 @@
 			}
 		};
 	</script>
+	<script src="/javascripts/search.js"></script>
 </body>
 </html>
