@@ -8,12 +8,14 @@ function getSportsId(){
 	if (args.length > 1) {
 		//配列から要素を取得
 		var id = args[1];
+		console.log(id);
 		if (id != '') {
 			//部屋名が取得出来たら部屋名を返す
 			return id;
 		}
 	}
 	//取得できなかったら空文字を返す
+	document.location.href='/';
 	return '';
 }
 //競技名を取得する関数
@@ -26,7 +28,7 @@ function getSportsName() {
 	}
 	
 	//取得できなかったら_defaultroomを返す
-	return '_defaultroom';
+	return;
 }
 //IDから競技名を取得する関数
 function getSportsNameById(id){
@@ -36,8 +38,13 @@ function getSportsNameById(id){
 	request.send('id='+id);
 
 	if (request.status === 200) {
-		console.log('競技名は'+request.responseText+'です。');
-		return request.responseText;
+		if(request.responseText!=''){
+			console.log('競技名は'+request.responseText+'です。');
+			return request.responseText;
+		}
+		else{
+			document.location.href='/';
+		}
 	}
 	request.abort();
 }

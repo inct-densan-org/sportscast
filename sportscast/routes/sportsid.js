@@ -4,18 +4,22 @@ var router = express.Router();
 
 //競技名をもとにIDを検索して返す
 router.post('/', function(req, res) {
-	console.log(req.body.sports);
 	dbconnection.find({
 		sports: req.body.sports
 	}, function(err, docs) {
-		docs.forEach(function(doc) {
-			if (err) {
-				return done(err);
-			}
-			res.send(doc._id);
-		});
+		if(!docs){
+			console.log(req.body.sports+'is not found');
+			res.send('');
+		}
+		else{
+			docs.forEach(function(doc) {
+				if (err) {
+					return done(err);
+				}
+				res.send(doc._id);
+			});
+		}
 	});
-	
 });
 
 module.exports = router;
