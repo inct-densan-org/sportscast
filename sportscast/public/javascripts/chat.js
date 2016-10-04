@@ -82,12 +82,14 @@ function reducticon() {
 }
 
 function sendChat() { //chatデータ送信
-	var msg = chat_input.value;
-	msg = eschtml(msg);
-	socket.emit('chatData', msg);
+	if (chat_input.value.trim() != "") {
+		var msg = chat_input.value;
+		msg = eschtml(msg);
+		socket.emit('chatData', msg);
+		console.log(msg);
+		console.log(chat_area.scrollHeight);
+	}
 	chat_input.value = '';
-	console.log(msg);
-	console.log(chat_area.scrollHeight);
 }
 socket.on('chatData', function(msg) { //chatデータ受信時の処理
 	chat_messages.innerHTML += '<p><small>' + getTime() + '</small><br>' + msg + '</p><hr>';
