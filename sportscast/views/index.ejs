@@ -22,7 +22,7 @@
 				<option value="soccer" />
 				<option value="fencing" />
 			</datalist>
-			<input class="create" type="button" value="search" onClick="onkeyup()">
+			<input class="create" type="button" value="search" onClick="a()">
 		</div>
 		</span>
 		<a href="/login">
@@ -49,6 +49,24 @@
 			}
 		};
 	</script>
-	<script src="/javascripts/search.js"></script>
+	<script type="text/javascript">
+		function a() {
+			var e = document.getElementsByClassName("sportsnametitle");
+			var input=document.getElementById('competition');
+			for(var i=0;i<e.length;i++){
+				var tmp=e[i];
+				tmp.parentNode.parentNode.parentNode.style.display='';
+			}
+			console.log('inputed '+input.value);
+			for(var i=0;i<e.length;i++){
+				var tmp=e[i];
+				//console.log(tmp.innerHTML);
+				if(input.value != tmp.innerHTML){
+					var notdisplaynode=tmp.parentNode.parentNode.parentNode;
+					notdisplaynode.style.display="none";
+				}
+			}
+		}
+	</script>
 </body>
 </html>

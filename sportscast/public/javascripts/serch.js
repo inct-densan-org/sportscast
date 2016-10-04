@@ -6,7 +6,7 @@ function onkeyup() {
 
 	var text = document.forms.form01.search.value.trim().replace(/　/g,' ').split(' ');
 
-	$('tr.add_js').each(function(){
+	getElementsByClassName('sportsname')(function(){
 
 		for (var i = 0; i < text.length; i++){
 
@@ -20,7 +20,7 @@ function onkeyup() {
 
 				$("div", this).slideUp(300);
 
-				$(this).hide(300);
+				$(this).get(300);
 
 				break;
 

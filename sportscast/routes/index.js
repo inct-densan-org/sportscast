@@ -19,7 +19,7 @@ function generationTitles(res){
 			}
 			htmltext+='<a href=\"/watch?'+doc._id+'\">'+
 				'<div class=\"sportstitle\" style=\"background-image: url(/images/'+doc.sports+'.png);\">'+
-				'<div class=\"sports\"><span class=\"sportsname\">競技名　<span>'+
+				'<div class=\"sports\"><span class=\"sportsname\">競技名　<span class=\"sportsnametitle\">'+
 					doc.sports+
 				'</span></span></div><div class=\"data\">'+
 				'<ul>'+
