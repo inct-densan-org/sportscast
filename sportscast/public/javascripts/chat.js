@@ -82,14 +82,14 @@ function reducticon() {
 }
 
 function sendChat() { //chatデータ送信
-	if (chat_input.value != ""){
+	if (chat_input.value.trim() != "") {
 		var msg = chat_input.value;
 		msg = eschtml(msg);
 		socket.emit('chatData', msg);
-		chat_input.value = '';
 		console.log(msg);
 		console.log(chat_area.scrollHeight);
 	}
+	chat_input.value = '';
 }
 socket.on('chatData', function(msg) { //chatデータ受信時の処理
 	chat_messages.innerHTML += '<p><small>' + getTime() + '</small><br>' + msg + '</p><hr>';
