@@ -24,7 +24,7 @@ function generationTitles(res){
 				'</span></span></div><div class=\"data\">'+
 				'<ul>'+
 				'<li>配信者　'+doc.lastname+' '+doc.firstname+'</li>'+
-				'<li>大会名　'+doc.tournament+'</li></ul>'+
+				'<li class=\"tname\">大会名　'+doc.tournament+'</li></ul>'+
 				'</div></div></a>\n';
 		});
 		res.render('index', {
