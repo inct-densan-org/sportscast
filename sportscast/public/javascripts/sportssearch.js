@@ -1,4 +1,4 @@
-function a() {
+function search() {
 	var e = document.getElementsByClassName("sportsnametitle");
 	var input=document.getElementById('competition');
 	var cserch = document.getElementsByClassName("data");
