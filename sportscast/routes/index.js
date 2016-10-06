@@ -23,12 +23,12 @@ function generationTitles(res){
 				}
 				htmltext+='<a href=\"/watch?'+doc._id+'\">'+
 					'<div class=\"sportstitle\" style=\"background-image: url(/images/'+doc.sports+'.png);\">'+
-					'<div class=\"sports\"><span class=\"sportsname\">競技名　<span>'+
+					'<div class=\"sports\"><span class=\"sportsname\">競技名　<span class=\"sportsnametitle\">'+
 						doc.sports+
 					'</span></span></div><div class=\"data\">'+
 					'<ul>'+
 					'<li>配信者　'+doc.lastname+' '+doc.firstname+'</li>'+
-					'<li>大会名　'+doc.tournament+'</li></ul>'+
+					'<li class=\"tname\">大会名　'+doc.tournament+'</li></ul>'+
 					'</div></div></a>\n';
 			});
 			res.render('index', {
