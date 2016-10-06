@@ -15,6 +15,16 @@
 			配信者用<br>アカウント作成
 		</span>
 		</a>
+		<span>
+		<div>
+			<input class="text" type="text" id="competition" autocomplete="on" list="kyougishumoku" onkeyup="search()">
+			<datalist id="kyougishumoku">
+				<option value="soccer" />
+				<option value="fencing" />
+			</datalist>
+			<input class="create" type="button" value="search" onClick="search()">
+		</div>
+		</span>
 		<a href="/login">
 		<span class="login">
 			ログイン
@@ -24,6 +34,7 @@
 	<div class="titles">
 		<%- sportstitle %>
 	</div>
+	<script src="/javascripts/sportssearch.js"></script>
 	<script type="text/javascript">
 		var title = document.getElementsByClassName('sportstitle');
 		var height=title[0].clientWidth;
