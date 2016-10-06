@@ -1,7 +1,7 @@
 function search() {
 	var sportsnametitleelements = document.getElementsByClassName('sportsnametitle');
 	var input=document.getElementById('competition');
-	var tournamentnameelements = document.getElementsByClassName('tname');
+	var tournamentnameelements = document.getElementsByClassName('tourmentname');
 
 	for(var i=0;i<sportsnametitleelements.length;i++){
 		var sportsnametitleelement = sportsnametitleelements[i];
