@@ -13,6 +13,26 @@ function generationTitles(res){
 	dbconnection.find({
 		enable: true
 	}, function(err, docs) {
+<<<<<<< HEAD
+		docs.forEach(function(doc) {
+			if (err) {
+				return done(err);
+			}
+			htmltext+='<a href=\"/watch?'+doc._id+'\">'+
+				'<div class=\"sportstitle\" style=\"background-image: url(/images/'+doc.sports+'.png);\">'+
+				'<div class=\"sports\"><span class=\"sportsname\">競技名　<span class=\"sportsnametitle\">'+
+					doc.sports+
+				'</span></span></div><div class=\"data\">'+
+				'<ul>'+
+				'<li>配信者　'+doc.lastname+' '+doc.firstname+'</li>'+
+				'<li class=\"tournamentname\">大会名　'+doc.tournament+'</li></ul>'+
+				'</div></div></a>\n';
+		});
+		res.render('index', {
+			title: 'SportCast!',
+			sportstitle: htmltext
+		});
+=======
 		if(!docs){
 			htmltext='<p>視聴可能な競技はまだありません</p>';
 		}
@@ -36,6 +56,7 @@ function generationTitles(res){
 				sportstitle: htmltext
 			});
 		}
+>>>>>>> 64554ef68ccd293de085c1692529e54dbe152aa5
 	});
 }
 function getIpAddress(req) {
