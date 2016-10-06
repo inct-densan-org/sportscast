@@ -5,6 +5,7 @@ function search() {
 	var cnames = document.getElementsByClassName('tname');
 	var name = document.getElementById('strname');
 	var tname = document.getElementsByClassName('tname');
+	var inputstr=input.value;
 	for(var i=0;i<sportsnametitleelements.length;i++){
 		var tmp1 = cserch[i];
 		var tmp2 = sportsnametitleelements[i];
@@ -14,27 +15,21 @@ function search() {
 	for(var i=0;i<sportsnametitleelements.length;i++){
 		var tmp=sportsnametitleelements[i];
 		var tmp5 = tname[i];
-		var inputstr=input.value;
-		if(inputstr.indexOf('soccer')!=-1 || inputstr.indexOf('fencing')!=-1){
-			if(tmp.innerHTML != input.value){
+		if('soccer'.indexOf(inputstr)!=-1){
+			if(tmp.innerHTML.indexOf(inputstr) == -1){
 				var notdisplaynode=tmp.parentNode.parentNode.parentNode;
 				notdisplaynode.style.display='none';
 			}
 		}
-		else if(tmp5.innerHTML.indexOf(input.value) == -1){
+		else if('fencing'.indexOf(inputstr)!=-1){
+			if(tmp.innerHTML.indexOf(inputstr) == -1){
+				var notdisplaynode=tmp.parentNode.parentNode.parentNode;
+				notdisplaynode.style.display='none';
+			}
+		}
+		else if(tmp5.innerHTML.indexOf(inputstr) == -1){
 			var notdisplaynode1 = tmp5.parentNode.parentNode.parentNode;
 			notdisplaynode1.style.display = 'none';
 		}
-	}
-}
-function enterkey(evt){
-	if (evt.keyCode) {
-		if (evt.keyCode == 13) {
-			search();
-			return;
-		}
-	} else if (window.event.keyCode == 13) {
-		search();
-		return;
 	}
 }
