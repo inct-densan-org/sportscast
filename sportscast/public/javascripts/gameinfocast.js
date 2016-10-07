@@ -4,6 +4,23 @@ var isGameStarted = false;
 //前半後半をあらわす変数
 var half = '前半';
 
+// 得点の増減処理
+var team_point_change = {
+	a: function (point) {
+		team_point_a.value = parseInt(team_point_a.value, 10) + point;
+		if (team_point_a.value < "0") {
+			team_point_a.value = 0;
+		}
+		//sendScore();
+	},
+	b: function (point) {
+		team_point_b.value = parseInt(team_point_b.value, 10) + point;
+		if (team_point_b.value < "0") {
+			team_point_b.value = 0;
+		}
+		//sendScore();
+	},
+};
 
 //競技状況配信
 function sendScore() {
