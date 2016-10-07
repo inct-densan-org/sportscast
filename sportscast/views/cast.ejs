@@ -6,6 +6,7 @@
 	<meta name="viewport" content="width=device-width,user-scalable=no,maximum-scale=1" />
 	<link rel="stylesheet" type="text/css" href="/stylesheets/cast.css">
 	<link rel="stylesheet" type="text/css" href="/stylesheets/cast_p.css">
+	<script src="/javascripts/gameinfocast.js"></script>
 </head>
 <body>
 	<h1><%= title %></h1>
@@ -42,8 +43,12 @@
 			<br>
 			<div class="points">
 				<p class="point-title">得点</p>
+				<div class="team-point-btn-left" onclick="team_point_change.a(-1);">-</div>
 				<input type="text" name="team-point-a" id="team-point-a" value="0" onkeyup="team_a_getpoint()">
+				<div class="team-point-btn-left" onclick="team_point_change.a(1);">+</div>
+				<div class="team-point-btn-right" onclick="team_point_change.b(1);">+</div>
 				<input type="text" name="team-point-b" id="team-point-b" value="0" onkeyup="team_b_getpoint()">
+				<div class="team-point-btn-right" onclick="team_point_change.b(-1);">-</div>
 			</div>
 			<div class="info">
 				<p id="info-title">チーム情報</p>
@@ -72,7 +77,6 @@
 	<script src="//localhost:3001/socket.io/socket.io.js"></script>
 	<script src="/javascripts/getsportsname.js"></script>
 	<script src="/javascripts/layoutchanger.js"></script>
-	<script src="/javascripts/gameinfocast.js"></script>
 	<script src="/javascripts/cast.js"></script>
 	<script src="/javascripts/networkcheck.js"></script>
 	<script src="/javascripts/chat.js"></script>
