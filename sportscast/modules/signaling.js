@@ -2,7 +2,6 @@ var dbconnection = require('../modules/dbconnection.js');
 
 var BROADCAST_ID = '_broadcast_';
 var counter=null;
-var scoredata='';
 var isSendedScore=false;
 var sportsname='';
 
@@ -32,17 +31,12 @@ module.exports = function(io) {
 				});
 			});
 			initGameTime(sportsname);
-
-			if(isSendedScore==true){
-				io.sockets.to(getRoomname()).emit('scoreData',scoredata);
-			}
 		});
 
 		socket.on('scoreData',function(data){
 			isSendedScore=true;
 			io.sockets.to(getRoomname()).emit('scoreData',data);
 			console.log('scoreData:'+data);
-			scoredata=data;
 		});
 
 		socket.on('chatData',function (data) {
