@@ -16,7 +16,7 @@
 		width: 50%;
 		float: left;
 		padding: 10px;
-		background: #eee;
+		background: #d9effe;
 		border-style: solid;
 		border-color: #fff;
 		border-width: 2px;
@@ -115,9 +115,9 @@
 		height: 100%;
 		float: right;
 		padding: 10px;
-		background: #aaa;
+		background: #d9effe;
 		border-style: solid;
-		border-color: #fff;
+		border-color: #59b1eb;
 		border-width: 2px;
 		border-radius: 10px;
 	}
@@ -280,7 +280,7 @@
 		right: 4px;
 		top: 120px;
 		bottom: 4px;
-		background-color: #eee;
+		background-color: #d9effe;
 		width: 240px;
 		height: 0px;
 		border-radius: 4px;
@@ -288,7 +288,7 @@
 		overflow: auto;
 	}
 	#chat-open-button{
-		background-color: #aaa;
+		background-color: #d9effe;
 		width: 34px;
 		position: fixed;
 		right: 4px;
@@ -317,7 +317,7 @@
 	#chat-area{
 		position: relative;
 		margin-top: 0px;
-		background-color: #aaa;
+		background-color: #d9effe;
 		height: 80%;
 		z-index: 9;
 		overflow-y: auto;
