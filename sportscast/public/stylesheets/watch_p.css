@@ -15,7 +15,7 @@
 	#video{
 		width: 100%;
 		padding: 2px;
-		background: #eee;
+		background: #d9effe;
 		border-style: solid;
 		border-color: #fff;
 		border-width: 2px;
@@ -27,7 +27,7 @@
 	#cast_video{
 		width: 98%;
 		height:180px;
-		background: #fff;
+		background: #d9effe;
 		border-style: solid;
 		border-color: #1976d2;
 		border-width: 2px;
@@ -94,7 +94,7 @@
 		width: 100%;
 		height: 100%;
 		margin-bottom: 32px;
-		background: #aaa;
+		background: #d9effe;
 		border-style: solid;
 		border-color: #fff;
 		border-width: 2px;
@@ -218,14 +218,14 @@
 		left: 14px;
 		right: 14px;
 		bottom: 48px;
-		background-color: #eee;
+		background-color: #d9effe;
 		height: 0px;
 		border-radius: 4px;
 		box-shadow: 2px 2px rgba(0,0,0,0.4);
 		overflow: auto;
 	}
 	#chat-open-button{
-		background-color: #ddd;
+		background-color: #d9effe;
 		position: fixed;
 		bottom: 0px;
 		left: 14px;
@@ -254,7 +254,7 @@
 	#chat-area{
 		position: relative;
 		margin-top: 0px;
-		background-color: #aaa;
+		background-color: #d9effe;
 		height: 80%;
 		z-index: 9;
 		overflow-y: auto;
