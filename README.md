@@ -22,3 +22,7 @@ SportsCast!の開発用リポジトリです。
 * Passport-local
 * mongoose
 * nodemailer
+
+### LICENSE
+
+* MIT
