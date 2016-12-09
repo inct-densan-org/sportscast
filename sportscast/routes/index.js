@@ -28,7 +28,7 @@ function generationTitles(res){
 				'</div></div></a>\n';
 		});
 		res.render('index', {
-			title: 'SportCast!',
+			title: 'SportsCast!',
 			sportstitle: htmltext
 		});
 	});

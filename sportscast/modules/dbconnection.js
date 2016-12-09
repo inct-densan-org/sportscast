@@ -15,7 +15,7 @@ var dataschema=new schema({
 });
 
 var article = mongoose.model('usersdata',dataschema);
-mongoose.connect('mongodb://61.23.8.105:47017/SportsCastDB',
+mongoose.connect('mongodb://sportscast.live-on.net:27018/SportsCastDB',
 	function(err) {
 		if (err) {
 			console.log(err);
