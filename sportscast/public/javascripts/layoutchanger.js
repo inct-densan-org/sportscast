@@ -6,6 +6,9 @@ function selectlayout(sports, page) {
 		case 'fencing':
 			fencinglayout(page);
 			break;
+		case 'video':
+			videobroadcastlayout();
+			break;
 		default:
 			break;
 	}
@@ -28,4 +31,12 @@ function fencinglayout(page) {
 	var info_title = document.getElementById('info-title');
 	team_name_title.innerHTML = '選手名';
 	info_title.innerHTML = '選手情報';
+}
+
+//映像配信のみのときのレイアウト
+function videobroadcastlayout(){
+	var score_area=document.getElementById('score');
+	var video_area=document.getElementById('video');
+	score_area.style.display='none';
+	video_area.style.width='100%';
 }

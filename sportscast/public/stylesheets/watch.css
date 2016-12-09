@@ -110,7 +110,7 @@
 		box-shadow: 0px 0px rgba(0,0,0,0.4);
 	}
 
-	.score{
+	#score{
 		width: 45%;
 		height: 100%;
 		float: right;
