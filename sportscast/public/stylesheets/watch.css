@@ -47,7 +47,7 @@
 	#fullscreen-button{
 		position: absolute;
 		bottom: 2px;
-		right: 2px;
+		right: 25%;
 		height: 30px;
 		width: 30px;
 		background-image: url(/images/fullscreen.png);
