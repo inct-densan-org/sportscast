@@ -22,7 +22,7 @@
 		border-width: 2px;
 		border-radius: 10px;
 	}
-	.video-area{
+	#video-area{
 		position: relative;
 	}
 	#cast_video{
