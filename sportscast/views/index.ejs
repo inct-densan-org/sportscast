@@ -30,22 +30,22 @@
 			配信者用<br>アカウント作成
 		</span>
 		</a>
-		<span>
-		<div>
-			<input class="text" type="text" id="competition" autocomplete="on" list="kyougishumoku" onkeyup="search()">
-			<datalist id="kyougishumoku">
-				<option value="soccer" />
-				<option value="fencing" />
-				<option value="video" />
-			</datalist>
-			<input class="create" type="button" value="search" onClick="search()">
-		</div>
-		</span>
 		<a href="/login">
 		<span class="login">
 			ログイン
 		</span>
 		</a>
+		<span>
+		<div id="search">
+			<input class="search-text" type="text" id="competition" autocomplete="on" list="kyougishumoku" onkeyup="search()">
+			<datalist id="sports-name-list">
+				<option value="soccer" />
+				<option value="fencing" />
+				<option value="video" />
+			</datalist>
+			<input class="search-button" type="button" value="search" onClick="search()">
+		</div>
+		</span>
 	</div>
 	<div class="titles">
 		<%- sportstitle %>
