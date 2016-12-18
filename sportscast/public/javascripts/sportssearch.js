@@ -23,6 +23,12 @@ function search() {
 				notdisplaynode.style.display='none';
 			}
 		}
+		else if('video'.indexOf(inputstr)!=-1){
+			if(sportsnametitleelement.innerHTML.indexOf(inputstr) == -1){
+				var notdisplaynode=sportsnametitleelement.parentNode.parentNode.parentNode;
+				notdisplaynode.style.display='none';
+			}
+		}
 		else if(tournamentnameelement.innerHTML.indexOf(inputstr) == -1){
 			var notdisplaynode1 = tournamentnameelement.parentNode.parentNode.parentNode;
 			notdisplaynode1.style.display = 'none';

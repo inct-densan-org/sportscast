@@ -3,8 +3,8 @@ var settings = {
 	service : 'Gmail',
 	//アカウント情報
 	auth:{
-		user : '', //mail address
-		pass : '', //password
+		user : 'example@example.org', //mail address
+		pass : 'mailaccountpass', //password
 		port : 465
 	}
 };

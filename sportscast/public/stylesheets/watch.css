@@ -22,7 +22,7 @@
 		border-width: 2px;
 		border-radius: 10px;
 	}
-	.video-area{
+	#video-area{
 		position: relative;
 	}
 	#cast_video{
@@ -47,7 +47,7 @@
 	#fullscreen-button{
 		position: absolute;
 		bottom: 2px;
-		right: 2px;
+		right: 25%;
 		height: 30px;
 		width: 30px;
 		background-image: url(/images/fullscreen.png);
@@ -110,7 +110,7 @@
 		box-shadow: 0px 0px rgba(0,0,0,0.4);
 	}
 
-	.score{
+	#score{
 		width: 45%;
 		height: 100%;
 		float: right;
