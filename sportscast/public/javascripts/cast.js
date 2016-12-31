@@ -35,7 +35,6 @@ var mediaConstraints = {
 var socketStatus = false;
 //シグナリングサーバ―の接続待ち受けポート
 var PORT = 3001;
-//var ADDRESS='http://192.168.0.14:'+PORT+'/';
 var ADDRESS = 'http://localhost:' + PORT + '/';
 
 var sportsname='';

@@ -14,8 +14,8 @@ var dataschema=new schema({
 	enable : Boolean
 });
 
-var article = mongoose.model('usersdata',dataschema);
-mongoose.connect('mongodb://sportscast.live-on.net:27018/SportsCastDB',
+var article = mongoose.model('userdatas',dataschema);
+mongoose.connect('mongodb://user:pass@sportscast.live-on.net:27017/SportsCastDB',
 	function(err) {
 		if (err) {
 			console.log(err);
