@@ -63,6 +63,38 @@
 		box-shadow: 0px 0px rgba(0,0,0,0.4);
 	}
 
+	#top{
+		width: 100%;
+		text-align: center;
+	}
+
+	#sports-image{
+		background-image: url(/images/sports.png);
+		background-size: cover;
+	}
+	#stream-anime{
+		display: inline-block;
+		padding: 2px;
+		margin:3px;
+		height: 10px;
+		width: 50%;
+		background: linear-gradient(-45deg, #1976d2 25%, #fafafa 25%, #fafafa 50%, #1976d2 50%, #1976d2 75%, #fafafa 75%, #fafafa);
+		/*background: linear-gradient(left, #1976d2, #1976d2 50%, #fafafa 50%, #fafafa);
+		background: -moz-linear-gradient(left, #1976d2, #1976d2 50%, #fafafa 50%, #fafafa);
+		background: -webkit-linear-gradient(left, #1976d2, #1976d2 50%, #fafafa 50%, #fafafa);
+		background-size: 15px 15px;*/
+		-webkit-animation: animetion 20s linear infinite;
+		background-size: 20px 20px;
+		border: 1px solid #1976d2;
+	}
+	@-webkit-keyframes animetion {
+		0% {background-position: 0 0;}
+		100% {background-position: 100% 0;}
+	}
+	#people-image{
+		background-image: url(/images/people.png);
+		background-size: cover;
+	}
 
 	#inquiry{
 		width: 100%;
