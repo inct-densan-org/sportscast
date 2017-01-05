@@ -84,41 +84,33 @@
 		background: #ffffff;
 		border: solid 2px #1976d2;
 		border-radius: 50%;
-	}
-	#circle-1{
-		animation: anime 2s linear infinite;
-		animation-delay: 0s;
-		width: 2px;
-		height: 2px;
-	}
-	#circle-2{
-		animation: anime 2s linear infinite;
-		animation-delay: 0.5s;
-		width: 4px;
-		height: 4px;
-	}
-	#circle-3{
-		animation: anime 2s linear infinite;
-		animation-delay: 1s;
-		width: 8px;
-		height: 8px;
-	}
-	#circle-4{
-		animation: anime 2s linear infinite;
-		animation-delay: 1.5s;
-		width: 16px;
-		height: 16px;
-	}
-	#circle-5{
-		animation: anime 2s linear infinite;
-		animation-delay: 2s;
 		width: 24px;
 		height: 24px;
 	}
+	#circle-1{
+		animation: anime 2.5s linear infinite;
+		animation-delay: 0
+	}
+	#circle-2{
+		animation: anime 2.5s linear infinite;
+		animation-delay: 0.5s;
+	}
+	#circle-3{
+		animation: anime 2.5s linear infinite;
+		animation-delay: 1s;
+	}
+	#circle-4{
+		animation: anime 2.5s linear infinite;
+		animation-delay: 1.5s;
+	}
+	#circle-5{
+		animation: anime 2.5s linear infinite;
+		animation-delay: 2s;
+	}
 	@keyframes anime{
-		0%{background: #ffffff;}
-		50%{background: #1976d2;}
-		100%{background: #ffffff;}
+		0%{background: #ffffff;transform: scale(1);}
+		50%{background: #1976d2;transform: scale(0);}
+		100%{background: #ffffff;transform: scale(1);}
 	}
 
 	#inquiry{
