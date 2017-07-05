@@ -2,7 +2,7 @@
 
 SportsCast!の開発用リポジトリです。
 
-SportsCast!は[このページ](https://sportscast.live-on.net/)から使うことができます。
+SportsCast!は[このページ](https://sportscast.azurewebsites.net/)から使うことができます。
 ### 開発方法
 
 * GithubFlowに従って開発を進めていきます。
